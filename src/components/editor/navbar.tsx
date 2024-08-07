@@ -1,5 +1,11 @@
 import { Button } from "@/components/ui/button";
-import { DESIGN_RESIZE, dispatcher, useEditorState } from "@designcombo/core";
+import {
+  DESIGN_RESIZE,
+  HISTORY_UNDO,
+  HISTORY_REDO,
+  dispatcher,
+  useEditorState,
+} from "@designcombo/core";
 import logoDark from "@/assets/logo-dark.png";
 import { Icons } from "../shared/icons";
 import {
@@ -20,6 +26,14 @@ export default function Navbar() {
     tracks,
     duration,
   } = useEditorState();
+  const handleUndo = () => {
+    dispatcher.dispatch(HISTORY_UNDO);
+  };
+
+  const handleRedo = () => {
+    dispatcher.dispatch(HISTORY_REDO);
+  };
+
   const handleExport = () => {
     const payload = {
       trackItemIds,
@@ -66,10 +80,20 @@ export default function Navbar() {
           <img src={logoDark} alt="logo" className="h-5 w-5" />
         </div>
         <div className="bg-zinc-950 px-1.5 h-12 flex  items-center">
-          <Button className="text-muted-foreground" variant="ghost" size="icon">
+          <Button
+            onClick={handleUndo}
+            className="text-muted-foreground"
+            variant="ghost"
+            size="icon"
+          >
             <Icons.undo width={20} />
           </Button>
-          <Button className="text-muted-foreground" variant="ghost" size="icon">
+          <Button
+            onClick={handleRedo}
+            className="text-muted-foreground"
+            variant="ghost"
+            size="icon"
+          >
             <Icons.redo width={20} />
           </Button>
         </div>
