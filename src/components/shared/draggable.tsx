@@ -1,5 +1,5 @@
-import React, { useState, cloneElement, ReactElement, useRef } from 'react';
-import { createPortal } from 'react-dom';
+import React, { useState, cloneElement, ReactElement, useRef } from "react";
+import { createPortal } from "react-dom";
 
 interface DraggableProps {
   children: ReactElement;
@@ -22,7 +22,7 @@ const Draggable: React.FC<DraggableProps> = ({
     setIsDragging(true);
     e.dataTransfer.setDragImage(new Image(), 0, 0); // Hides default preview
     // set drag data
-    e.dataTransfer.setData('text/plain', JSON.stringify(data));
+    e.dataTransfer.setData("transition", JSON.stringify(data));
     setPosition({
       x: e.clientX,
       y: e.clientY,
@@ -49,7 +49,7 @@ const Draggable: React.FC<DraggableProps> = ({
     onDrag: handleDrag,
     style: {
       ...children.props.style,
-      cursor: 'grab',
+      cursor: "grab",
     },
   });
 
@@ -61,17 +61,17 @@ const Draggable: React.FC<DraggableProps> = ({
             <div
               ref={previewRef}
               style={{
-                position: 'fixed',
+                position: "fixed",
                 left: position.x,
                 top: position.y,
-                pointerEvents: 'none',
+                pointerEvents: "none",
                 zIndex: 9999,
-                transform: 'translate(-50%, -50%)', // Center the preview
+                transform: "translate(-50%, -50%)", // Center the preview
               }}
             >
               {renderCustomPreview}
             </div>,
-            document.body,
+            document.body
           )
         : null}
     </>
