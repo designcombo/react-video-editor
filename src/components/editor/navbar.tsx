@@ -1,4 +1,5 @@
 import { Button } from "@/components/ui/button";
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import {
   DESIGN_RESIZE,
   HISTORY_UNDO,
@@ -26,6 +27,7 @@ export default function Navbar() {
     tracks,
     duration,
   } = useEditorState();
+
   const handleUndo = () => {
     dispatcher.dispatch(HISTORY_UNDO);
   };
