@@ -1,48 +1,35 @@
-import {
-  Timeline,
-  Provider,
-  Scene,
-  dispatcher,
-  DESIGN_LOAD,
-  useEditorState,
-} from "@designcombo/core";
-import Navbar from "./navbar";
-import MenuList from "./menu-list";
-import { MenuItem } from "./menu-item";
-import ControlList from "./control-list";
-import { ControlItem } from "./control-item";
-import { useEffect } from "react";
-import { data } from "@/data/data";
+import { Timeline, Provider, Scene } from '@designcombo/core';
+import Navbar from './navbar';
+import MenuList from './menu-list';
+import { MenuItem } from './menu-item';
+import ControlList from './control-list';
+import { ControlItem } from './control-item';
+
+import useHotkeys from './use-hotkeys';
 
 export const theme = {
   colors: {
     gray: {
-      50: "#fafafa",
-      100: "#f4f4f5",
-      200: "#e4e4e7",
-      300: "#d4d4d8",
-      400: "#a1a1aa",
-      500: "#71717a",
-      600: "#52525b",
-      700: "#3f3f46",
-      800: "#27272a",
-      900: "#18181b",
-      950: "#09090b",
-      1000: "#040405",
-      1100: "#010101",
+      50: '#fafafa',
+      100: '#f4f4f5',
+      200: '#e4e4e7',
+      300: '#d4d4d8',
+      400: '#a1a1aa',
+      500: '#71717a',
+      600: '#52525b',
+      700: '#3f3f46',
+      800: '#27272a',
+      900: '#18181b',
+      950: '#09090b',
+      1000: '#040405',
+      1100: '#010101',
     },
   },
 };
 
 const Editor = () => {
-  const { timelineManager } = useEditorState();
-  useEffect(() => {
-    if (timelineManager) {
-      dispatcher.dispatch(DESIGN_LOAD, {
-        payload: data,
-      });
-    }
-  }, [timelineManager]);
+  useHotkeys();
+
   return (
     <Provider theme={theme}>
       <div className="h-screen w-screen flex flex-col">

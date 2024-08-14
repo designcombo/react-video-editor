@@ -1,5 +1,4 @@
 import { Button } from "@/components/ui/button";
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import {
   DESIGN_RESIZE,
   HISTORY_UNDO,
@@ -26,7 +25,9 @@ export default function Navbar() {
     transitionsMap,
     tracks,
     duration,
+    size,
   } = useEditorState();
+  const state = useEditorState();
 
   const handleUndo = () => {
     dispatcher.dispatch(HISTORY_UNDO);
@@ -43,10 +44,7 @@ export default function Navbar() {
       transitionIds,
       transitionsMap,
       tracks,
-      size: {
-        width: 1080,
-        height: 1080,
-      },
+      size,
       duration: duration,
       fps: 30,
       projectId: "main",

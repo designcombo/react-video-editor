@@ -9,8 +9,8 @@ importers:
   .:
     dependencies:
       '@designcombo/core':
-        specifier: 0.5.0
-        version: 0.5.0(@dnd-kit/core@6.1.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(@dnd-kit/utilities@3.2.2(react@18.3.1))(@types/react-dom@18.3.0)(@types/react@18.3.3)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(scenejs@1.10.3)(zustand@4.5.4(@types/react@18.3.3)(immer@10.1.1)(react@18.3.1))
+        specifier: 0.5.3
+        version: 0.5.3(@dnd-kit/core@6.1.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(@dnd-kit/utilities@3.2.2(react@18.3.1))(@types/react-dom@18.3.0)(@types/react@18.3.3)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(scenejs@1.10.3)(zustand@4.5.4(@types/react@18.3.3)(immer@10.1.1)(react@18.3.1))
       '@dnd-kit/core':
         specifier: ^6.1.0
         version: 6.1.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
@@ -249,8 +249,8 @@ packages:
   '@daybrush/utils@1.13.0':
     resolution: {integrity: sha512-ALK12C6SQNNHw1enXK+UO8bdyQ+jaWNQ1Af7Z3FNxeAwjYhQT7do+TRE4RASAJ3ObaS2+TJ7TXR3oz2Gzbw0PQ==}
 
-  '@designcombo/core@0.5.0':
-    resolution: {integrity: sha512-equP1x3Y+VU0Mrjm5rtKuDdRCPuSL2Ga4msFfiecN2zasu83umS+B2Ayv9W59dPhKVfP7FBOuTeQk1mz08p2lA==}
+  '@designcombo/core@0.5.3':
+    resolution: {integrity: sha512-bvgsIT4sO7C5xfkblq1ziXLSSDgPo2gnbwrpl9c9ngG3yu1BsJkFS1fGETcn5JL+Tt8hq4Sa4mu3uTSg2KNkqQ==}
     peerDependencies:
       '@dnd-kit/core': ^6.1.0
       '@dnd-kit/utilities': ^3.2.2
@@ -2907,7 +2907,7 @@ snapshots:
 
   '@daybrush/utils@1.13.0': {}
 
-  '@designcombo/core@0.5.0(@dnd-kit/core@6.1.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(@dnd-kit/utilities@3.2.2(react@18.3.1))(@types/react-dom@18.3.0)(@types/react@18.3.3)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(scenejs@1.10.3)(zustand@4.5.4(@types/react@18.3.3)(immer@10.1.1)(react@18.3.1))':
+  '@designcombo/core@0.5.3(@dnd-kit/core@6.1.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(@dnd-kit/utilities@3.2.2(react@18.3.1))(@types/react-dom@18.3.0)(@types/react@18.3.3)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(scenejs@1.10.3)(zustand@4.5.4(@types/react@18.3.3)(immer@10.1.1)(react@18.3.1))':
     dependencies:
       '@dnd-kit/core': 6.1.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@dnd-kit/utilities': 3.2.2(react@18.3.1)
