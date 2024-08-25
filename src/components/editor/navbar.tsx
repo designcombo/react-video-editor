@@ -15,7 +15,7 @@ import {
 } from "@/components/ui/popover";
 import { Download } from "lucide-react";
 
-const baseUrl = "https://api.x-eight.xyz";
+const baseUrl = "https://hjeagyse7e.execute-api.us-east-1.amazonaws.com/Prod/";
 
 export default function Navbar() {
   const {
