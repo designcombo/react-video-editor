@@ -6,6 +6,10 @@ import ControlList from './control-list';
 import { ControlItem } from './control-item';
 
 import useHotkeys from './use-hotkeys';
+import { useEffect } from 'react';
+import { getCompactFontData } from '@/utils/fonts';
+import { FONTS } from '@/data/fonts';
+import useDataState from '@/store/use-data-state';
 
 export const theme = {
   colors: {
@@ -28,7 +32,14 @@ export const theme = {
 };
 
 const Editor = () => {
+  const { setCompactFonts, setFonts } = useDataState();
+
   useHotkeys();
+
+  useEffect(() => {
+    setCompactFonts(getCompactFontData(FONTS));
+    setFonts(FONTS);
+  }, []);
 
   return (
     <Provider theme={theme}>

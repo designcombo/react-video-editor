@@ -16,6 +16,7 @@ export interface ICompactFont {
   family: string;
   styles: IFont[];
   default: IFont;
+  name?: string;
 }
 
 export interface IDataState {

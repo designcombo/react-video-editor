@@ -50,7 +50,7 @@ const Container = ({ children }: { children: React.ReactNode }) => {
       }}
       className="w-[340px] h-[calc(100%-32px-64px)] mt-6 absolute top-1/2 -translate-y-1/2 rounded-lg shadow-lg flex"
     >
-      <div className="flex-1 relative bg-zinc-950">
+      <div className="w-[266px] h-full relative bg-zinc-950 flex">
         <Button
           variant="ghost"
           className="absolute top-2 right-2 w-8 h-8 text-muted-foreground"
@@ -82,7 +82,7 @@ const ActiveControlItem = ({
     <>
       {
         {
-          'basic-text': <BasicText />,
+          'basic-text': <BasicText trackItem={trackItem} />,
           'basic-image': <BasicImage />,
           'basic-video': <BasicVideo />,
           'basic-audio': <BasicAudio />,

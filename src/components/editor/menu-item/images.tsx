@@ -34,7 +34,7 @@ export const Images = () => {
                 className="flex items-center justify-center w-full  bg-zinc-950 pb-2 overflow-hidden cursor-pointer"
               >
                 <img
-                  src={modifyImageUrl(image.src)}
+                  src={image.src}
                   className="w-full h-full object-cover rounded-md"
                   alt="image"
                 />
