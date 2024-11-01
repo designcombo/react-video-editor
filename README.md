@@ -33,10 +33,10 @@ Video Editor application using React and TypeScript.
 Clone locally:
 
 ```bash
-$ git clone git@github.com:designcombo/react-video-editor.git
-$ cd react-video-editor
-$ pnpm install
-$ pnpm dev
+git clone git@github.com:designcombo/react-video-editor.git
+cd react-video-editor
+pnpm install
+pnpm dev
 ```
 
 Open your browser and visit http://127.0.0.1:8001 , see more at [Development](https://github.com/lh-sn/react-video-editor/react-video-editor).
