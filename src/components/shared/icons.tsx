@@ -30,7 +30,6 @@ import {
   Settings,
   SunMedium,
   Trash,
-  Text,
   Type,
   User,
   X,
@@ -41,7 +40,8 @@ import {
   Zap,
   Music,
   VideoIcon,
-} from 'lucide-react';
+  Captions,
+} from "lucide-react";
 
 export type Icon = LucideIcon;
 
@@ -52,6 +52,7 @@ export const Icons = {
   arrowUpRight: ArrowUpRight,
   billing: CreditCard,
   bookOpen: BookOpen,
+  captions: Captions,
   chevronLeft: ChevronLeft,
   chevronRight: ChevronRight,
   check: Check,

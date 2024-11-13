@@ -1,0 +1,1078 @@
+{
+  "segments": [
+    {
+      "start": 0,
+      "end": 5420,
+      "text": " I had a real code red at my school luckily like everything was fine like no one was injured like",
+      "words": [
+        {
+          "end": 0,
+          "start": 0,
+          "word": " I"
+        },
+        {
+          "end": 200,
+          "start": 0,
+          "word": " had"
+        },
+        {
+          "end": 440,
+          "start": 200,
+          "word": " a"
+        },
+        {
+          "end": 880,
+          "start": 440,
+          "word": " real"
+        },
+        {
+          "end": 1260,
+          "start": 880,
+          "word": " code"
+        },
+        {
+          "end": 1540,
+          "start": 1260,
+          "word": " red"
+        },
+        {
+          "end": 1680,
+          "start": 1540,
+          "word": " at"
+        },
+        {
+          "end": 1800,
+          "start": 1680,
+          "word": " my"
+        },
+        {
+          "end": 2200,
+          "start": 1800,
+          "word": " school"
+        },
+        {
+          "end": 2660,
+          "start": 2200,
+          "word": " luckily"
+        },
+        {
+          "end": 3060,
+          "start": 2660,
+          "word": " like"
+        },
+        {
+          "end": 3340,
+          "start": 3060,
+          "word": " everything"
+        },
+        {
+          "end": 3660,
+          "start": 3340,
+          "word": " was"
+        },
+        {
+          "end": 3960,
+          "start": 3660,
+          "word": " fine"
+        },
+        {
+          "end": 4260,
+          "start": 3960,
+          "word": " like"
+        },
+        {
+          "end": 4400,
+          "start": 4260,
+          "word": " no"
+        },
+        {
+          "end": 4560,
+          "start": 4400,
+          "word": " one"
+        },
+        {
+          "end": 4740,
+          "start": 4560,
+          "word": " was"
+        },
+        {
+          "end": 5040,
+          "start": 4740,
+          "word": " injured"
+        },
+        {
+          "end": 5420,
+          "start": 5040,
+          "word": " like"
+        }
+      ]
+    },
+    {
+      "start": 5420,
+      "end": 10280,
+      "text": " the situation was handled but at the time you know we were just told this is a real code red",
+      "words": [
+        {
+          "end": 5560,
+          "start": 5420,
+          "word": " the"
+        },
+        {
+          "end": 5920,
+          "start": 5560,
+          "word": " situation"
+        },
+        {
+          "end": 6160,
+          "start": 5920,
+          "word": " was"
+        },
+        {
+          "end": 6460,
+          "start": 6160,
+          "word": " handled"
+        },
+        {
+          "end": 6660,
+          "start": 6460,
+          "word": " but"
+        },
+        {
+          "end": 6780,
+          "start": 6660,
+          "word": " at"
+        },
+        {
+          "end": 6840,
+          "start": 6780,
+          "word": " the"
+        },
+        {
+          "end": 7300,
+          "start": 6840,
+          "word": " time"
+        },
+        {
+          "end": 7760,
+          "start": 7300,
+          "word": " you"
+        },
+        {
+          "end": 7860,
+          "start": 7760,
+          "word": " know"
+        },
+        {
+          "end": 7980,
+          "start": 7860,
+          "word": " we"
+        },
+        {
+          "end": 8140,
+          "start": 7980,
+          "word": " were"
+        },
+        {
+          "end": 8300,
+          "start": 8140,
+          "word": " just"
+        },
+        {
+          "end": 8500,
+          "start": 8300,
+          "word": " told"
+        },
+        {
+          "end": 8740,
+          "start": 8500,
+          "word": " this"
+        },
+        {
+          "end": 8860,
+          "start": 8740,
+          "word": " is"
+        },
+        {
+          "end": 8980,
+          "start": 8860,
+          "word": " a"
+        },
+        {
+          "end": 9500,
+          "start": 8980,
+          "word": " real"
+        },
+        {
+          "end": 9860,
+          "start": 9500,
+          "word": " code"
+        },
+        {
+          "end": 10280,
+          "start": 9860,
+          "word": " red"
+        }
+      ]
+    },
+    {
+      "start": 10280,
+      "end": 14860,
+      "text": " we were in lockdown it was during lunch so you know who practices code red during lunch",
+      "words": [
+        {
+          "end": 10980,
+          "start": 10280,
+          "word": " we"
+        },
+        {
+          "end": 11120,
+          "start": 10980,
+          "word": " were"
+        },
+        {
+          "end": 11280,
+          "start": 11120,
+          "word": " in"
+        },
+        {
+          "end": 11560,
+          "start": 11280,
+          "word": " lockdown"
+        },
+        {
+          "end": 11860,
+          "start": 11560,
+          "word": " it"
+        },
+        {
+          "end": 11980,
+          "start": 11860,
+          "word": " was"
+        },
+        {
+          "end": 12180,
+          "start": 11980,
+          "word": " during"
+        },
+        {
+          "end": 12560,
+          "start": 12180,
+          "word": " lunch"
+        },
+        {
+          "end": 12880,
+          "start": 12560,
+          "word": " so"
+        },
+        {
+          "end": 13020,
+          "start": 12880,
+          "word": " you"
+        },
+        {
+          "end": 13080,
+          "start": 13020,
+          "word": " know"
+        },
+        {
+          "end": 13240,
+          "start": 13080,
+          "word": " who"
+        },
+        {
+          "end": 13700,
+          "start": 13240,
+          "word": " practices"
+        },
+        {
+          "end": 14040,
+          "start": 13700,
+          "word": " code"
+        },
+        {
+          "end": 14300,
+          "start": 14040,
+          "word": " red"
+        },
+        {
+          "end": 14560,
+          "start": 14300,
+          "word": " during"
+        },
+        {
+          "end": 14860,
+          "start": 14560,
+          "word": " lunch"
+        }
+      ]
+    },
+    {
+      "start": 14860,
+      "end": 20880,
+      "text": " we were just grabbing children and throwing them in classrooms I shared a room with another teacher",
+      "words": [
+        {
+          "end": 15220,
+          "start": 14860,
+          "word": " we"
+        },
+        {
+          "end": 16180,
+          "start": 15220,
+          "word": " were"
+        },
+        {
+          "end": 16380,
+          "start": 16180,
+          "word": " just"
+        },
+        {
+          "end": 17200,
+          "start": 16380,
+          "word": " grabbing"
+        },
+        {
+          "end": 17820,
+          "start": 17200,
+          "word": " children"
+        },
+        {
+          "end": 18220,
+          "start": 17820,
+          "word": " and"
+        },
+        {
+          "end": 18460,
+          "start": 18220,
+          "word": " throwing"
+        },
+        {
+          "end": 18700,
+          "start": 18460,
+          "word": " them"
+        },
+        {
+          "end": 18800,
+          "start": 18700,
+          "word": " in"
+        },
+        {
+          "end": 19240,
+          "start": 18800,
+          "word": " classrooms"
+        },
+        {
+          "end": 19640,
+          "start": 19240,
+          "word": " I"
+        },
+        {
+          "end": 19880,
+          "start": 19640,
+          "word": " shared"
+        },
+        {
+          "end": 20060,
+          "start": 19880,
+          "word": " a"
+        },
+        {
+          "end": 20220,
+          "start": 20060,
+          "word": " room"
+        },
+        {
+          "end": 20360,
+          "start": 20220,
+          "word": " with"
+        },
+        {
+          "end": 20540,
+          "start": 20360,
+          "word": " another"
+        },
+        {
+          "end": 20880,
+          "start": 20540,
+          "word": " teacher"
+        }
+      ]
+    },
+    {
+      "start": 20880,
+      "end": 26920,
+      "text": " at the time I handed her the fire extinguisher and I said literally if someone gets in that door",
+      "words": [
+        {
+          "end": 21040,
+          "start": 20880,
+          "word": " at"
+        },
+        {
+          "end": 21080,
+          "start": 21040,
+          "word": " the"
+        },
+        {
+          "end": 21420,
+          "start": 21080,
+          "word": " time"
+        },
+        {
+          "end": 21840,
+          "start": 21420,
+          "word": " I"
+        },
+        {
+          "end": 22200,
+          "start": 21840,
+          "word": " handed"
+        },
+        {
+          "end": 22320,
+          "start": 22200,
+          "word": " her"
+        },
+        {
+          "end": 22460,
+          "start": 22320,
+          "word": " the"
+        },
+        {
+          "end": 22660,
+          "start": 22460,
+          "word": " fire"
+        },
+        {
+          "end": 23280,
+          "start": 22660,
+          "word": " extinguisher"
+        },
+        {
+          "end": 23860,
+          "start": 23280,
+          "word": " and"
+        },
+        {
+          "end": 24040,
+          "start": 23860,
+          "word": " I"
+        },
+        {
+          "end": 24300,
+          "start": 24040,
+          "word": " said"
+        },
+        {
+          "end": 25240,
+          "start": 24300,
+          "word": " literally"
+        },
+        {
+          "end": 25700,
+          "start": 25240,
+          "word": " if"
+        },
+        {
+          "end": 25960,
+          "start": 25700,
+          "word": " someone"
+        },
+        {
+          "end": 26300,
+          "start": 25960,
+          "word": " gets"
+        },
+        {
+          "end": 26460,
+          "start": 26300,
+          "word": " in"
+        },
+        {
+          "end": 26620,
+          "start": 26460,
+          "word": " that"
+        },
+        {
+          "end": 26920,
+          "start": 26620,
+          "word": " door"
+        }
+      ]
+    },
+    {
+      "start": 26920,
+      "end": 32540,
+      "text": " because I had some of my model un kids in that room like I mean you know those giant scissors",
+      "words": [
+        {
+          "end": 27120,
+          "start": 26920,
+          "word": " because"
+        },
+        {
+          "end": 27300,
+          "start": 27120,
+          "word": " I"
+        },
+        {
+          "end": 27460,
+          "start": 27300,
+          "word": " had"
+        },
+        {
+          "end": 27620,
+          "start": 27460,
+          "word": " some"
+        },
+        {
+          "end": 27780,
+          "start": 27620,
+          "word": " of"
+        },
+        {
+          "end": 28000,
+          "start": 27780,
+          "word": " my"
+        },
+        {
+          "end": 28300,
+          "start": 28000,
+          "word": " model"
+        },
+        {
+          "end": 28480,
+          "start": 28300,
+          "word": " un"
+        },
+        {
+          "end": 28740,
+          "start": 28480,
+          "word": " kids"
+        },
+        {
+          "end": 28960,
+          "start": 28740,
+          "word": " in"
+        },
+        {
+          "end": 29100,
+          "start": 28960,
+          "word": " that"
+        },
+        {
+          "end": 29420,
+          "start": 29100,
+          "word": " room"
+        },
+        {
+          "end": 29660,
+          "start": 29420,
+          "word": " like"
+        },
+        {
+          "end": 30080,
+          "start": 29660,
+          "word": " I"
+        },
+        {
+          "end": 31080,
+          "start": 30080,
+          "word": " mean"
+        },
+        {
+          "end": 31280,
+          "start": 31080,
+          "word": " you"
+        },
+        {
+          "end": 31380,
+          "start": 31280,
+          "word": " know"
+        },
+        {
+          "end": 31540,
+          "start": 31380,
+          "word": " those"
+        },
+        {
+          "end": 31980,
+          "start": 31540,
+          "word": " giant"
+        },
+        {
+          "end": 32540,
+          "start": 31980,
+          "word": " scissors"
+        }
+      ]
+    },
+    {
+      "start": 32540,
+      "end": 36880,
+      "text": " yeah I literally grabbed one in each hand literally felt like wolverine for a second",
+      "words": [
+        {
+          "end": 33260,
+          "start": 32540,
+          "word": " yeah"
+        },
+        {
+          "end": 33520,
+          "start": 33260,
+          "word": " I"
+        },
+        {
+          "end": 33840,
+          "start": 33520,
+          "word": " literally"
+        },
+        {
+          "end": 34240,
+          "start": 33840,
+          "word": " grabbed"
+        },
+        {
+          "end": 34460,
+          "start": 34240,
+          "word": " one"
+        },
+        {
+          "end": 34580,
+          "start": 34460,
+          "word": " in"
+        },
+        {
+          "end": 34720,
+          "start": 34580,
+          "word": " each"
+        },
+        {
+          "end": 34960,
+          "start": 34720,
+          "word": " hand"
+        },
+        {
+          "end": 35360,
+          "start": 34960,
+          "word": " literally"
+        },
+        {
+          "end": 35660,
+          "start": 35360,
+          "word": " felt"
+        },
+        {
+          "end": 35820,
+          "start": 35660,
+          "word": " like"
+        },
+        {
+          "end": 36240,
+          "start": 35820,
+          "word": " wolverine"
+        },
+        {
+          "end": 36420,
+          "start": 36240,
+          "word": " for"
+        },
+        {
+          "end": 36560,
+          "start": 36420,
+          "word": " a"
+        },
+        {
+          "end": 36880,
+          "start": 36560,
+          "word": " second"
+        }
+      ]
+    },
+    {
+      "start": 36880,
+      "end": 43900,
+      "text": " I literally had to mentally prepare myself and I told my co-teacher and I'm not a co-teacher we",
+      "words": [
+        {
+          "end": 37460,
+          "start": 36880,
+          "word": " I"
+        },
+        {
+          "end": 37860,
+          "start": 37460,
+          "word": " literally"
+        },
+        {
+          "end": 38640,
+          "start": 37860,
+          "word": " had"
+        },
+        {
+          "end": 39080,
+          "start": 38640,
+          "word": " to"
+        },
+        {
+          "end": 40400,
+          "start": 39080,
+          "word": " mentally"
+        },
+        {
+          "end": 40760,
+          "start": 40400,
+          "word": " prepare"
+        },
+        {
+          "end": 41180,
+          "start": 40760,
+          "word": " myself"
+        },
+        {
+          "end": 41420,
+          "start": 41180,
+          "word": " and"
+        },
+        {
+          "end": 41480,
+          "start": 41420,
+          "word": " I"
+        },
+        {
+          "end": 41700,
+          "start": 41480,
+          "word": " told"
+        },
+        {
+          "end": 42000,
+          "start": 41700,
+          "word": " my"
+        },
+        {
+          "end": 42240,
+          "start": 42000,
+          "word": " co"
+        },
+        {
+          "end": 42520,
+          "start": 42240,
+          "word": "-teacher"
+        },
+        {
+          "end": 42920,
+          "start": 42520,
+          "word": " and"
+        },
+        {
+          "end": 43160,
+          "start": 42920,
+          "word": " I'm"
+        },
+        {
+          "end": 43320,
+          "start": 43160,
+          "word": " not"
+        },
+        {
+          "end": 43480,
+          "start": 43320,
+          "word": " a"
+        },
+        {
+          "end": 43580,
+          "start": 43480,
+          "word": " co"
+        },
+        {
+          "end": 43760,
+          "start": 43580,
+          "word": "-teacher"
+        },
+        {
+          "end": 43900,
+          "start": 43760,
+          "word": " we"
+        }
+      ]
+    },
+    {
+      "start": 43900,
+      "end": 48120,
+      "text": " just shared the room I told them if they come in you spray the crap out of them and I had to",
+      "words": [
+        {
+          "end": 43980,
+          "start": 43900,
+          "word": " just"
+        },
+        {
+          "end": 44100,
+          "start": 43980,
+          "word": " shared"
+        },
+        {
+          "end": 44240,
+          "start": 44100,
+          "word": " the"
+        },
+        {
+          "end": 44380,
+          "start": 44240,
+          "word": " room"
+        },
+        {
+          "end": 44740,
+          "start": 44380,
+          "word": " I"
+        },
+        {
+          "end": 44920,
+          "start": 44740,
+          "word": " told"
+        },
+        {
+          "end": 45160,
+          "start": 44920,
+          "word": " them"
+        },
+        {
+          "end": 45700,
+          "start": 45160,
+          "word": " if"
+        },
+        {
+          "end": 46080,
+          "start": 45700,
+          "word": " they"
+        },
+        {
+          "end": 46360,
+          "start": 46080,
+          "word": " come"
+        },
+        {
+          "end": 46540,
+          "start": 46360,
+          "word": " in"
+        },
+        {
+          "end": 46720,
+          "start": 46540,
+          "word": " you"
+        },
+        {
+          "end": 46960,
+          "start": 46720,
+          "word": " spray"
+        },
+        {
+          "end": 47120,
+          "start": 46960,
+          "word": " the"
+        },
+        {
+          "end": 47280,
+          "start": 47120,
+          "word": " crap"
+        },
+        {
+          "end": 47480,
+          "start": 47280,
+          "word": " out"
+        },
+        {
+          "end": 47600,
+          "start": 47480,
+          "word": " of"
+        },
+        {
+          "end": 47700,
+          "start": 47600,
+          "word": " them"
+        },
+        {
+          "end": 47800,
+          "start": 47700,
+          "word": " and"
+        },
+        {
+          "end": 47880,
+          "start": 47800,
+          "word": " I"
+        },
+        {
+          "end": 48000,
+          "start": 47880,
+          "word": " had"
+        },
+        {
+          "end": 48120,
+          "start": 48000,
+          "word": " to"
+        }
+      ]
+    },
+    {
+      "start": 48120,
+      "end": 54420,
+      "text": " mentally prepare myself like I'm going to have to do every single thing that I can yeah to protect",
+      "words": [
+        {
+          "end": 48360,
+          "start": 48120,
+          "word": " mentally"
+        },
+        {
+          "end": 48660,
+          "start": 48360,
+          "word": " prepare"
+        },
+        {
+          "end": 49200,
+          "start": 48660,
+          "word": " myself"
+        },
+        {
+          "end": 49520,
+          "start": 49200,
+          "word": " like"
+        },
+        {
+          "end": 49920,
+          "start": 49520,
+          "word": " I'm"
+        },
+        {
+          "end": 50120,
+          "start": 49920,
+          "word": " going"
+        },
+        {
+          "end": 50300,
+          "start": 50120,
+          "word": " to"
+        },
+        {
+          "end": 50480,
+          "start": 50300,
+          "word": " have"
+        },
+        {
+          "end": 50720,
+          "start": 50480,
+          "word": " to"
+        },
+        {
+          "end": 50880,
+          "start": 50720,
+          "word": " do"
+        },
+        {
+          "end": 51400,
+          "start": 50880,
+          "word": " every"
+        },
+        {
+          "end": 51760,
+          "start": 51400,
+          "word": " single"
+        },
+        {
+          "end": 52020,
+          "start": 51760,
+          "word": " thing"
+        },
+        {
+          "end": 52200,
+          "start": 52020,
+          "word": " that"
+        },
+        {
+          "end": 52320,
+          "start": 52200,
+          "word": " I"
+        },
+        {
+          "end": 52660,
+          "start": 52320,
+          "word": " can"
+        },
+        {
+          "end": 53080,
+          "start": 52660,
+          "word": " yeah"
+        },
+        {
+          "end": 53620,
+          "start": 53080,
+          "word": " to"
+        },
+        {
+          "end": 54420,
+          "start": 53620,
+          "word": " protect"
+        }
+      ]
+    },
+    {
+      "start": 54420,
+      "end": 56740,
+      "text": " these kids and I shouldn't have had to",
+      "words": [
+        {
+          "end": 54760,
+          "start": 54420,
+          "word": " these"
+        },
+        {
+          "end": 55080,
+          "start": 54760,
+          "word": " kids"
+        },
+        {
+          "end": 55420,
+          "start": 55080,
+          "word": " and"
+        },
+        {
+          "end": 55540,
+          "start": 55420,
+          "word": " I"
+        },
+        {
+          "end": 55920,
+          "start": 55540,
+          "word": " shouldn't"
+        },
+        {
+          "end": 56040,
+          "start": 55920,
+          "word": " have"
+        },
+        {
+          "end": 56360,
+          "start": 56040,
+          "word": " had"
+        },
+        {
+          "end": 56740,
+          "start": 56360,
+          "word": " to"
+        }
+      ]
+    },
+    {
+      "start": 56920,
+      "end": 57840,
+      "text": " um",
+      "words": [
+        {
+          "end": 57840,
+          "start": 56920,
+          "word": " um"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,147 @@
+.gradient-result {
+  height: 74px;
+  width: 100%;
+  position: relative;
+  border-radius: 6px;
+  flex-grow: 1;
+  font-size: 16px;
+}
+
+.gradient-result:hover .gradient-angle {
+  opacity: 1;
+}
+
+.gradient-mode {
+  height: 32px;
+  width: 32px;
+  position: relative;
+  top: 20px;
+  left: 16px;
+  border: 2px solid white;
+  border-radius: 0.15em;
+  cursor: pointer;
+  opacity: 0.25;
+  transition: all 0.3s;
+}
+
+.gradient-mode::before {
+  position: absolute;
+  content: "";
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  margin: auto;
+  transition: all 0.3s;
+}
+
+.gradient-mode:hover {
+  opacity: 1;
+}
+
+.gradient-mode[data-mode="linear"]::before {
+  height: 2px;
+  width: 70%;
+  background: white;
+  transform: rotate(45deg);
+  border-radius: 50em;
+}
+
+.gradient-mode[data-mode="radial"]::before {
+  height: 50%;
+  width: 50%;
+  border-radius: 100%;
+  border: 2px solid white;
+  background-color: white;
+}
+
+.gradient-mode[data-mode="radial"] + .gradient-angle {
+  opacity: 0;
+}
+
+.gradient-angle {
+  height: 0.35em;
+  width: 0.35em;
+  background: white;
+  border-radius: 100%;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  transition: all 0.3s;
+  position: absolute;
+  margin: auto;
+  opacity: 0.25;
+}
+
+.gradient-angle > div {
+  height: 2px;
+  width: 2em;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 50%;
+  position: absolute;
+  background: white;
+  border-radius: 1em;
+  margin: auto 0;
+  transform-origin: left;
+}
+
+.gradient-pos {
+  height: 5em;
+  width: 5em;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
+  opacity: 1;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  transition: all 0.3s;
+  position: absolute;
+  margin: auto;
+}
+
+.gradient-pos > div {
+  height: 15px;
+  width: 15px;
+  border: 2px solid transparent;
+  position: relative;
+  margin: auto;
+  transition: all 0.3s;
+}
+
+.gradient-pos > div:not(.gradient-active) {
+  cursor: pointer;
+}
+
+.gradient-pos > div::before {
+  position: absolute;
+  content: "";
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  height: 5px;
+  width: 5px;
+  border-radius: 100%;
+  background: white;
+  transition: all 0.3s;
+  opacity: 0.25;
+  margin: auto;
+}
+
+.gradient-pos > div:hover::before {
+  opacity: 1;
+}
+
+.gradient-pos > div.gradient-active {
+  border-color: white;
+  border-radius: 100%;
+}
+
+.gradient-pos > div.gradient-active::before {
+  opacity: 1;
+}

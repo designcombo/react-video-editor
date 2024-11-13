@@ -1,0 +1,949 @@
+{
+  "id": "CI2BpIUBlIy9zhf",
+  "duration": 53000,
+  "fps": 30,
+  "tracks": [
+    {
+      "id": "nB4Vo9hW5l8NeFXa",
+      "type": "text",
+      "index": 0,
+      "items": [
+        "JCNHxrmaAyB3Zv5S",
+        "MarKC7Mg5p6FMNiL",
+        "d9idmwoM8eWap1ZI",
+        "akXEhCR3eBFzTgU",
+        "hXC26PLGZdTGEZgR",
+        "N7aZHLE9tC8x8JP",
+        "ZWEnlTpU1Z5jWqv",
+        "C5xIrViLfg9UCFJ"
+      ],
+      "static": false,
+      "accepts": ["text", "image", "video", "audio", "helper", "caption"],
+      "magnetic": false,
+      "metadata": {}
+    },
+    {
+      "id": "smWuwAsJu0jCy8Ko",
+      "type": "audio",
+      "index": 1,
+      "items": [
+        "ea7fae64-e361-429b-91fc-e00b7ef7215f",
+        "2c27e220-c4fc-4bc6-8abd-c3ce026b24de",
+        "b9e77630-9d18-494a-9cf9-3b093360c338",
+        "6042bace-a121-4383-bc72-fafbf0d0cb8a",
+        "841bcdf5-3ba8-490c-8e47-81ff5f6d1f83",
+        "acba08d8-859b-453d-849e-4ddb944680c4",
+        "4ac23c24-8c54-4eb7-a347-d2d240782447",
+        "50eb3362-2349-4486-8f61-caea3646fc7b"
+      ],
+      "static": false,
+      "accepts": ["text", "image", "video", "audio", "helper", "caption"],
+      "magnetic": false,
+      "metadata": {}
+    },
+    {
+      "id": "Z79s8lAplAHu4mct",
+      "type": "video",
+      "index": 2,
+      "items": [
+        "48b948b6-3bf8-46d2-984e-bf4620b70358",
+        "8c52d060-5c91-4970-8535-dad56b75b413",
+        "6c02ddba-d9dd-48ed-854c-7e4834d822e3",
+        "86582d39-e813-41b4-b8b5-005c219a3867",
+        "50531ed6-ebf0-4a53-8934-3d17ce727847",
+        "03a0d639-2b88-4b60-b7e1-85ffaceb3347"
+      ],
+      "static": false,
+      "accepts": ["text", "image", "video", "audio", "helper", "caption"],
+      "magnetic": false,
+      "metadata": {}
+    }
+  ],
+  "size": {
+    "width": 1080,
+    "height": 1920
+  },
+  "trackItemDetailsMap": {
+    "C5xIrViLfg9UCFJ": {
+      "type": "text",
+      "details": {
+        "fontFamily": "Roboto-Bold",
+        "fontSize": 50,
+        "fontWeight": 400,
+        "fontStyle": "normal",
+        "textDecoration": "none",
+        "textAlign": "center",
+        "lineHeight": "normal",
+        "letterSpacing": "normal",
+        "wordSpacing": "normal",
+        "color": "#ffffff",
+        "backgroundColor": "transparent",
+        "border": "none",
+        "textShadow": "none",
+        "text": " Ever wish you could capture the perfect blend of adorable and awkward?",
+        "opacity": 100,
+        "width": 870,
+        "wordWrap": "normal",
+        "wordBreak": "normal",
+        "WebkitTextStrokeColor": "#000000",
+        "WebkitTextStrokeWidth": "0px",
+        "top": "1518.82px",
+        "left": "115px",
+        "textTransform": "none",
+        "transform": "none",
+        "height": 175.5,
+        "fontUrl": "https://fonts.gstatic.com/s/roboto/v29/KFOlCnqEu92Fr1MmWUlvAx05IsDqlA.ttf",
+        "borderWidth": 5,
+        "borderColor": "#000000",
+        "boxShadow": {
+          "x": 0,
+          "y": 0,
+          "blur": 0,
+          "color": "#ffffff"
+        }
+      }
+    },
+    "N7aZHLE9tC8x8JP": {
+      "type": "text",
+      "details": {
+        "fontFamily": "Roboto-Bold",
+        "fontSize": 50,
+        "fontWeight": 400,
+        "fontStyle": "normal",
+        "textDecoration": "none",
+        "textAlign": "center",
+        "lineHeight": "normal",
+        "letterSpacing": "normal",
+        "wordSpacing": "normal",
+        "color": "#ffffff",
+        "backgroundColor": "transparent",
+        "border": "none",
+        "textShadow": "none",
+        "text": " Cringe Cat, because life is better when you're a little awkward.",
+        "opacity": 100,
+        "width": 870,
+        "wordWrap": "normal",
+        "wordBreak": "normal",
+        "WebkitTextStrokeColor": "#000000",
+        "WebkitTextStrokeWidth": "0px",
+        "top": 1515,
+        "left": 115,
+        "textTransform": "none",
+        "transform": "none",
+        "height": 117,
+        "fontUrl": "https://fonts.gstatic.com/s/roboto/v29/KFOlCnqEu92Fr1MmWUlvAx05IsDqlA.ttf",
+        "borderWidth": 5,
+        "borderColor": "#000000",
+        "boxShadow": {
+          "x": 0,
+          "y": 0,
+          "blur": 0,
+          "color": "#ffffff"
+        }
+      }
+    },
+    "ZWEnlTpU1Z5jWqv": {
+      "type": "text",
+      "details": {
+        "fontFamily": "Roboto-Bold",
+        "fontSize": 50,
+        "fontWeight": 400,
+        "fontStyle": "normal",
+        "textDecoration": "none",
+        "textAlign": "center",
+        "lineHeight": "normal",
+        "letterSpacing": "normal",
+        "wordSpacing": "normal",
+        "color": "#ffffff",
+        "backgroundColor": "transparent",
+        "border": "none",
+        "textShadow": "none",
+        "text": " Catch the craze and let the fun begin.",
+        "opacity": 100,
+        "width": 870,
+        "wordWrap": "normal",
+        "wordBreak": "normal",
+        "WebkitTextStrokeColor": "#000000",
+        "WebkitTextStrokeWidth": "0px",
+        "top": 1515,
+        "left": 115,
+        "textTransform": "none",
+        "transform": "none",
+        "height": 58.5,
+        "fontUrl": "https://fonts.gstatic.com/s/roboto/v29/KFOlCnqEu92Fr1MmWUlvAx05IsDqlA.ttf",
+        "borderWidth": 5,
+        "borderColor": "#000000",
+        "boxShadow": {
+          "x": 0,
+          "y": 0,
+          "blur": 0,
+          "color": "#ffffff"
+        }
+      }
+    },
+    "akXEhCR3eBFzTgU": {
+      "type": "text",
+      "details": {
+        "fontFamily": "Roboto-Bold",
+        "fontSize": 50,
+        "fontWeight": 400,
+        "fontStyle": "normal",
+        "textDecoration": "none",
+        "textAlign": "center",
+        "lineHeight": "normal",
+        "letterSpacing": "normal",
+        "wordSpacing": "normal",
+        "color": "#ffffff",
+        "backgroundColor": "transparent",
+        "border": "none",
+        "textShadow": "none",
+        "text": " Perfect for memes, social media shares, or just a daily dose of joy.",
+        "opacity": 100,
+        "width": 870,
+        "wordWrap": "normal",
+        "wordBreak": "normal",
+        "WebkitTextStrokeColor": "#000000",
+        "WebkitTextStrokeWidth": "0px",
+        "top": 1515,
+        "left": 115,
+        "textTransform": "none",
+        "transform": "none",
+        "height": 117,
+        "fontUrl": "https://fonts.gstatic.com/s/roboto/v29/KFOlCnqEu92Fr1MmWUlvAx05IsDqlA.ttf",
+        "borderWidth": 5,
+        "borderColor": "#000000",
+        "boxShadow": {
+          "x": 0,
+          "y": 0,
+          "blur": 0,
+          "color": "#ffffff"
+        }
+      }
+    },
+    "JCNHxrmaAyB3Zv5S": {
+      "type": "text",
+      "details": {
+        "fontFamily": "Roboto-Bold",
+        "fontSize": 50,
+        "fontWeight": 400,
+        "fontStyle": "normal",
+        "textDecoration": "none",
+        "textAlign": "center",
+        "lineHeight": "normal",
+        "letterSpacing": "normal",
+        "wordSpacing": "normal",
+        "color": "#ffffff",
+        "backgroundColor": "transparent",
+        "border": "none",
+        "textShadow": "none",
+        "text": " Meet Cringe Cat, the internet's latest sensation.",
+        "opacity": 100,
+        "width": 870,
+        "wordWrap": "normal",
+        "wordBreak": "normal",
+        "WebkitTextStrokeColor": "#000000",
+        "WebkitTextStrokeWidth": "0px",
+        "top": 1515,
+        "left": 115,
+        "textTransform": "none",
+        "transform": "none",
+        "height": 117,
+        "fontUrl": "https://fonts.gstatic.com/s/roboto/v29/KFOlCnqEu92Fr1MmWUlvAx05IsDqlA.ttf",
+        "borderWidth": 5,
+        "borderColor": "#000000",
+        "boxShadow": {
+          "x": 0,
+          "y": 0,
+          "blur": 0,
+          "color": "#ffffff"
+        }
+      }
+    },
+    "MarKC7Mg5p6FMNiL": {
+      "type": "text",
+      "details": {
+        "fontFamily": "Roboto-Bold",
+        "fontSize": 50,
+        "fontWeight": 400,
+        "fontStyle": "normal",
+        "textDecoration": "none",
+        "textAlign": "center",
+        "lineHeight": "normal",
+        "letterSpacing": "normal",
+        "wordSpacing": "normal",
+        "color": "#ffffff",
+        "backgroundColor": "transparent",
+        "border": "none",
+        "textShadow": "none",
+        "text": " This furry friend isn't just any cat, it's a bundle of quirky charm and hilarious antics.",
+        "opacity": 100,
+        "width": 870,
+        "wordWrap": "normal",
+        "wordBreak": "normal",
+        "WebkitTextStrokeColor": "#000000",
+        "WebkitTextStrokeWidth": "0px",
+        "top": 1515,
+        "left": 115,
+        "textTransform": "none",
+        "transform": "none",
+        "height": 175.5,
+        "fontUrl": "https://fonts.gstatic.com/s/roboto/v29/KFOlCnqEu92Fr1MmWUlvAx05IsDqlA.ttf",
+        "borderWidth": 5,
+        "borderColor": "#000000",
+        "boxShadow": {
+          "x": 0,
+          "y": 0,
+          "blur": 0,
+          "color": "#ffffff"
+        }
+      }
+    },
+    "d9idmwoM8eWap1ZI": {
+      "type": "text",
+      "details": {
+        "fontFamily": "Roboto-Bold",
+        "fontSize": 50,
+        "fontWeight": 400,
+        "fontStyle": "normal",
+        "textDecoration": "none",
+        "textAlign": "center",
+        "lineHeight": "normal",
+        "letterSpacing": "normal",
+        "wordSpacing": "normal",
+        "color": "#ffffff",
+        "backgroundColor": "transparent",
+        "border": "none",
+        "textShadow": "none",
+        "text": " From epic fails to dramatic poses, Cringe Cat guarantees endless laughs and unforgettable moments.",
+        "opacity": 100,
+        "width": 870,
+        "wordWrap": "normal",
+        "wordBreak": "normal",
+        "WebkitTextStrokeColor": "#000000",
+        "WebkitTextStrokeWidth": "0px",
+        "top": 1515,
+        "left": 115,
+        "textTransform": "none",
+        "transform": "none",
+        "height": 175.5,
+        "fontUrl": "https://fonts.gstatic.com/s/roboto/v29/KFOlCnqEu92Fr1MmWUlvAx05IsDqlA.ttf",
+        "borderWidth": 5,
+        "borderColor": "#000000",
+        "boxShadow": {
+          "x": 0,
+          "y": 0,
+          "blur": 0,
+          "color": "#ffffff"
+        }
+      }
+    },
+    "hXC26PLGZdTGEZgR": {
+      "type": "text",
+      "details": {
+        "fontFamily": "Roboto-Bold",
+        "fontSize": 50,
+        "fontWeight": 400,
+        "fontStyle": "normal",
+        "textDecoration": "none",
+        "textAlign": "center",
+        "lineHeight": "normal",
+        "letterSpacing": "normal",
+        "wordSpacing": "normal",
+        "color": "#ffffff",
+        "backgroundColor": "transparent",
+        "border": "none",
+        "textShadow": "none",
+        "text": " Get ready to embrace the cringe and share the love with friends and family.",
+        "opacity": 100,
+        "width": 870,
+        "wordWrap": "normal",
+        "wordBreak": "normal",
+        "WebkitTextStrokeColor": "#000000",
+        "WebkitTextStrokeWidth": "0px",
+        "top": 1515,
+        "left": 115,
+        "textTransform": "none",
+        "transform": "none",
+        "height": 117,
+        "fontUrl": "https://fonts.gstatic.com/s/roboto/v29/KFOlCnqEu92Fr1MmWUlvAx05IsDqlA.ttf",
+        "borderWidth": 5,
+        "borderColor": "#000000",
+        "boxShadow": {
+          "x": 0,
+          "y": 0,
+          "blur": 0,
+          "color": "#ffffff"
+        }
+      }
+    },
+    "03a0d639-2b88-4b60-b7e1-85ffaceb3347": {
+      "type": "video",
+      "details": {
+        "width": 240,
+        "height": 426,
+        "duration": 12019.943,
+        "opacity": 100,
+        "src": "https://videos.pexels.com/video-files/5495527/5495527-sd_240_426_29fps.mp4",
+        "volume": 100,
+        "borderRadius": 0,
+        "borderWidth": 0,
+        "borderColor": "#000000",
+        "boxShadow": {
+          "x": 0,
+          "y": 0,
+          "blur": 0,
+          "color": "#000000"
+        },
+        "top": "747px",
+        "left": "420px",
+        "transform": "scale(1)",
+        "blur": 0,
+        "brightness": 100,
+        "flipX": false,
+        "flipY": false,
+        "rotate": "0deg"
+      }
+    },
+    "2c27e220-c4fc-4bc6-8abd-c3ce026b24de": {
+      "type": "audio",
+      "details": {
+        "src": "https://icon-cdn.com/profiles/1cb28318-8c61-4209-b055-a3796125586e/source-audio/5001d88e-459d-46e4-97be-0ed136543c83.mpeg",
+        "duration": 34008,
+        "volume": 100
+      }
+    },
+    "48b948b6-3bf8-46d2-984e-bf4620b70358": {
+      "type": "video",
+      "details": {
+        "width": 540,
+        "height": 960,
+        "duration": 14566.667000000001,
+        "opacity": 100,
+        "src": "https://videos.pexels.com/video-files/5871756/5871756-sd_540_960_30fps.mp4",
+        "volume": 100,
+        "borderRadius": 0,
+        "borderWidth": 0,
+        "borderColor": "#000000",
+        "boxShadow": {
+          "x": 0,
+          "y": 0,
+          "blur": 0,
+          "color": "#000000"
+        },
+        "top": 507.822,
+        "left": 285.2,
+        "transform": "scale(2.07995, 2.07995)",
+        "blur": 0,
+        "brightness": 100,
+        "flipX": false,
+        "flipY": false,
+        "rotate": "0deg"
+      }
+    },
+    "4ac23c24-8c54-4eb7-a347-d2d240782447": {
+      "type": "audio",
+      "details": {
+        "src": "https://icon-cdn.com/profiles/1cb28318-8c61-4209-b055-a3796125586e/source-audio/5001d88e-459d-46e4-97be-0ed136543c83.mpeg",
+        "duration": 34008,
+        "volume": 100
+      }
+    },
+    "50531ed6-ebf0-4a53-8934-3d17ce727847": {
+      "type": "video",
+      "details": {
+        "width": 506,
+        "height": 960,
+        "duration": 31520,
+        "opacity": 100,
+        "src": "https://videos.pexels.com/video-files/6853903/6853903-sd_506_960_25fps.mp4",
+        "volume": 100,
+        "borderRadius": 0,
+        "borderWidth": 0,
+        "borderColor": "#000000",
+        "boxShadow": {
+          "x": 0,
+          "y": 0,
+          "blur": 0,
+          "color": "#000000"
+        },
+        "top": 565.561,
+        "left": 292.067,
+        "transform": "scale(2.22682, 2.22682)",
+        "blur": 0,
+        "brightness": 100,
+        "flipX": false,
+        "flipY": false,
+        "rotate": "0deg"
+      }
+    },
+    "50eb3362-2349-4486-8f61-caea3646fc7b": {
+      "type": "audio",
+      "details": {
+        "src": "https://icon-cdn.com/profiles/1cb28318-8c61-4209-b055-a3796125586e/source-audio/5001d88e-459d-46e4-97be-0ed136543c83.mpeg",
+        "duration": 34008,
+        "volume": 100
+      }
+    },
+    "6042bace-a121-4383-bc72-fafbf0d0cb8a": {
+      "type": "audio",
+      "details": {
+        "src": "https://icon-cdn.com/profiles/1cb28318-8c61-4209-b055-a3796125586e/source-audio/5001d88e-459d-46e4-97be-0ed136543c83.mpeg",
+        "duration": 34008,
+        "volume": 100
+      }
+    },
+    "6c02ddba-d9dd-48ed-854c-7e4834d822e3": {
+      "type": "video",
+      "details": {
+        "width": 4096,
+        "height": 2160,
+        "duration": 5760,
+        "opacity": 100,
+        "src": "https://videos.pexels.com/video-files/6853194/6853194-uhd_4096_2160_25fps.mp4",
+        "volume": 100,
+        "borderRadius": 0,
+        "borderWidth": 0,
+        "borderColor": "#000000",
+        "boxShadow": {
+          "x": 0,
+          "y": 0,
+          "blur": 0,
+          "color": "#000000"
+        },
+        "top": "-120px",
+        "left": "-1508px",
+        "transform": "scale(1)",
+        "blur": 0,
+        "brightness": 100,
+        "flipX": false,
+        "flipY": false,
+        "rotate": "0deg"
+      }
+    },
+    "841bcdf5-3ba8-490c-8e47-81ff5f6d1f83": {
+      "type": "audio",
+      "details": {
+        "src": "https://icon-cdn.com/profiles/1cb28318-8c61-4209-b055-a3796125586e/source-audio/5001d88e-459d-46e4-97be-0ed136543c83.mpeg",
+        "duration": 34008,
+        "volume": 100
+      }
+    },
+    "86582d39-e813-41b4-b8b5-005c219a3867": {
+      "type": "video",
+      "details": {
+        "width": 2160,
+        "height": 4096,
+        "duration": 7080,
+        "opacity": 100,
+        "src": "https://videos.pexels.com/video-files/6853400/6853400-uhd_2160_4096_25fps.mp4",
+        "volume": 100,
+        "borderRadius": 0,
+        "borderWidth": 0,
+        "borderColor": "#000000",
+        "boxShadow": {
+          "x": 0,
+          "y": 0,
+          "blur": 0,
+          "color": "#000000"
+        },
+        "top": "-1088px",
+        "left": "-540px",
+        "transform": "scale(1)",
+        "blur": 0,
+        "brightness": 100,
+        "flipX": false,
+        "flipY": false,
+        "rotate": "0deg"
+      }
+    },
+    "8c52d060-5c91-4970-8535-dad56b75b413": {
+      "type": "video",
+      "details": {
+        "width": 226,
+        "height": 426,
+        "duration": 15040,
+        "opacity": 100,
+        "src": "https://videos.pexels.com/video-files/6853193/6853193-sd_226_426_25fps.mp4",
+        "volume": 100,
+        "borderRadius": 0,
+        "borderWidth": 0,
+        "borderColor": "#000000",
+        "boxShadow": {
+          "x": 0,
+          "y": 0,
+          "blur": 0,
+          "color": "#000000"
+        },
+        "top": "780.141px",
+        "left": "426.986px",
+        "transform": "scale(4.78534, 4.78534)",
+        "blur": 0,
+        "brightness": 100,
+        "flipX": false,
+        "flipY": false,
+        "rotate": "0deg"
+      }
+    },
+    "acba08d8-859b-453d-849e-4ddb944680c4": {
+      "type": "audio",
+      "details": {
+        "src": "https://icon-cdn.com/profiles/1cb28318-8c61-4209-b055-a3796125586e/source-audio/5001d88e-459d-46e4-97be-0ed136543c83.mpeg",
+        "duration": 34008,
+        "volume": 100
+      }
+    },
+    "b9e77630-9d18-494a-9cf9-3b093360c338": {
+      "type": "audio",
+      "details": {
+        "src": "https://icon-cdn.com/profiles/1cb28318-8c61-4209-b055-a3796125586e/source-audio/5001d88e-459d-46e4-97be-0ed136543c83.mpeg",
+        "duration": 34008,
+        "volume": 100
+      }
+    },
+    "ea7fae64-e361-429b-91fc-e00b7ef7215f": {
+      "type": "audio",
+      "details": {
+        "src": "https://icon-cdn.com/profiles/1cb28318-8c61-4209-b055-a3796125586e/source-audio/5001d88e-459d-46e4-97be-0ed136543c83.mpeg",
+        "duration": 34008,
+        "volume": 100
+      }
+    }
+  },
+  "trackItemIds": [],
+  "transitionsMap": {},
+  "trackItemsMap": {
+    "C5xIrViLfg9UCFJ": {
+      "id": "C5xIrViLfg9UCFJ",
+      "name": "text",
+      "type": "text",
+      "display": {
+        "to": 3500.0000000000027,
+        "from": 0
+      },
+      "transcriptionAudioSourceId": "ea7fae64-e361-429b-91fc-e00b7ef7215f",
+      "metadata": {},
+      "isMain": false
+    },
+    "N7aZHLE9tC8x8JP": {
+      "id": "N7aZHLE9tC8x8JP",
+      "name": "text",
+      "type": "text",
+      "display": {
+        "to": 30540.000000000015,
+        "from": 27300.000000000015
+      },
+      "transcriptionAudioSourceId": "4ac23c24-8c54-4eb7-a347-d2d240782447",
+      "metadata": {},
+      "isMain": false
+    },
+    "ZWEnlTpU1Z5jWqv": {
+      "id": "ZWEnlTpU1Z5jWqv",
+      "name": "text",
+      "type": "text",
+      "display": {
+        "to": 33620.000000000015,
+        "from": 31800.000000000015
+      },
+      "transcriptionAudioSourceId": "50eb3362-2349-4486-8f61-caea3646fc7b",
+      "metadata": {},
+      "isMain": false
+    },
+    "akXEhCR3eBFzTgU": {
+      "id": "akXEhCR3eBFzTgU",
+      "name": "text",
+      "type": "text",
+      "display": {
+        "to": 22560.00000000001,
+        "from": 18620.00000000001
+      },
+      "transcriptionAudioSourceId": "841bcdf5-3ba8-490c-8e47-81ff5f6d1f83",
+      "metadata": {},
+      "isMain": false
+    },
+    "JCNHxrmaAyB3Zv5S": {
+      "id": "JCNHxrmaAyB3Zv5S",
+      "name": "text",
+      "type": "text",
+      "display": {
+        "to": 6660,
+        "from": 4340
+      },
+      "transcriptionAudioSourceId": "2c27e220-c4fc-4bc6-8abd-c3ce026b24de",
+      "metadata": {},
+      "isMain": false
+    },
+    "MarKC7Mg5p6FMNiL": {
+      "id": "MarKC7Mg5p6FMNiL",
+      "name": "text",
+      "type": "text",
+      "display": {
+        "to": 11980.000000000007,
+        "from": 7600.000000000003
+      },
+      "transcriptionAudioSourceId": "b9e77630-9d18-494a-9cf9-3b093360c338",
+      "metadata": {},
+      "isMain": false
+    },
+    "d9idmwoM8eWap1ZI": {
+      "id": "d9idmwoM8eWap1ZI",
+      "name": "text",
+      "type": "text",
+      "display": {
+        "to": 18080,
+        "from": 12300
+      },
+      "transcriptionAudioSourceId": "6042bace-a121-4383-bc72-fafbf0d0cb8a",
+      "metadata": {},
+      "isMain": false
+    },
+    "hXC26PLGZdTGEZgR": {
+      "id": "hXC26PLGZdTGEZgR",
+      "name": "text",
+      "type": "text",
+      "display": {
+        "to": 26700.000000000007,
+        "from": 23420.000000000007
+      },
+      "transcriptionAudioSourceId": "acba08d8-859b-453d-849e-4ddb944680c4",
+      "metadata": {},
+      "isMain": false
+    },
+    "03a0d639-2b88-4b60-b7e1-85ffaceb3347": {
+      "type": "video",
+      "id": "03a0d639-2b88-4b60-b7e1-85ffaceb3347",
+      "name": "video",
+      "trim": {
+        "to": 10000,
+        "from": 0
+      },
+      "isMain": false,
+      "display": {
+        "to": 53000,
+        "from": 43000
+      },
+      "metadata": {
+        "resourceId": "https://videos.pexels.com/video-files/5495527/5495527-sd_240_426_29fps.mp4"
+      },
+      "playbackRate": 1
+    },
+    "2c27e220-c4fc-4bc6-8abd-c3ce026b24de": {
+      "id": "2c27e220-c4fc-4bc6-8abd-c3ce026b24de",
+      "name": "",
+      "type": "audio",
+      "display": {
+        "to": 6660,
+        "from": 4340
+      },
+      "trim": {
+        "to": 6660,
+        "from": 4340
+      },
+      "playbackRate": 1,
+      "metadata": {},
+      "isMain": false
+    },
+    "48b948b6-3bf8-46d2-984e-bf4620b70358": {
+      "type": "video",
+      "id": "48b948b6-3bf8-46d2-984e-bf4620b70358",
+      "name": "video",
+      "trim": {
+        "to": 10000,
+        "from": 0
+      },
+      "isMain": false,
+      "display": {
+        "to": 10000,
+        "from": 0
+      },
+      "metadata": {
+        "resourceId": "https://videos.pexels.com/video-files/5871756/5871756-sd_540_960_30fps.mp4"
+      },
+      "playbackRate": 1
+    },
+    "4ac23c24-8c54-4eb7-a347-d2d240782447": {
+      "id": "4ac23c24-8c54-4eb7-a347-d2d240782447",
+      "name": "",
+      "type": "audio",
+      "display": {
+        "to": 30540.000000000015,
+        "from": 27300.000000000015
+      },
+      "trim": {
+        "to": 30540,
+        "from": 27300
+      },
+      "playbackRate": 1,
+      "metadata": {},
+      "isMain": false
+    },
+    "50531ed6-ebf0-4a53-8934-3d17ce727847": {
+      "type": "video",
+      "id": "50531ed6-ebf0-4a53-8934-3d17ce727847",
+      "name": "video",
+      "trim": {
+        "to": 10000,
+        "from": 0
+      },
+      "isMain": false,
+      "display": {
+        "to": 43000,
+        "from": 33000
+      },
+      "metadata": {
+        "resourceId": "https://videos.pexels.com/video-files/6853903/6853903-sd_506_960_25fps.mp4"
+      },
+      "playbackRate": 1
+    },
+    "50eb3362-2349-4486-8f61-caea3646fc7b": {
+      "id": "50eb3362-2349-4486-8f61-caea3646fc7b",
+      "name": "",
+      "type": "audio",
+      "display": {
+        "to": 33778.72340425533,
+        "from": 31714.89361702129
+      },
+      "trim": {
+        "to": 33598.7234042553,
+        "from": 31534.893617021284
+      },
+      "playbackRate": 1,
+      "metadata": {},
+      "isMain": false
+    },
+    "6042bace-a121-4383-bc72-fafbf0d0cb8a": {
+      "id": "6042bace-a121-4383-bc72-fafbf0d0cb8a",
+      "name": "",
+      "type": "audio",
+      "display": {
+        "to": 18080,
+        "from": 12300
+      },
+      "trim": {
+        "to": 18080,
+        "from": 12300
+      },
+      "playbackRate": 1,
+      "metadata": {},
+      "isMain": false
+    },
+    "6c02ddba-d9dd-48ed-854c-7e4834d822e3": {
+      "type": "video",
+      "id": "6c02ddba-d9dd-48ed-854c-7e4834d822e3",
+      "name": "video",
+      "trim": {
+        "to": 6000,
+        "from": 0
+      },
+      "isMain": false,
+      "display": {
+        "to": 26000,
+        "from": 20000
+      },
+      "metadata": {
+        "resourceId": "https://videos.pexels.com/video-files/6853194/6853194-uhd_4096_2160_25fps.mp4"
+      },
+      "playbackRate": 1
+    },
+    "841bcdf5-3ba8-490c-8e47-81ff5f6d1f83": {
+      "id": "841bcdf5-3ba8-490c-8e47-81ff5f6d1f83",
+      "name": "",
+      "type": "audio",
+      "display": {
+        "to": 22560.00000000001,
+        "from": 18620.00000000001
+      },
+      "trim": {
+        "to": 22560,
+        "from": 18620
+      },
+      "playbackRate": 1,
+      "metadata": {},
+      "isMain": false
+    },
+    "86582d39-e813-41b4-b8b5-005c219a3867": {
+      "type": "video",
+      "id": "86582d39-e813-41b4-b8b5-005c219a3867",
+      "name": "video",
+      "trim": {
+        "to": 7000,
+        "from": 0
+      },
+      "isMain": false,
+      "display": {
+        "to": 33000.00000000003,
+        "from": 26000.000000000025
+      },
+      "metadata": {
+        "resourceId": "https://videos.pexels.com/video-files/6853400/6853400-uhd_2160_4096_25fps.mp4"
+      },
+      "playbackRate": 1
+    },
+    "8c52d060-5c91-4970-8535-dad56b75b413": {
+      "type": "video",
+      "id": "8c52d060-5c91-4970-8535-dad56b75b413",
+      "name": "video",
+      "trim": {
+        "to": 10000,
+        "from": 0
+      },
+      "isMain": false,
+      "display": {
+        "to": 20000,
+        "from": 10000
+      },
+      "metadata": {
+        "resourceId": "https://videos.pexels.com/video-files/6853193/6853193-sd_226_426_25fps.mp4"
+      },
+      "playbackRate": 1
+    },
+    "acba08d8-859b-453d-849e-4ddb944680c4": {
+      "id": "acba08d8-859b-453d-849e-4ddb944680c4",
+      "name": "",
+      "type": "audio",
+      "display": {
+        "to": 26700.000000000007,
+        "from": 23420.000000000007
+      },
+      "trim": {
+        "to": 26700,
+        "from": 23420
+      },
+      "playbackRate": 1,
+      "metadata": {},
+      "isMain": false
+    },
+    "b9e77630-9d18-494a-9cf9-3b093360c338": {
+      "id": "b9e77630-9d18-494a-9cf9-3b093360c338",
+      "name": "",
+      "type": "audio",
+      "display": {
+        "to": 11980.000000000007,
+        "from": 7600.000000000003
+      },
+      "trim": {
+        "to": 11980,
+        "from": 7600
+      },
+      "playbackRate": 1,
+      "metadata": {},
+      "isMain": false
+    },
+    "ea7fae64-e361-429b-91fc-e00b7ef7215f": {
+      "id": "ea7fae64-e361-429b-91fc-e00b7ef7215f",
+      "name": "",
+      "type": "audio",
+      "display": {
+        "to": 3500.0000000000027,
+        "from": 0
+      },
+      "trim": {
+        "to": 3500,
+        "from": 0
+      },
+      "playbackRate": 1,
+      "metadata": {},
+      "isMain": false
+    }
+  },
+  "transitionIds": []
+}

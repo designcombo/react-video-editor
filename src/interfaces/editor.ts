@@ -1,3 +1,20 @@
+export interface IUpload {
+  id: string;
+  name: string;
+  originalName: string;
+  fileId: string;
+  userId?: string;
+  previewUrl: string;
+  url: string;
+  previewData?: string;
+}
+export interface User {
+  id: string;
+  email: string;
+  avatar: string;
+  username: string;
+  provider: "github";
+}
 export interface IFont {
   id: string;
   family: string;
@@ -26,4 +43,11 @@ export interface IDataState {
   setCompactFonts: (compactFonts: ICompactFont[]) => void;
 }
 
-export type IPropertyType = 'textContent' | 'fontSize' | 'color';
+export type IPropertyType = "textContent" | "fontSize" | "color";
+
+/**
+ * Width / height
+ */
+export type Ratio = number;
+
+export type Area = [x: number, y: number, width: number, height: number];
