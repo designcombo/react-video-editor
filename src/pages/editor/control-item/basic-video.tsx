@@ -9,12 +9,14 @@ import { Button } from "@/components/ui/button";
 import { Crop } from "lucide-react";
 import Volume from "./common/volume";
 import { useEffect, useState } from "react";
-import { EDIT_OBJECT, dispatch } from "@designcombo/events";
+import { dispatch } from "@designcombo/events";
+import { EDIT_OBJECT } from "@designcombo/state";
 import Speed from "./common/speed";
+import useLayoutStore from "../store/use-layout-store";
 
 const BasicVideo = ({ trackItem }: { trackItem: ITrackItem & IVideo }) => {
   const [properties, setProperties] = useState(trackItem);
-
+  const { setCropTarget } = useLayoutStore();
   const handleChangeVolume = (v: number) => {
     dispatch(EDIT_OBJECT, {
       payload: {
@@ -170,11 +172,16 @@ const BasicVideo = ({ trackItem }: { trackItem: ITrackItem & IVideo }) => {
       </div>
       <ScrollArea className="h-full">
         <div className="flex flex-col gap-2 px-4">
-          <div className="flex items-center gap-2">
-            <Button variant={"secondary"} size={"icon"}>
-              <Crop size={18} />
-            </Button>
-          </div>
+          <Button
+            variant={"secondary"}
+            size={"icon"}
+            onClick={() => {
+              console.log(trackItem);
+              setCropTarget(trackItem);
+            }}
+          >
+            <Crop size={18} />
+          </Button>
 
           <AspectRatio />
           <Volume

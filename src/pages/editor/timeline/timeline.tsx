@@ -6,22 +6,23 @@ import CanvasTimeline, {
   unitsToTimeMs,
 } from "@designcombo/timeline";
 import * as ScrollArea from "@radix-ui/react-scroll-area";
+import { dispatch, filter, subject } from "@designcombo/events";
 import {
   TIMELINE_BOUNDING_CHANGED,
   TIMELINE_PREFIX,
-  filter,
-  subject,
-} from "@designcombo/events";
+} from "@designcombo/timeline";
 import useStore from "@/pages/editor/store/use-store";
-import { handleEvents } from "@designcombo/timeline";
 import Playhead from "./playhead";
 import { useCurrentPlayerFrame } from "@/hooks/use-current-frame";
 import { Audio, Image, Text, Video, Caption, Helper, Track } from "./items";
-import StateManager from "@designcombo/state";
+import StateManager, { REPLACE_MEDIA } from "@designcombo/state";
 import {
   TIMELINE_OFFSET_CANVAS_LEFT,
   TIMELINE_OFFSET_CANVAS_RIGHT,
 } from "../constants/constants";
+import { TIMELINE_ITEM_DURATION_CHANGED } from "@/global";
+import { ITrackItem } from "@designcombo/types";
+import PreviewTrackItem from "./items/preview-drag-item";
 
 CanvasTimeline.registerItems({
   Text,
@@ -31,11 +32,14 @@ CanvasTimeline.registerItems({
   Caption,
   Helper,
   Track,
+  PreviewTrackItem,
 });
 
 const EMPTY_SIZE = { width: 0, height: 0 };
 const Timeline = ({ stateManager }: { stateManager: StateManager }) => {
+  // prevent duplicate scroll events
   const canScrollRef = useRef(false);
+  const timelineContainerRef = useRef<HTMLDivElement>(null);
   const [scrollLeft, setScrollLeft] = useState(0);
   const containerRef = useRef<HTMLDivElement>(null);
   const canvasElRef = useRef<HTMLCanvasElement>(null);
@@ -57,6 +61,12 @@ const Timeline = ({ stateManager }: { stateManager: StateManager }) => {
       setScrollLeft(-v.scrollLeft);
     }
   };
+
+  useEffect(() => {
+    if (playerRef?.current) {
+      canScrollRef.current = playerRef?.current.isPlaying();
+    }
+  }, [playerRef?.current?.isPlaying()]);
 
   useEffect(() => {
     const position = timeMsToUnits((currentFrame / fps) * 1000, scale.zoom);
@@ -84,13 +94,21 @@ const Timeline = ({ stateManager }: { stateManager: StateManager }) => {
     }
   }, [currentFrame]);
 
+  const onResizeCanvas = (payload: { width: number; height: number }) => {
+    setCanvasSize({
+      width: payload.width,
+      height: payload.height,
+    });
+  };
+
   useEffect(() => {
     const canvasEl = canvasElRef.current;
-    const containerEl = containerRef.current;
-    if (!canvasEl || !containerEl) return;
+    const timelineContainerEl = timelineContainerRef.current;
 
-    const containerWidth = containerEl.clientWidth;
-    const containerHeight = containerEl.clientHeight;
+    if (!canvasEl || !timelineContainerEl) return;
+
+    const containerWidth = timelineContainerEl.clientWidth - 40;
+    const containerHeight = timelineContainerEl.clientHeight - 90;
     const canvas = new CanvasTimeline(canvasEl, {
       width: containerWidth,
       height: containerHeight,
@@ -101,6 +119,7 @@ const Timeline = ({ stateManager }: { stateManager: StateManager }) => {
       selectionColor: "rgba(0, 216, 214,0.1)",
       selectionBorderColor: "rgba(0, 216, 214,1.0)",
       onScroll,
+      onResizeCanvas,
       scale: scale,
       state: stateManager,
       duration,
@@ -108,10 +127,27 @@ const Timeline = ({ stateManager }: { stateManager: StateManager }) => {
         left: TIMELINE_OFFSET_CANVAS_LEFT,
         right: TIMELINE_OFFSET_CANVAS_RIGHT,
       },
+      sizesMap: {
+        caption: 32,
+        text: 32,
+        audio: 36,
+        customTrack: 40,
+        customTrack2: 40,
+        main: 40,
+      },
+      acceptsMap: {
+        text: ["text", "caption"],
+        image: ["image", "video"],
+        video: ["video", "image"],
+        audio: ["audio"],
+        caption: ["caption", "text"],
+        template: ["template"],
+        customTrack: ["video", "image"],
+        customTrack2: ["video", "image"],
+        main: ["video", "image"],
+      },
       guideLineColor: "#ffffff",
     });
-
-    const eventsHandler = handleEvents(canvas);
 
     canvasRef.current = canvas;
 
@@ -131,7 +167,7 @@ const Timeline = ({ stateManager }: { stateManager: StateManager }) => {
       setState(newState);
     });
 
-    const tracksSubscription = stateManager.subscribeToTracks((newState) => {
+    const tracksSubscription = stateManager.subscribeToState((newState) => {
       setState(newState);
     });
     const durationSubscription = stateManager.subscribeToDuration(
@@ -169,7 +205,6 @@ const Timeline = ({ stateManager }: { stateManager: StateManager }) => {
       });
 
     return () => {
-      eventsHandler.unsubscribe();
       canvas.purge();
       scaleSubscription.unsubscribe();
       tracksSubscription.unsubscribe();
@@ -219,6 +254,33 @@ const Timeline = ({ stateManager }: { stateManager: StateManager }) => {
     };
   }, []);
 
+  const handleReplaceItem = (trackItem: Partial<ITrackItem>) => {
+    dispatch(REPLACE_MEDIA, {
+      payload: {
+        [trackItem.id!]: {
+          details: {
+            src: "https://cdn.designcombo.dev/videos/demo-video-4.mp4",
+          },
+        },
+      },
+    });
+  };
+
+  useEffect(() => {
+    const timelineEvents = subject.pipe(
+      filter(({ key }) => key.startsWith(TIMELINE_PREFIX)),
+    );
+
+    const subscription = timelineEvents.subscribe((obj) => {
+      if (obj.key === TIMELINE_ITEM_DURATION_CHANGED) {
+        handleReplaceItem(obj.value?.payload);
+      }
+    });
+    return () => {
+      subscription.unsubscribe();
+    };
+  }, [timeline]);
+
   const onClickRuler = (units: number) => {
     const canvas = canvasRef.current;
     if (!canvas) return;
@@ -237,14 +299,22 @@ const Timeline = ({ stateManager }: { stateManager: StateManager }) => {
   }, [scale]);
 
   return (
-    <div className="relative h-80 w-full overflow-hidden bg-background">
+    <div
+      ref={timelineContainerRef}
+      id={"timeline-container"}
+      className="relative h-full w-full overflow-hidden bg-background"
+    >
       <Header />
       <Ruler onClick={onClickRuler} scrollLeft={scrollLeft} />
       <Playhead scrollLeft={scrollLeft} />
       <div className="flex">
         <div className="relative w-10 flex-none"></div>
-        <div className="relative h-[230px] flex-1">
-          <div ref={containerRef} className="absolute top-0 h-[230px] w-full">
+        <div style={{ height: canvasSize.height }} className="relative flex-1">
+          <div
+            style={{ height: canvasSize.height }}
+            ref={containerRef}
+            className="absolute top-0 w-full"
+          >
             <canvas id="designcombo-timeline-canvas" ref={canvasElRef} />
           </div>
           <ScrollArea.Root
@@ -255,6 +325,12 @@ const Timeline = ({ stateManager }: { stateManager: StateManager }) => {
               height: "10px",
             }}
             className="ScrollAreaRootH"
+            onPointerDown={() => {
+              canScrollRef.current = true;
+            }}
+            onPointerUp={() => {
+              canScrollRef.current = false;
+            }}
           >
             <ScrollArea.Viewport
               onScroll={handleOnScrollH}
@@ -293,7 +369,7 @@ const Timeline = ({ stateManager }: { stateManager: StateManager }) => {
             type="always"
             style={{
               position: "absolute",
-              height: "230px",
+              height: canvasSize.height,
               width: "10px",
             }}
             className="ScrollAreaRootV"

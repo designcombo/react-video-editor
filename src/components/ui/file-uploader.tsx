@@ -93,7 +93,8 @@ export function FileUploader(props: FileUploaderProps) {
   } = props;
 
   const onDrop = React.useCallback(
-    (acceptedFiles: File[], _: FileRejection[]) => {
+    (acceptedFiles: File[], rejectedFiles: FileRejection[]) => {
+      console.warn(rejectedFiles);
       if (!multiple && maxFileCount === 1 && acceptedFiles.length > 1) {
         // toast.error("Cannot upload more than 1 file at a time");
         return;

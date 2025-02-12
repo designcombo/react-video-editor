@@ -2,45 +2,45 @@ import { IImage } from "@designcombo/types";
 
 export const IMAGES: Partial<IImage>[] = [
   {
-    id: "1",
+    id: "images1",
     details: { src: "https://ik.imagekit.io/wombo/images/img1.jpg" },
     preview: "https://ik.imagekit.io/wombo/images/img1.jpg?tr=w-190",
     type: "image",
   },
   {
-    id: "2",
+    id: "images2",
     details: { src: "https://ik.imagekit.io/wombo/images/img2.jpg" },
     preview: "https://ik.imagekit.io/wombo/images/img2.jpg?tr=w-190",
     type: "image",
   },
   {
-    id: "3",
+    id: "images3",
     details: { src: "https://ik.imagekit.io/wombo/images/img3.jpg" },
     preview: "https://ik.imagekit.io/wombo/images/img3.jpg?tr=w-190",
     type: "image",
   },
 
   {
-    id: "4",
+    id: "images4",
     details: { src: "https://ik.imagekit.io/wombo/images/img4.jpg" },
     preview: "https://ik.imagekit.io/wombo/images/img4.jpg?tr=w-190",
     type: "image",
   },
   {
-    id: "5",
+    id: "images5",
     details: { src: "https://ik.imagekit.io/wombo/images/img5.jpg" },
     preview: "https://ik.imagekit.io/wombo/images/img5.jpg?tr=w-190",
     type: "image",
   },
   ,
   {
-    id: "6",
+    id: "images6",
     details: { src: "https://ik.imagekit.io/wombo/images/img6.jpg" },
     preview: "https://ik.imagekit.io/wombo/images/img6.jpg?tr=w-190",
     type: "image",
   },
   {
-    id: "7",
+    id: "images7",
     details: { src: "https://ik.imagekit.io/wombo/images/img7.jpg" },
     preview: "https://ik.imagekit.io/wombo/images/img7.jpg?tr=w-190",
     type: "image",

@@ -1,5 +1,4 @@
 import useLayoutStore from "../store/use-layout-store";
-import { Transitions } from "./transitions";
 import { Texts } from "./texts";
 import { Uploads } from "./uploads";
 import { Audios } from "./audios";
@@ -8,7 +7,6 @@ import { Images } from "./images";
 import { Videos } from "./videos";
 import { X } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { Captions } from "./captions";
 
 const Container = ({ children }: { children: React.ReactNode }) => {
   const { showMenuItem, setShowMenuItem } = useLayoutStore();
@@ -38,20 +36,13 @@ const Container = ({ children }: { children: React.ReactNode }) => {
 
 const ActiveMenuItem = () => {
   const { activeMenuItem } = useLayoutStore();
-  if (activeMenuItem === "transitions") {
-    return <Transitions />;
-  }
+
   if (activeMenuItem === "texts") {
     return <Texts />;
   }
-  if (activeMenuItem === "shapes") {
-    return <Elements />;
-  }
+
   if (activeMenuItem === "videos") {
     return <Videos />;
-  }
-  if (activeMenuItem === "captions") {
-    return <Captions />;
   }
 
   if (activeMenuItem === "audios") {

@@ -1,16 +1,19 @@
 import Draggable from "@/components/shared/draggable";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { AUDIOS } from "@/data/audio";
-import { ADD_AUDIO, dispatch } from "@designcombo/events";
+import { dispatch } from "@designcombo/events";
+import { ADD_AUDIO } from "@designcombo/state";
 import { IAudio } from "@designcombo/types";
 import { Music } from "lucide-react";
 import { useIsDraggingOverTimeline } from "../hooks/is-dragging-over-timeline";
 import React from "react";
+import { generateId } from "@designcombo/timeline";
 
 export const Audios = () => {
   const isDraggingOverTimeline = useIsDraggingOverTimeline();
 
   const handleAddAudio = (payload: Partial<IAudio>) => {
+    payload.id = generateId();
     dispatch(ADD_AUDIO, {
       payload,
       options: {},

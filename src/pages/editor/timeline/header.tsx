@@ -1,13 +1,12 @@
 import { Button } from "@/components/ui/button";
+import { dispatch } from "@designcombo/events";
 import {
   ACTIVE_SPLIT,
   LAYER_CLONE,
   LAYER_DELETE,
-  PLAYER_PAUSE,
-  PLAYER_PLAY,
   TIMELINE_SCALE_CHANGED,
-  dispatch,
-} from "@designcombo/events";
+} from "@designcombo/state";
+import { PLAYER_PAUSE, PLAYER_PLAY } from "@/global";
 import { frameToTimeString, getCurrentTime, timeToString } from "../utils/time";
 import useStore from "@/pages/editor/store/use-store";
 import { SquareSplitHorizontal, Trash, ZoomIn, ZoomOut } from "lucide-react";
@@ -88,7 +87,6 @@ const Header = () => {
       style={{
         position: "relative",
         height: "50px",
-        boxShadow: "inset 0 1px 0 0 #27272a",
         flex: "none",
       }}
       className="bg-background"
@@ -253,7 +251,7 @@ const ZoomControl = ({
           className="w-28"
           value={[localValue]}
           min={0}
-          max={20}
+          max={12}
           step={1}
           onValueChange={(e) => {
             setLocalValue(e[0]); // Update local state

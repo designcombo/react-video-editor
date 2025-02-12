@@ -1,7 +1,8 @@
 import Draggable from "@/components/shared/draggable";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { VIDEOS } from "@/data/video";
-import { ADD_VIDEO, dispatch } from "@designcombo/events";
+import { dispatch } from "@designcombo/events";
+import { ADD_VIDEO } from "@designcombo/state";
 import { generateId } from "@designcombo/timeline";
 import { IVideo } from "@designcombo/types";
 import React from "react";
@@ -11,10 +12,12 @@ export const Videos = () => {
   const isDraggingOverTimeline = useIsDraggingOverTimeline();
 
   const handleAddVideo = (payload: Partial<IVideo>) => {
+    // payload.details.src = "https://cdn.designcombo.dev/videos/timer-20s.mp4";
     dispatch(ADD_VIDEO, {
       payload,
       options: {
         resourceId: "main",
+        scaleMode: "fit",
       },
     });
   };
@@ -63,7 +66,12 @@ const VideoItem = ({
 
   return (
     <Draggable
-      data={video}
+      data={{
+        ...video,
+        metadata: {
+          previewUrl: video.preview,
+        },
+      }}
       renderCustomPreview={<div style={style} className="draggable" />}
       shouldDisplayPreview={shouldDisplayPreview}
     >
@@ -74,7 +82,10 @@ const VideoItem = ({
             details: {
               src: video.details!.src,
             },
-          } as IVideo)
+            metadata: {
+              previewUrl: video.preview,
+            },
+          } as any)
         }
         className="flex w-full items-center justify-center overflow-hidden bg-background pb-2"
       >

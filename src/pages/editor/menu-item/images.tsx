@@ -1,21 +1,50 @@
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { IMAGES } from "@/data/images";
-import { ADD_IMAGE, dispatch } from "@designcombo/events";
+import { dispatch } from "@designcombo/events";
 import { generateId } from "@designcombo/timeline";
 import Draggable from "@/components/shared/draggable";
 import { IImage } from "@designcombo/types";
 import React from "react";
 import { useIsDraggingOverTimeline } from "../hooks/is-dragging-over-timeline";
+import { ADD_ITEMS } from "@designcombo/state";
 
 export const Images = () => {
   const isDraggingOverTimeline = useIsDraggingOverTimeline();
 
   const handleAddImage = (payload: Partial<IImage>) => {
-    console.log({ payload });
-    dispatch(ADD_IMAGE, {
-      payload,
-      options: {
-        trackId: "main",
+    const id = generateId();
+    // dispatch(ADD_IMAGE, {
+    //   payload: {
+    //     id,
+    //     type: "image",
+    //     display: {
+    //       from: 5000,
+    //       to: 10000,
+    //     },
+    //     details: {
+    //       src: payload.details?.src,
+    //     },
+    //   },
+    //   options: {
+    //     scaleMode: "fit",
+    //   },
+    // });
+    dispatch(ADD_ITEMS, {
+      payload: {
+        trackItems: [
+          {
+            id,
+            type: "image",
+            display: {
+              from: 0,
+              to: 5000,
+            },
+            details: {
+              src: payload.details?.src,
+            },
+            metadata: {},
+          },
+        ],
       },
     });
   };

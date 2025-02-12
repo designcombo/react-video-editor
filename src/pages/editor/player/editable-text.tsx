@@ -4,9 +4,10 @@ const TextLayer: React.FC<{
   id: string;
   content: string;
   onChange?: (id: string, content: string) => void;
+  onBlur?: (id: string, content: string) => void;
   style?: React.CSSProperties;
   editable?: boolean;
-}> = ({ id, content, editable, style = {} }) => {
+}> = ({ id, content, editable, style = {}, onChange, onBlur }) => {
   const [data, setData] = useState(content);
   const divRef = useRef<HTMLDivElement>(null);
 
@@ -62,6 +63,8 @@ const TextLayer: React.FC<{
       ref={divRef}
       contentEditable={editable}
       onClick={handleClick}
+      onInput={(ev) => onChange!(id, (ev.target as any).innerText)}
+      onBlur={(ev) => onBlur!(id, (ev.target as any).innerText)}
       style={{
         height: "100%",
         boxShadow: "none",

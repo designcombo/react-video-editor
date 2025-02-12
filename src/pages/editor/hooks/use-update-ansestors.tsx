@@ -1,7 +1,8 @@
 import { PlayerRef } from "@remotion/player";
 import { RefObject, useEffect } from "react";
 import useStore from "@/pages/editor/store/use-store";
-import { ENTER_EDIT_MODE, dispatch } from "@designcombo/events";
+import { dispatch } from "@designcombo/events";
+import { ENTER_EDIT_MODE } from "@designcombo/state";
 import { getTargetById, getTypeFromClassName } from "../utils/target";
 
 export default function useUpdateAnsestors({

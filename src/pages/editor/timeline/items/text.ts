@@ -4,7 +4,7 @@ class Text extends TextBase {
   static type = "Text";
   constructor(props: TextProps) {
     super(props);
-    this.fill = "#303030";
+    this.fill = "#305252";
   }
 
   public _render(ctx: CanvasRenderingContext2D) {
@@ -19,17 +19,36 @@ class Text extends TextBase {
     );
     ctx.save();
     ctx.translate(-this.width / 2, -this.height / 2);
-    ctx.translate(0, 12);
+    ctx.translate(0, 8);
     ctx.font = "600 12px 'Geist variable'";
-    ctx.fillStyle = "#f4f4f5";
+    ctx.fillStyle = "rgba(255, 255, 255, 0.75)";
     ctx.textAlign = "left";
     ctx.clip();
     ctx.fillText(this.text, 36, 12);
 
     ctx.translate(8, 1);
 
-    ctx.fillStyle = "#f4f4f5";
+    ctx.fillStyle = "rgba(255, 255, 255, 0.75)";
     ctx.fill(textPath);
+    ctx.restore();
+  }
+
+  public updateSelected(ctx: CanvasRenderingContext2D) {
+    const borderColor = this.isSelected
+      ? "rgba(255, 255, 255,1.0)"
+      : "rgba(255, 255, 255,0.1)";
+    ctx.save();
+    ctx.beginPath();
+    ctx.roundRect(
+      -this.width / 2,
+      -this.height / 2,
+      this.width,
+      this.height,
+      6,
+    );
+    ctx.lineWidth = 1;
+    ctx.strokeStyle = borderColor;
+    ctx.stroke();
     ctx.restore();
   }
 }

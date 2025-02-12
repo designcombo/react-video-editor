@@ -1,54 +1,46 @@
-import { Button } from "@/components/ui/button";
-import { DEFAULT_FONT } from "@/data/fonts";
-import { ADD_TEXT, dispatch } from "@designcombo/events";
-import { generateId } from "@designcombo/timeline";
+import { Button, buttonVariants } from "@/components/ui/button";
+import { ADD_TEXT } from "@designcombo/state";
+import { dispatch } from "@designcombo/events";
+import { useIsDraggingOverTimeline } from "../hooks/is-dragging-over-timeline";
+import Draggable from "@/components/shared/draggable";
+import { TEXT_ADD_PAYLOAD } from "../constants/payload";
+import { cn } from "@/lib/utils";
 
 export const Texts = () => {
+  const isDraggingOverTimeline = useIsDraggingOverTimeline();
+
   const handleAddText = () => {
     dispatch(ADD_TEXT, {
-      payload: {
-        id: generateId(),
-        display: {
-          from: 0,
-          to: 5000,
-        },
-        details: {
-          text: "Heading and some body",
-          fontSize: 120,
-          width: 600,
-          fontUrl: DEFAULT_FONT.url,
-          fontFamily: DEFAULT_FONT.postScriptName,
-          color: "#ffffff",
-          wordWrap: "break-word",
-          textAlign: "center",
-          borderWidth: 0,
-          borderColor: "#000000",
-          boxShadow: {
-            color: "#ffffff",
-            x: 0,
-            y: 0,
-            blur: 0,
-          },
-        },
-      },
+      payload: TEXT_ADD_PAYLOAD,
       options: {},
     });
   };
- 
+
   return (
     <div className="flex flex-1 flex-col">
       <div className="text-text-primary flex h-12 flex-none items-center px-4 text-sm font-medium">
         Text
       </div>
       <div className="flex flex-col gap-2 px-4">
-        <Button
-          draggable={false}
-          onClick={handleAddText}
-          variant="secondary"
-          className="w-full"
+        <Draggable
+          data={TEXT_ADD_PAYLOAD}
+          renderCustomPreview={
+            <Button variant="secondary" className="w-60">
+              Add text
+            </Button>
+          }
+          shouldDisplayPreview={!isDraggingOverTimeline}
         >
-          Add text
-        </Button>
+          <div
+            onClick={handleAddText}
+            className={cn(
+              buttonVariants({ variant: "secondary" }),
+              "cursor-pointer",
+            )}
+          >
+            Add text
+          </div>
+        </Draggable>
       </div>
     </div>
   );

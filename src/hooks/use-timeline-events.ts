@@ -1,17 +1,16 @@
 import useStore from "@/pages/editor/store/use-store";
 import { useEffect } from "react";
+import { filter, subject } from "@designcombo/events";
 import {
-  LAYER_PREFIX,
-  LAYER_SELECTION,
   PLAYER_PAUSE,
   PLAYER_PLAY,
   PLAYER_PREFIX,
   PLAYER_SEEK,
   PLAYER_SEEK_BY,
   PLAYER_TOGGLE_PLAY,
-  filter,
-  subject,
-} from "@designcombo/events";
+} from "@/global";
+import { LAYER_PREFIX, LAYER_SELECTION } from "@designcombo/state";
+import { TIMELINE_SEEK, TIMELINE_PREFIX } from "@designcombo/timeline";
 const useTimelineEvents = () => {
   const { playerRef, fps, timeline, setState } = useStore();
 
@@ -20,7 +19,16 @@ const useTimelineEvents = () => {
     const playerEvents = subject.pipe(
       filter(({ key }) => key.startsWith(PLAYER_PREFIX)),
     );
+    const timelineEvents = subject.pipe(
+      filter(({ key }) => key.startsWith(TIMELINE_PREFIX)),
+    );
 
+    const timelineEventsSubscription = timelineEvents.subscribe((obj) => {
+      if (obj.key === TIMELINE_SEEK) {
+        const { time } = obj.value?.payload;
+        playerRef?.current?.seekTo((time / 1000) * fps);
+      }
+    });
     const playerEventsSubscription = playerEvents.subscribe((obj) => {
       if (obj.key === PLAYER_SEEK) {
         const { time } = obj.value?.payload;
@@ -43,7 +51,10 @@ const useTimelineEvents = () => {
       }
     });
 
-    return () => playerEventsSubscription.unsubscribe();
+    return () => {
+      playerEventsSubscription.unsubscribe();
+      timelineEventsSubscription.unsubscribe();
+    };
   }, [playerRef, fps]);
 
   // handle selection events

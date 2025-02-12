@@ -8,13 +8,15 @@ import AspectRatio from "./common/aspect-ratio";
 import { Button } from "@/components/ui/button";
 import { Crop } from "lucide-react";
 import { useEffect, useState } from "react";
-import { EDIT_OBJECT, dispatch } from "@designcombo/events";
+import { dispatch } from "@designcombo/events";
+import { EDIT_OBJECT } from "@designcombo/state";
 import Blur from "./common/blur";
 import Brightness from "./common/brightness";
-import Flip from "./common/flip";
+import useLayoutStore from "../store/use-layout-store";
 
 const BasicImage = ({ trackItem }: { trackItem: ITrackItem & IImage }) => {
   const [properties, setProperties] = useState(trackItem);
+  const { setCropTarget } = useLayoutStore();
   useEffect(() => {
     setProperties(trackItem);
   }, [trackItem]);
@@ -165,6 +167,7 @@ const BasicImage = ({ trackItem }: { trackItem: ITrackItem & IImage }) => {
       };
     });
   };
+
   return (
     <div className="flex flex-1 flex-col">
       <div className="text-text-primary flex h-12 flex-none items-center px-4 text-sm font-medium">
@@ -173,12 +176,15 @@ const BasicImage = ({ trackItem }: { trackItem: ITrackItem & IImage }) => {
       <ScrollArea className="h-full">
         <div className="flex flex-col gap-2 px-4">
           <div className="flex items-center gap-2">
-            <Button variant={"secondary"} size={"icon"}>
+            <Button
+              variant={"secondary"}
+              size={"icon"}
+              onClick={() => setCropTarget(trackItem)}
+            >
               <Crop size={18} />
             </Button>
           </div>
           <AspectRatio />
-          <Flip trackItem={trackItem} />
           <Rounded
             onChange={(v: number) => onChangeBorderRadius(v)}
             value={properties.details.borderRadius as number}

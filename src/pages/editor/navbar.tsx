@@ -1,11 +1,7 @@
 import { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
-import {
-  HISTORY_UNDO,
-  HISTORY_REDO,
-  dispatch,
-  DESIGN_RESIZE,
-} from "@designcombo/events";
+import { dispatch } from "@designcombo/events";
+import { HISTORY_UNDO, HISTORY_REDO, DESIGN_RESIZE } from "@designcombo/state";
 import logoDark from "@/assets/logo-dark.png";
 import { Icons } from "@/components/shared/icons";
 import {
@@ -52,7 +48,6 @@ import {
 } from "@/components/ui/dropdown-menu";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import useStore from "@/pages/editor/store/use-store";
-import { IDesign } from "@designcombo/types";
 import { generateId } from "@designcombo/timeline";
 const baseUrl = "https://renderer.designcombo.dev";
 const size = {
@@ -264,11 +259,12 @@ const DownloadPopover = () => {
     trackItemsMap,
     trackItemDetailsMap,
     transitionsMap,
+    transitionIds,
     fps,
   } = useStore();
 
   const handleExport = () => {
-    const data: IDesign = {
+    const data: any = {
       id: generateId(),
       fps,
       tracks,
@@ -277,9 +273,9 @@ const DownloadPopover = () => {
       trackItemIds,
       transitionsMap,
       trackItemsMap,
-      transitionIds: [],
+      transitionIds,
     };
-    console.log(JSON.stringify(data));
+    console.log(data);
   };
 
   useEffect(() => {

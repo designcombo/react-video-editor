@@ -1,77 +1,80 @@
-import { ITrackItemsMap, ITransition } from "@designcombo/types";
-import UnionFind from "./union-find";
-import { cloneDeep } from "lodash";
+import { ITrackItemsMap, ITransition, ITrackItem } from "@designcombo/types";
+
+type GroupElement = ITrackItem | ITransition;
 
 export const groupTrackItems = (data: {
   trackItemIds: string[];
   transitionsMap: Record<string, ITransition>;
   trackItemsMap: ITrackItemsMap;
-}): string[][] => {
+}): GroupElement[][] => {
   const { trackItemIds, transitionsMap, trackItemsMap } = data;
 
-  // Create a mapping of trackItemIds to indices
-  const indexMap: { [key: string]: number } = {};
-  trackItemIds.forEach((id, idx) => {
-    indexMap[id] = idx;
+  // Create a map to track which items are part of transitions
+  const itemTransitionMap = new Map<string, ITransition[]>();
+
+  // Initialize transition maps
+  Object.values(transitionsMap).forEach((transition) => {
+    const { fromId, toId, kind } = transition;
+    if (kind === "none") return; // Skip transitions of kind 'none'
+    if (!itemTransitionMap.has(fromId)) itemTransitionMap.set(fromId, []);
+    if (!itemTransitionMap.has(toId)) itemTransitionMap.set(toId, []);
+    itemTransitionMap.get(fromId)?.push(transition);
+    itemTransitionMap.get(toId)?.push(transition);
   });
 
-  const uf = new UnionFind(trackItemIds.length);
-  const orderMap: { [key: string]: string[] } = {};
-  const transitionsData = Object.values(transitionsMap).map(
-    (transition) =>
-      trackItemsMap[transition.fromId] &&
-      cloneDeep({
-        ...transition,
-        fromValue: trackItemsMap[transition.fromId].display.from,
-      }),
-  );
-  const orderTransitionsDataByFrom = transitionsData.sort((a, b) => {
-    return a.fromValue - b.fromValue;
-  });
+  const groups: GroupElement[][] = [];
+  const processed = new Set<string>();
 
-  orderTransitionsDataByFrom.forEach((transition) => {
-    if (!transition) return;
-    const fromIndex = indexMap[transition.fromId];
-    const toIndex = indexMap[transition.toId];
-    uf.union(fromIndex, toIndex);
+  // Helper function to build a connected group starting from an item
+  const buildGroup = (startItemId: string): GroupElement[] => {
+    const group: GroupElement[] = [];
+    let currentId = startItemId;
 
-    const rootFrom = uf.find(fromIndex);
-    const rootTo = uf.find(toIndex);
+    while (currentId) {
+      if (processed.has(currentId)) break;
 
-    if (!orderMap[rootFrom]) {
-      orderMap[rootFrom] = [];
-    }
-    if (!orderMap[rootTo]) {
-      orderMap[rootTo] = [];
+      processed.add(currentId);
+      const currentItem = trackItemsMap[currentId];
+      group.push(currentItem);
+
+      // Find transition from this item
+      const transition = Object.values(transitionsMap).find(
+        (t) => t.fromId === currentId && t.kind !== "none", // Filter here
+      );
+      if (!transition) break;
+
+      group.push(transition);
+      currentId = transition.toId;
     }
 
-    if (!orderMap[rootFrom].includes(transition.fromId)) {
-      orderMap[rootFrom].push(transition.fromId);
-    }
-    if (!orderMap[rootTo].includes(transition.toId)) {
-      orderMap[rootTo].push(transition.toId);
-    }
-  });
+    return group;
+  };
 
-  // Group items by their root parent and maintain order
-  const groups: { [key: number]: string[] } = {};
-  trackItemIds.forEach((id) => {
-    const root = uf.find(indexMap[id]);
-    if (!groups[root]) {
-      groups[root] = [];
-    }
-    if (!groups[root].includes(id)) {
-      groups[root].push(id);
-    }
-  });
+  // Process all items
+  for (const itemId of trackItemIds) {
+    if (processed.has(itemId)) continue;
 
-  // Ensure the order within each group
-  const groupedItems = Object.values(groups).map((group) => {
-    return group.sort((a, b) => {
-      const aIndex = orderMap[uf.find(indexMap[a])].indexOf(a);
-      const bIndex = orderMap[uf.find(indexMap[b])].indexOf(b);
-      return aIndex - bIndex;
+    // If item is not part of any transition or is the start of a sequence
+    if (
+      !itemTransitionMap.has(itemId) ||
+      !Object.values(transitionsMap).some((t) => t.toId === itemId)
+    ) {
+      const group = buildGroup(itemId);
+      if (group.length > 0) {
+        groups.push(group);
+      }
+    }
+  }
+
+  // Sort items within each group by display.from
+  groups.forEach((group) => {
+    group.sort((a, b) => {
+      if ("display" in a && "display" in b) {
+        return a.display.from - b.display.from;
+      }
+      return 0;
     });
   });
-  return groupedItems;
+
+  return groups;
 };

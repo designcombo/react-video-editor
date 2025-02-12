@@ -10,8 +10,8 @@ import {
   slidingDoors,
   star,
   wipe,
-} from "@designcombo/transitions";
-import { TransitionSeries } from "@remotion/transitions";
+} from "./transitions";
+import { TransitionSeries } from "./transitions";
 
 interface TransitionOptions {
   width: number;
@@ -75,13 +75,15 @@ export const Transitions: Record<
       timing={linearTiming({ durationInFrames })}
     />
   ),
-  circle: ({ width, height, durationInFrames, id }: TransitionOptions) => (
-    <TransitionSeries.Transition
-      key={id}
-      presentation={circle({ width, height })}
-      timing={linearTiming({ durationInFrames })}
-    />
-  ),
+  circle: ({ width, height, durationInFrames, id }: TransitionOptions) => {
+    return (
+      <TransitionSeries.Transition
+        key={id}
+        presentation={circle({ width, height })}
+        timing={linearTiming({ durationInFrames })}
+      />
+    );
+  },
   rectangle: ({ width, height, durationInFrames, id }: TransitionOptions) => (
     <TransitionSeries.Transition
       key={id}

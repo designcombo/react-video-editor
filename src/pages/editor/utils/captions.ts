@@ -7,22 +7,7 @@ interface Word {
   word: string;
 }
 
-interface Segment {
-  start: number;
-  end: number;
-  text: string;
-  words: Word[];
-}
-
-interface Input {
-  segments: Segment[];
-}
-
-interface ICaptionLines {
-  lines: Line[];
-}
-
-interface Line {
+interface ICaptionLine {
   text: string;
   words: Word[];
   width: number;
@@ -30,33 +15,95 @@ interface Line {
   end: number;
 }
 
-export function getCaptionLines(
-  input: Input,
-  fontSize: number,
-  fontFamily: string,
-  maxWidth: number,
-): ICaptionLines {
+export const generateCaption = (
+  captionLine: ICaptionLine,
+  fontInfo: FontInfo,
+  options: Options,
+  sourceUrl: string,
+): ICaption => {
+  const caption = {
+    id: generateId(),
+    type: "caption",
+    name: "Caption",
+    display: {
+      from: options.displayFrom + captionLine.start * 1000,
+      to: options.displayFrom + captionLine.end * 1000,
+    },
+    metadata: {
+      words: captionLine.words.map((w) => ({
+        ...w,
+        start: w.start * 1000,
+        end: w.end * 1000,
+      })),
+      sourceUrl,
+      parentId: options.parentId,
+    },
+    details: {
+      top: 800,
+      text: captionLine.text,
+      fontSize: fontInfo.fontSize,
+      width: options.containerWidth,
+      fontFamily: fontInfo.fontFamily,
+      fontUrl: fontInfo.fontUrl,
+      color: "#ff4757",
+      textAlign: "center",
+    } as unknown,
+  };
+  return caption as ICaption;
+};
+
+interface Word {
+  word: string;
+  start: number;
+  end: number;
+  confidence: number;
+}
+
+interface CaptionsInput {
+  sourceUrl: string;
+  results: {
+    main: {
+      words: Word[];
+    };
+  };
+}
+
+function createCaptionLines(
+  input: CaptionsInput,
+  fontInfo: FontInfo,
+  options: Options,
+): ICaptionLine[] {
   const canvas = document.createElement("canvas");
   const context = canvas.getContext("2d")!;
-  context.font = `${fontSize}px ${fontFamily}`;
+  context.font = `${fontInfo.fontSize}px ${fontInfo.fontFamily}`;
 
-  const captionLines: ICaptionLines = { lines: [] };
-  input.segments.forEach((segment) => {
-    let currentLine: Line = {
-      text: "",
-      words: [],
-      width: 0,
-      start: segment.start,
-      end: 0,
-    };
-    segment.words.forEach((wordObj, index) => {
-      const wordWidth = context.measureText(wordObj.word).width;
+  const captionLines: ICaptionLine[] = [];
+  const words: Word[] = input.results.main.words;
 
-      // Check if adding this word exceeds the max width
-      if (currentLine.width + wordWidth > maxWidth) {
-        // Push the current line to captionLines and start a new line
-        console.log({ currentLine });
-        captionLines.lines.push(currentLine);
+  let currentLine: ICaptionLine = {
+    text: "",
+    words: [],
+    width: 0,
+    start: words.length > 0 ? words[0].start : 0,
+    end: 0,
+  };
+  let linesCount = 0;
+
+  words.forEach((wordObj, index) => {
+    const wordWidth = context.measureText(wordObj.word).width;
+
+    if (
+      currentLine.width + wordWidth > options.containerWidth - 64 ||
+      currentLine.text.endsWith(".")
+    ) {
+      const advance = currentLine.text.endsWith(".");
+      // Check if it's time to start a new caption set
+      if (linesCount + 1 === options.linesPerCaption || advance) {
+        // Only push when lines count is correct
+        captionLines.push(currentLine);
+        linesCount = 0;
+
+        // Reset currentLine for the next set of lines
         currentLine = {
           text: "",
           words: [],
@@ -64,51 +111,51 @@ export function getCaptionLines(
           start: wordObj.start,
           end: wordObj.end,
         };
+      } else {
+        linesCount += 1;
+
+        // Reset currentLine.width but keep other details to continue accumulation
+        currentLine.width = 0;
       }
+    }
 
-      // Add the word to the current line
-      currentLine.text += (currentLine.text ? " " : "") + wordObj.word;
-      currentLine.words.push(wordObj);
-      currentLine.width += wordWidth;
+    // Accumulate words and width for the current line
+    currentLine.text += (currentLine.text ? " " : "") + wordObj.word;
+    currentLine.words.push(wordObj);
+    currentLine.width += wordWidth;
+    currentLine.end = wordObj.end;
 
-      // Update line end time
-      currentLine.end = wordObj.end;
-
-      // Push the last line when the iteration ends
-      if (index === segment.words.length - 1) {
-        captionLines.lines.push(currentLine);
-      }
-    });
+    // Push the final line if it's the last word
+    if (index === words.length - 1 && currentLine.text) {
+      captionLines.push(currentLine);
+    }
   });
 
   return captionLines;
 }
+interface FontInfo {
+  fontFamily: string;
+  fontUrl: string;
+  fontSize: number;
+}
 
-export const getCaptions = (
-  captionLines: ICaptionLines,
-): Partial<ICaption>[] => {
-  const captions = captionLines.lines.map((line) => {
-    return {
-      id: generateId(),
-      type: "caption",
-      name: "Caption",
-      display: {
-        from: line.start,
-        to: line.end,
-      },
-      metadata: {},
-      details: {
-        top: 400,
-        text: line.text,
-        fontSize: 64,
-        width: 800,
-        fontFamily: "theboldfont",
-        fontUrl: "https://cdn.designcombo.dev/fonts/theboldfont.ttf",
-        color: "#fff",
-        textAlign: "center",
-        words: line.words,
-      },
-    };
-  });
-  return captions as unknown as Partial<ICaption>[];
-};
+interface Options {
+  containerWidth: number;
+  linesPerCaption: number;
+  parentId: string;
+  displayFrom: number;
+}
+
+export function generateCaptions(
+  input: CaptionsInput,
+  fontInfo: FontInfo,
+  options: Options,
+): ICaption[] {
+  const captionLines = createCaptionLines(input, fontInfo, options);
+
+  const captions = captionLines.map((line) =>
+    generateCaption(line, fontInfo, options, input.sourceUrl),
+  );
+
+  return captions;
+}

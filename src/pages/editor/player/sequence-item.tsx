@@ -1,6 +1,8 @@
+/** @jsxImportSource @emotion/react */
+import { css } from "@emotion/react";
+import styled from "@emotion/styled";
 import { AbsoluteFill, Audio, Img, OffthreadVideo, Sequence } from "remotion";
 import TextLayer from "./editable-text";
-import MediaBackground from "./media-background";
 import {
   IAudio,
   ICaption,
@@ -9,8 +11,16 @@ import {
   IText,
   IVideo,
 } from "@designcombo/types";
-
-const REMOTION_SAFE_FRAME = 1;
+import useStore from "../store/use-store";
+import { useCurrentPlayerFrame } from "@/hooks/use-current-frame";
+import { calculateFrames } from "../utils/frames";
+import { Animated } from "./animated";
+import {
+  calculateContainerStyles,
+  calculateMediaStyles,
+  calculateTextStyles,
+} from "./styles";
+import { getAnimations } from "../utils/get-animations";
 
 interface SequenceItemOptions {
   handleTextChange?: (id: string, text: string) => void;
@@ -18,222 +28,205 @@ interface SequenceItemOptions {
   editableTextId?: string | null;
   currentTime?: number;
   zIndex?: number;
+  active?: boolean;
+  onTextBlur?: (id: string, text: string) => void;
 }
 
-export const calculateFrames = (
-  display: { from: number; to: number },
-  fps: number,
-) => {
-  const from = (display.from / 1000) * fps;
-  const durationInFrames = (display.to / 1000) * fps - from;
-  return { from, durationInFrames };
+interface WordSpanProps {
+  isActive: boolean;
+  activeBackgroundColor: string;
+  activeColor: string;
+}
+
+const WordSpan = styled.span<WordSpanProps>`
+  position: relative;
+  display: inline-block;
+  padding: 0 0.2em;
+  color: #fff;
+  border-radius: 16px;
+
+  z-index: 99;
+  &::before {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    // background-color: transparent;
+    border-radius: 0.1em;
+    left: -0.2em;
+    right: -0.2em;
+    top: 0;
+    bottom: 0;
+    transition: background-color 0.2s ease;
+    border-radius: 16px;
+  }
+
+  ${(props) =>
+    props.isActive &&
+    css`
+      color: ${props.activeColor};
+      &::before {
+        background-color: ${props.activeBackgroundColor};
+      }
+    `}
+`;
+
+const CaptionWord = ({
+  word,
+  offsetFrom,
+}: {
+  word: any;
+  offsetFrom: number;
+}) => {
+  const { playerRef } = useStore();
+  const currentFrame = useCurrentPlayerFrame(playerRef!);
+  const { start, end } = word;
+  const startAtFrame = ((start + offsetFrom) / 1000) * 30;
+  const endAtFrame = ((end + offsetFrom) / 1000) * 30;
+  const isActive = currentFrame > startAtFrame && currentFrame < endAtFrame;
+
+  return (
+    <WordSpan
+      isActive={isActive}
+      activeColor={"#50FF12"}
+      activeBackgroundColor="#7E12FF" // You can make this dynamic by passing it as a prop or from a theme
+    >
+      {word.word}
+    </WordSpan>
+  );
 };
 
 export const SequenceItem: Record<
   string,
   (item: IItem, options: SequenceItemOptions) => JSX.Element
 > = {
-  text: (trackItem, options: SequenceItemOptions) => {
-    const item = trackItem as IText;
-    const { handleTextChange, fps, editableTextId, zIndex } = options;
-    const { id, details } = item as IText;
+  text: (item, options: SequenceItemOptions) => {
+    const { handleTextChange, onTextBlur, fps, editableTextId, zIndex } =
+      options;
+    const { id, details, animations } = item as IText;
     const { from, durationInFrames } = calculateFrames(item.display, fps);
-    const boxShadowAsShadow = item.details.boxShadow
-      ? `${item.details.boxShadow.x}px ${item.details.boxShadow.y}px ${item.details.boxShadow.blur}px ${item.details.boxShadow.color}`
-      : "";
+    const { animationIn, animationOut } = getAnimations(animations!, item);
     return (
       <Sequence
-        className={`designcombo-scene-item id-${item.id} designcombo-scene-item-type-${item.type} pointer-events-none`}
         key={item.id}
         from={from}
-        durationInFrames={durationInFrames + REMOTION_SAFE_FRAME}
-        data-track-item="transition-element"
-        style={{
-          position: "absolute",
-          width: details.width || 300,
-          height: details.height || 400,
-          transform: details.transform || "none",
-          fontSize: details.fontSize || "16px",
-          textAlign: details.textAlign || "left",
-          top: details.top || 300,
-          left: details.left || 600,
-          color: details.color || "#000000",
-          backgroundColor: details.backgroundColor || "transparent",
-          border: details.border || "none",
-          opacity: details.opacity! / 100,
-          fontFamily: details.fontFamily || "Arial",
-          fontWeight: details.fontWeight || "normal",
-          lineHeight: details.lineHeight || "normal",
-          letterSpacing: details.letterSpacing || "normal",
-          wordSpacing: details.wordSpacing || "normal",
-          wordWrap: details.wordWrap || "normal",
-          wordBreak: details.wordBreak || "normal",
-          pointerEvents: "auto",
-          textTransform: details.textTransform || "none",
-          zIndex,
-        }}
+        durationInFrames={durationInFrames}
+        style={{ pointerEvents: "none", zIndex }}
       >
-        <TextLayer
-          key={id}
-          id={id}
-          content={details.text}
-          editable={editableTextId === id}
-          onChange={handleTextChange}
-          style={{
-            position: "relative",
-            textDecoration: details.textDecoration || "none",
-            WebkitTextStroke: `${item.details.borderWidth}px ${item.details.borderColor}`, // Outline/stroke color and thickness
-            paintOrder: "stroke fill", // Order of painting
-            textShadow: boxShadowAsShadow,
-          }}
-        />
+        {/* positioning layer */}
+        <AbsoluteFill
+          data-track-item="transition-element"
+          className={`designcombo-scene-item id-${item.id} designcombo-scene-item-type-${item.type}`}
+          style={calculateContainerStyles(details)}
+        >
+          {/* animation layer */}
+          <Animated
+            style={calculateContainerStyles(details)}
+            animationIn={editableTextId === id ? null : animationIn}
+            animationOut={editableTextId === id ? null : animationOut}
+            durationInFrames={durationInFrames}
+          >
+            {/* text layer */}
+            <TextLayer
+              key={id}
+              id={id}
+              content={details.text}
+              editable={editableTextId === id}
+              onChange={handleTextChange}
+              onBlur={onTextBlur}
+              style={calculateTextStyles(details)}
+            />
+          </Animated>
+        </AbsoluteFill>
       </Sequence>
     );
   },
-  caption: (trackItem, options: SequenceItemOptions) => {
-    const item = trackItem as ICaption;
-    const { handleTextChange, fps, editableTextId, zIndex } = options;
-    const { id, details } = item as ICaption;
-    const { from, durationInFrames } = calculateFrames(item.display, fps);
-    const boxShadowAsShadow = item.details.boxShadow
-      ? `${item.details.boxShadow.x}px ${item.details.boxShadow.y}px ${item.details.boxShadow.blur}px ${item.details.boxShadow.color}`
-      : "";
-    return (
-      <Sequence
-        className={`designcombo-scene-item id-${item.id} designcombo-scene-item-type-${item.type} pointer-events-none`}
-        key={item.id}
-        from={from}
-        durationInFrames={durationInFrames + REMOTION_SAFE_FRAME}
-        data-track-item="transition-element"
-        style={{
-          position: "absolute",
-          width: details.width || 300,
-          height: details.height || 400,
-          transform: item.details?.transform || "none",
-          fontSize: details.fontSize || "16px",
-          textAlign: details.textAlign || "left",
-          top: details.top || 300,
-          left: details.left || 600,
-          color: details.color || "#000000",
-          backgroundColor: details.backgroundColor || "transparent",
-          border: details.border || "none",
-          opacity: details.opacity! / 100,
-          fontFamily: details.fontFamily || "Arial",
-          fontWeight: details.fontWeight || "normal",
-          lineHeight: details.lineHeight || "normal",
-          letterSpacing: details.letterSpacing || "normal",
-          wordSpacing: details.wordSpacing || "normal",
-          wordWrap: details.wordWrap || "normal",
-          wordBreak: details.wordBreak || "normal",
-          textTransform: details.textTransform || "none",
-          pointerEvents: "auto",
-          zIndex,
-        }}
-      >
-        <TextLayer
-          key={id}
-          id={id}
-          content={details.text}
-          editable={editableTextId === id}
-          onChange={handleTextChange}
-          style={{
-            position: "relative",
-            textDecoration: details.textDecoration || "none",
-            WebkitTextStroke: `${item.details.borderWidth}px ${item.details.borderColor}`, // Outline/stroke color and thickness
-            paintOrder: "stroke fill", // Order of painting
-            textShadow: boxShadowAsShadow,
-          }}
-        />
-      </Sequence>
-    );
-  },
-  image: (trackItem, options: SequenceItemOptions) => {
-    const item = trackItem as IImage;
+  caption: (item, options: SequenceItemOptions) => {
     const { fps, zIndex } = options;
-    const { details } = item as IImage;
+    const { details, metadata, display } = item as ICaption;
     const { from, durationInFrames } = calculateFrames(item.display, fps);
-
+    const [firstWord] = metadata.words;
+    const offsetFrom = display.from - firstWord.start;
+    return (
+      <Sequence
+        key={item.id}
+        from={from}
+        durationInFrames={durationInFrames}
+        data-track-item="transition-element"
+        style={{ pointerEvents: "none", zIndex }}
+      >
+        {/* positioning layer */}
+        <AbsoluteFill
+          data-track-item="transition-element"
+          className={`designcombo-scene-item id-${item.id} designcombo-scene-item-type-${item.type}`}
+          style={calculateContainerStyles(details)}
+        >
+          <Animated
+            style={calculateContainerStyles(details)}
+            animationIn={null}
+            animationOut={null}
+            durationInFrames={durationInFrames}
+          >
+            <div
+              style={{
+                ...calculateTextStyles(details),
+                WebkitTextStroke: "10px #000000",
+                paintOrder: "stroke fill",
+              }}
+            >
+              {item.metadata.words.map((word: any, index: number) => (
+                <CaptionWord offsetFrom={offsetFrom} word={word} key={index} />
+              ))}
+            </div>
+          </Animated>
+        </AbsoluteFill>
+      </Sequence>
+    );
+  },
+  image: (item, options: SequenceItemOptions) => {
+    const { fps, zIndex } = options;
+    const { details, animations } = item as IImage;
+    const { from, durationInFrames } = calculateFrames(item.display, fps);
+    const { animationIn, animationOut } = getAnimations(animations!, item);
     const crop = details.crop || {
       x: 0,
       y: 0,
       width: item.details.width,
       height: item.details.height,
     };
-    const boxShadowAsOutline = `0 0 0 ${item.details.borderWidth}px ${item.details.borderColor}`;
-    const boxShadowAsShadow = item.details.boxShadow
-      ? `${item.details.boxShadow.x}px ${item.details.boxShadow.y}px ${item.details.boxShadow.blur}px ${item.details.boxShadow.color}`
-      : "";
-
     return (
       <Sequence
         key={item.id}
         from={from}
-        durationInFrames={durationInFrames + REMOTION_SAFE_FRAME}
+        durationInFrames={durationInFrames}
         style={{ pointerEvents: "none", zIndex }}
       >
-        {item.isMain && (
-          <MediaBackground
-            key={item.id + "background"}
-            background={details.background}
-          />
-        )}
+        {/* position layer */}
         <AbsoluteFill
           data-track-item="transition-element"
           className={`designcombo-scene-item id-${item.id} designcombo-scene-item-type-${item.type}`}
-          style={{
-            pointerEvents: "auto",
-            top: item?.details?.top || 0,
-            left: item?.details?.left || 0,
-            width: crop.width || "100%", // Default width
-            height: crop.height || "auto", // Default height
-            transform: details.transform || "none",
-            opacity:
-              item?.details?.opacity !== undefined
-                ? item.details.opacity / 100
-                : 1,
-            borderRadius: `${Math.min(crop.width, crop.height) * ((item.details.borderRadius || 0) / 100)}px`, // Default border radius
-            boxShadow:
-              boxShadowAsOutline +
-              (boxShadowAsShadow ? ", " + boxShadowAsShadow : ""), // Default box shadow
-            overflow: "hidden",
-            transformOrigin: details.transformOrigin || "center center",
-            filter: `brightness(${details.brightness}%) blur(${details.blur}px)`,
-            rotate: details.rotate || "0deg",
-          }}
+          style={calculateContainerStyles(details, crop)}
         >
-          <div
-            style={{
-              width: item.details.width || "100%", // Default width
-              height: item.details.height || "auto", // Default height
-              position: "relative",
+          {/* animation layer */}
+          <Animated
+            style={calculateContainerStyles(details, crop, {
               overflow: "hidden",
-              pointerEvents: "none",
-              scale: `${details.flipX ? "-1" : "1"} ${
-                details.flipY ? "-1" : "1"
-              }`,
-            }}
+            })}
+            animationIn={animationIn!}
+            animationOut={animationOut!}
+            durationInFrames={durationInFrames}
           >
-            <Img
-              style={{
-                pointerEvents: "none",
-                top: -crop.y || 0,
-                left: -crop.x || 0,
-                width: item.details.width || "100%", // Default width
-                height: item.details.height || "auto", // Default height
-                position: "absolute",
-              }}
-              data-id={item.id}
-              src={details.src}
-            />
-          </div>
+            <div style={calculateMediaStyles(details, crop)}>
+              <Img data-id={item.id} src={details.src} />
+            </div>
+          </Animated>
         </AbsoluteFill>
       </Sequence>
     );
   },
-  video: (trackItem, options: SequenceItemOptions) => {
-    const item = trackItem as IVideo;
+  video: (item, options: SequenceItemOptions) => {
     const { fps, zIndex } = options;
-    const { details } = item as IVideo;
+    const { details, animations } = item as IVideo;
+    const { animationIn, animationOut } = getAnimations(animations!, item);
     const playbackRate = item.playbackRate || 1;
     const { from, durationInFrames } = calculateFrames(
       {
@@ -248,76 +241,38 @@ export const SequenceItem: Record<
       width: item.details.width,
       height: item.details.height,
     };
-    const boxShadowAsOutline = `0 0 0 ${item.details.borderWidth}px ${item.details.borderColor}`;
-    const boxShadowAsShadow = item.details.boxShadow
-      ? `${item.details.boxShadow.x}px ${item.details.boxShadow.y}px ${item.details.boxShadow.blur}px ${item.details.boxShadow.color}`
-      : "";
 
     return (
       <Sequence
         key={item.id}
         from={from}
-        durationInFrames={durationInFrames + REMOTION_SAFE_FRAME}
+        durationInFrames={durationInFrames}
         style={{ pointerEvents: "none", zIndex }}
       >
-        {item.isMain && (
-          <MediaBackground
-            key={item.id + "background"}
-            background={details.background || "#ffffff"}
-          />
-        )}
         <AbsoluteFill
           data-track-item="transition-element"
           className={`designcombo-scene-item id-${item.id} designcombo-scene-item-type-${item.type}`}
-          style={{
-            pointerEvents: "auto",
-            top: item?.details?.top || 0,
-            left: item?.details?.left || 0,
-            width: crop.width || "100%", // Default width
-            height: crop.height || "auto", // Default height
-            transform: item.details?.transform || "none",
-            opacity:
-              item?.details?.opacity !== undefined
-                ? item.details.opacity / 100
-                : 1,
-            borderRadius: `${Math.min(crop.width!, crop.height!) * ((item.details.borderRadius || 0) / 100)}px`, // Default border radius
-            boxShadow:
-              boxShadowAsOutline +
-              (boxShadowAsShadow ? ", " + boxShadowAsShadow : ""), // Default box shadow
-            overflow: "hidden",
-            transformOrigin: details.transformOrigin || "center center",
-            filter: `brightness(${details.brightness}%) blur(${details.blur}px)`,
-            rotate: details.rotate || "0deg",
-          }}
+          style={calculateContainerStyles(details, crop)}
         >
-          <div
-            style={{
-              width: item.details.width || "100%", // Default width
-              height: item.details.height || "auto", // Default height
-              position: "relative",
+          {/* animation layer */}
+          <Animated
+            style={calculateContainerStyles(details, crop, {
               overflow: "hidden",
-              pointerEvents: "none",
-              scale: `${details.flipX ? "-1" : "1"} ${
-                details.flipY ? "-1" : "1"
-              }`,
-            }}
+            })}
+            animationIn={animationIn}
+            animationOut={animationOut}
+            durationInFrames={durationInFrames}
           >
-            <OffthreadVideo
-              startFrom={(item.trim?.from! / 1000) * fps}
-              endAt={(item.trim?.to! / 1000) * fps + REMOTION_SAFE_FRAME}
-              playbackRate={playbackRate}
-              src={details.src}
-              volume={details.volume || 0 / 100}
-              style={{
-                pointerEvents: "none",
-                top: -crop.y || 0,
-                left: -crop.x || 0,
-                width: item.details.width || "100%", // Default width
-                height: item.details.height || "auto", // Default height
-                position: "absolute",
-              }}
-            />
-          </div>
+            <div style={calculateMediaStyles(details, crop)}>
+              <OffthreadVideo
+                startFrom={(item.trim?.from! / 1000) * fps}
+                endAt={(item.trim?.to! / 1000) * fps}
+                playbackRate={playbackRate}
+                src={details.src}
+                volume={details.volume || 0 / 100}
+              />
+            </div>
+          </Animated>
         </AbsoluteFill>
       </Sequence>
     );
@@ -337,7 +292,7 @@ export const SequenceItem: Record<
       <Sequence
         key={item.id}
         from={from}
-        durationInFrames={durationInFrames + REMOTION_SAFE_FRAME}
+        durationInFrames={durationInFrames}
         style={{
           userSelect: "none",
           pointerEvents: "none",
@@ -347,7 +302,7 @@ export const SequenceItem: Record<
         <AbsoluteFill>
           <Audio
             startFrom={(item.trim?.from! / 1000) * fps}
-            endAt={(item.trim?.to! / 1000) * fps + REMOTION_SAFE_FRAME}
+            endAt={(item.trim?.to! / 1000) * fps}
             playbackRate={playbackRate}
             src={details.src}
             volume={details.volume! / 100}

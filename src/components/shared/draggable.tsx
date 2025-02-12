@@ -1,4 +1,4 @@
-import React, { useState, cloneElement, ReactElement, useRef } from "react";
+import React, { useState, cloneElement, ReactElement } from "react";
 import { createPortal } from "react-dom";
 
 interface DraggableProps {
@@ -16,13 +16,13 @@ const Draggable: React.FC<DraggableProps> = ({
 }) => {
   const [isDragging, setIsDragging] = useState(false);
   const [position, setPosition] = useState({ x: 0, y: 0 });
-  const previewRef = useRef<HTMLDivElement>(null);
 
   const handleDragStart = (e: React.DragEvent<HTMLElement>) => {
     setIsDragging(true);
     e.dataTransfer.setDragImage(new Image(), 0, 0); // Hides default preview
-    // set drag data
     e.dataTransfer.setData(JSON.stringify(data), JSON.stringify(data));
+    e.dataTransfer.effectAllowed = "move";
+
     setPosition({
       x: e.clientX,
       y: e.clientY,
@@ -33,7 +33,8 @@ const Draggable: React.FC<DraggableProps> = ({
     setIsDragging(false);
   };
 
-  const handleDrag = (e: React.DragEvent<HTMLElement>) => {
+  const handleDragOver = (e: React.DragEvent<HTMLElement>) => {
+    e.preventDefault(); // Important: allows drop
     if (isDragging) {
       setPosition({
         x: e.clientX,
@@ -42,11 +43,32 @@ const Draggable: React.FC<DraggableProps> = ({
     }
   };
 
+  // Add dragover event listener to document
+  React.useEffect(() => {
+    const handleDocumentDragOver = (e: DragEvent) => {
+      e.preventDefault();
+      if (isDragging) {
+        setPosition({
+          x: e.clientX,
+          y: e.clientY,
+        });
+      }
+    };
+
+    if (isDragging) {
+      document.addEventListener("dragover", handleDocumentDragOver);
+    }
+
+    return () => {
+      document.removeEventListener("dragover", handleDocumentDragOver);
+    };
+  }, [isDragging]);
+
   const childWithProps = cloneElement(children, {
     draggable: true,
     onDragStart: handleDragStart,
     onDragEnd: handleDragEnd,
-    onDrag: handleDrag,
+    onDragOver: handleDragOver,
     style: {
       ...children.props.style,
     },
@@ -58,7 +80,6 @@ const Draggable: React.FC<DraggableProps> = ({
       {isDragging && shouldDisplayPreview && renderCustomPreview
         ? createPortal(
             <div
-              ref={previewRef}
               style={{
                 position: "fixed",
                 left: position.x,

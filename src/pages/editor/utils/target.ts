@@ -2,6 +2,8 @@ export const getTargetControls = (targetType: string): string[] => {
   switch (targetType) {
     case "text":
       return ["e", "se"];
+    case "caption":
+      return ["e", "se"];
     case "image":
       return ["nw", "ne", "sw", "se"];
     case "svg":
@@ -25,6 +27,15 @@ interface ITargetAbles {
 export const getTargetAbles = (targetType: string): ITargetAbles => {
   switch (targetType) {
     case "text":
+      return {
+        rotatable: true,
+        resizable: true,
+        scalable: false,
+        keepRatio: false,
+        draggable: true,
+        snappable: true,
+      };
+    case "caption":
       return {
         rotatable: true,
         resizable: true,

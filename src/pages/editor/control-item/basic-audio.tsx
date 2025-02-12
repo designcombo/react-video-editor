@@ -3,7 +3,9 @@ import { IAudio, ITrackItem } from "@designcombo/types";
 import Volume from "./common/volume";
 import Speed from "./common/speed";
 import { useState } from "react";
-import { EDIT_OBJECT, dispatch } from "@designcombo/events";
+import { dispatch } from "@designcombo/events";
+import { EDIT_OBJECT, LAYER_REPLACE } from "@designcombo/state";
+import { Button } from "@/components/ui/button";
 
 const BasicAudio = ({ trackItem }: { trackItem: ITrackItem & IAudio }) => {
   const [properties, setProperties] = useState(trackItem);
@@ -47,12 +49,27 @@ const BasicAudio = ({ trackItem }: { trackItem: ITrackItem & IAudio }) => {
     });
   };
 
+  const handleReplace = () => {
+    dispatch(LAYER_REPLACE, {
+      payload: {
+        [trackItem.id]: {
+          details: {
+            src: "https://ik.imagekit.io/pablituuu/like_a_player.mp3?updatedAt=1722278521488",
+          },
+        },
+      },
+    });
+  };
+
   return (
     <div className="flex flex-1 flex-col">
       <div className="text-text-primary flex h-12 flex-none items-center px-4 text-sm font-medium">
         Audio
       </div>
       <ScrollArea className="h-full">
+        <Button onClick={handleReplace} variant={"secondary"} size={"lg"}>
+          Replace
+        </Button>
         <div className="flex flex-col gap-2 px-4">
           <Volume
             onChange={(v: number) => handleChangeVolume(v)}

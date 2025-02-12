@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 
 import {
   PREVIEW_FRAME_WIDTH,
@@ -9,6 +9,7 @@ import {
 } from "../constants/constants";
 import { formatTimelineUnit } from "@/pages/editor/utils/format";
 import useStore from "@/pages/editor/store/use-store";
+import { debounce } from "lodash";
 
 interface RulerProps {
   height?: number;
@@ -50,6 +51,19 @@ const Ruler = (props: RulerProps) => {
       resize(canvas, context, scrollPos);
     }
   }, []);
+
+  const handleResize = useCallback(() => {
+    resize(canvasRef.current, canvasContext, scrollPos);
+  }, [canvasContext, scrollPos]);
+
+  useEffect(() => {
+    const resizeHandler = debounce(handleResize, 200);
+    window.addEventListener("resize", resizeHandler);
+
+    return () => {
+      window.removeEventListener("resize", resizeHandler);
+    };
+  }, [handleResize]);
 
   useEffect(() => {
     if (canvasContext) {

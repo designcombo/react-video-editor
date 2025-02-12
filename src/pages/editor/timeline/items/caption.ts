@@ -4,7 +4,7 @@ class Caption extends CaptionBase {
   static type = "Caption";
   constructor(props: CaptionsProps) {
     super(props);
-    this.fill = "#303030";
+    this.fill = "#353560";
   }
 
   public _render(ctx: CanvasRenderingContext2D) {
@@ -19,17 +19,58 @@ class Caption extends CaptionBase {
     );
     ctx.save();
     ctx.translate(-this.width / 2, -this.height / 2);
-    ctx.translate(0, 12);
+    ctx.translate(0, 8);
     ctx.font = "600 12px 'Geist variable'";
-    ctx.fillStyle = "#f4f4f5";
+    ctx.fillStyle = "rgba(255, 255, 255, 0.75)";
     ctx.textAlign = "left";
+
+    // Calculate available width for text (full width minus icon space and right padding)
+    const iconSpace = 28; // space for the icon
+    const rightPadding = 5; // 5px padding before ellipsis
+    const availableWidth = this.width - iconSpace - rightPadding;
+
+    // Measure and truncate text if needed
+    let displayText = this.text;
+    const textWidth = ctx.measureText(this.text).width;
+
+    if (textWidth > availableWidth) {
+      let currentText = this.text;
+
+      while (
+        ctx.measureText(currentText + "...").width > availableWidth &&
+        currentText.length > 0
+      ) {
+        currentText = currentText.slice(0, -1);
+      }
+
+      displayText = currentText + "...";
+    }
+
     ctx.clip();
-    ctx.fillText(this.text, 36, 12);
+    ctx.fillText(displayText, 28, 12);
 
     ctx.translate(8, 1);
-
-    ctx.fillStyle = "#f4f4f5";
+    ctx.fillStyle = "rgba(255, 255, 255, 0.75)";
     ctx.fill(textPath);
+    ctx.restore();
+  }
+
+  public updateSelected(ctx: CanvasRenderingContext2D) {
+    const borderColor = this.isSelected
+      ? "rgba(255, 255, 255,1.0)"
+      : "rgba(255, 255, 255,0.1)";
+    ctx.save();
+    ctx.beginPath();
+    ctx.roundRect(
+      -this.width / 2,
+      -this.height / 2,
+      this.width,
+      this.height,
+      6,
+    );
+    ctx.lineWidth = 1;
+    ctx.strokeStyle = borderColor;
+    ctx.stroke();
     ctx.restore();
   }
 }

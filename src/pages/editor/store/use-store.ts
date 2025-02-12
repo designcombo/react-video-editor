@@ -1,4 +1,4 @@
-import CanvasTimeline from "@designcombo/timeline";
+import Timeline from "@designcombo/timeline";
 import {
   ISize,
   ITimelineScaleState,
@@ -7,6 +7,7 @@ import {
   ITrackItem,
   ITransition,
 } from "@designcombo/types";
+import Moveable from "@interactify/moveable";
 import { PlayerRef } from "@remotion/player";
 import { create } from "zustand";
 
@@ -23,20 +24,22 @@ interface ITimelineStore {
   trackItemsMap: Record<string, ITrackItem>;
   trackItemDetailsMap: Record<string, any>;
   activeIds: string[];
-  timeline: CanvasTimeline | null;
-  setTimeline: (timeline: CanvasTimeline) => void;
+  timeline: Timeline | null;
+  setTimeline: (timeline: Timeline) => void;
   setScale: (scale: ITimelineScaleState) => void;
   setScroll: (scroll: ITimelineScrollState) => void;
   playerRef: React.RefObject<PlayerRef> | null;
   setPlayerRef: (playerRef: React.RefObject<PlayerRef> | null) => void;
 
+  sceneMoveableRef: React.RefObject<Moveable> | null;
+  setSceneMoveableRef: (ref: React.RefObject<Moveable>) => void;
   setState: (state: any) => Promise<void>;
 }
 
 const useStore = create<ITimelineStore>((set) => ({
   size: {
-    width: 1080,
-    height: 1920,
+    width: 1920,
+    height: 1080,
   },
 
   timeline: null,
@@ -62,8 +65,9 @@ const useStore = create<ITimelineStore>((set) => ({
   transitionIds: [],
   transitionsMap: {},
   trackItemsMap: {},
+  sceneMoveableRef: null,
 
-  setTimeline: (timeline: CanvasTimeline) =>
+  setTimeline: (timeline: Timeline) =>
     set(() => ({
       timeline: timeline,
     })),
@@ -80,6 +84,7 @@ const useStore = create<ITimelineStore>((set) => ({
   },
   setPlayerRef: (playerRef: React.RefObject<PlayerRef> | null) =>
     set({ playerRef }),
+  setSceneMoveableRef: (ref) => set({ sceneMoveableRef: ref }),
 }));
 
 export default useStore;

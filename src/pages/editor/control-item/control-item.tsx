@@ -22,7 +22,8 @@ import useStore from "../store/use-store";
 
 const Container = ({ children }: { children: React.ReactNode }) => {
   const { activeToolboxItem, setActiveToolboxItem } = useLayoutStore();
-  const { activeIds, trackItemsMap, trackItemDetailsMap } = useStore();
+  const { activeIds, trackItemsMap, trackItemDetailsMap, transitionsMap } =
+    useStore();
   const [trackItem, setTrackItem] = useState<ITrackItem | null>(null);
   const [displayToolbox, setDisplayToolbox] = useState<boolean>(false);
 
@@ -34,7 +35,8 @@ const Container = ({ children }: { children: React.ReactNode }) => {
         ...trackItemsMap[id],
         details: trackItemDetails?.details || {},
       };
-      setTrackItem(trackItem);
+      if (trackItemDetails) setTrackItem(trackItem);
+      else console.log(transitionsMap[id]);
     } else {
       setTrackItem(null);
       setDisplayToolbox(false);

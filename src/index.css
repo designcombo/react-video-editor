@@ -230,3 +230,127 @@ input[type="number"]::-webkit-outer-spin-button {
   min-width: 44px;
   min-height: 44px;
 }
+
+/* CROP STYLES */
+
+.crop {
+  position: relative;
+  font-size: 0;
+}
+
+.options {
+  margin-bottom: 0.25rem;
+}
+
+.videoPreview {
+  /* box-shadow: 0 0 20px 5px rgba(0, 0, 0, 0.3);
+  overflow: hidden;
+  width: 100%; */
+}
+
+.box {
+  border: 1px solid white;
+  position: absolute;
+  inset: 0;
+  touch-action: none;
+}
+
+.box svg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  cursor: move;
+  touch-action: manipulation;
+}
+
+.box svg line {
+  stroke: white;
+  stroke-width: 1px;
+}
+
+.dimensions {
+  position: absolute;
+  top: -2rem;
+  right: 0;
+  z-index: 9999;
+  color: white;
+  font-size: 0.9rem;
+  background: rgba(0, 0, 0, 0.3);
+  padding: 0.25rem;
+}
+
+.handles > div {
+  position: absolute;
+  width: 1.5rem;
+  height: 1.5rem;
+  border-color: white;
+  touch-action: manipulation;
+  border-radius: 3px;
+}
+
+/* nw n ne */
+.handle-nw,
+.handle-n,
+.handle-ne {
+  top: -3px;
+  border-top-style: solid;
+}
+
+.handle-n {
+  border-top: 3px solid;
+}
+/* nw w sw */
+.handle-nw,
+.handle-w,
+.handle-sw {
+  left: -3px;
+  border-left: 3px solid;
+}
+.handle-nw {
+  border-top: 3px solid;
+}
+
+/* ne e se */
+.handle-ne,
+.handle-e,
+.handle-se {
+  right: -3px;
+  border-right: 3px solid;
+}
+
+.handle-ne {
+  border-top: 3px solid;
+}
+.handle-se {
+  border-bottom: 3px solid;
+}
+
+.handle-e {
+  border-top: none;
+  border-bottom: none;
+  border-left: none;
+}
+
+/* sw s se */
+.handle-sw,
+.handle-s,
+.handle-se {
+  bottom: -3px;
+  border-bottom: 3px solid;
+}
+.handle-sw {
+  border-left: 3px solid;
+}
+
+.handle-n,
+.handle-s {
+  left: 50%;
+  transform: translate(-50%, 0);
+}
+
+.handle-e,
+.handle-w {
+  top: 50%;
+  transform: translate(0, -50%);
+}

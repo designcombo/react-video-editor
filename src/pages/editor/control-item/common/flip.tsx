@@ -1,6 +1,7 @@
 import { Button } from "@/components/button";
 import { Label } from "@/components/ui/label";
-import { EDIT_OBJECT, dispatch } from "@designcombo/events";
+import { dispatch } from "@designcombo/events";
+import { EDIT_OBJECT } from "@designcombo/state";
 import { IImage, ITrackItem, IVideo } from "@designcombo/types";
 import { useState } from "react";
 

@@ -1,4 +1,5 @@
-import { ADD_AUDIO, ADD_IMAGE, ADD_VIDEO, dispatch } from "@designcombo/events";
+import { dispatch } from "@designcombo/events";
+import { ADD_AUDIO, ADD_IMAGE, ADD_VIDEO } from "@designcombo/state";
 import { generateId } from "@designcombo/timeline";
 import React, { useCallback, useState } from "react";
 
@@ -45,6 +46,7 @@ const useDragAndDrop = (onDragStateChange?: (isDragging: boolean) => void) => {
       e.preventDefault();
       try {
         const draggedDataString = e.dataTransfer?.types[0] as string;
+        if (!draggedDataString) return;
         const draggedData: DraggedData = JSON.parse(draggedDataString);
 
         if (!Object.values(AcceptedDropTypes).includes(draggedData.type))

@@ -2,11 +2,13 @@ import { useEffect, useRef, useState } from "react";
 import Selection from "@interactify/selection";
 import Moveable from "@interactify/moveable";
 import { getIdFromClassName } from "../utils/scene";
-import { EDIT_OBJECT, dispatch } from "@designcombo/events";
+import { dispatch } from "@designcombo/events";
+import { EDIT_OBJECT } from "@designcombo/state";
 import {
   SelectionInfo,
   emptySelection,
   getSelectionByIds,
+  getTargetById,
 } from "../utils/target";
 import useStore from "@/pages/editor/store/use-store";
 import StateManager from "@designcombo/state";
@@ -28,8 +30,15 @@ export function SceneInteractions({
   zoom,
 }: SceneInteractionsProps) {
   const [targets, setTargets] = useState<HTMLDivElement[]>([]);
-  const { activeIds, setState, trackItemDetailsMap, trackItemsMap, playerRef } =
-    useStore();
+  const [selection, setSelection] = useState<Selection>();
+  const {
+    activeIds,
+    setState,
+    trackItemDetailsMap,
+    trackItemsMap,
+    playerRef,
+    setSceneMoveableRef,
+  } = useStore();
   const moveableRef = useRef<Moveable>(null);
   const [selectionInfo, setSelectionInfo] =
     useState<SelectionInfo>(emptySelection);
@@ -44,6 +53,10 @@ export function SceneInteractions({
           trackItemsMap[id]?.display.to >= currentTime
         );
       });
+      const targets = targetIds.map(
+        (id) => getTargetById(id) as HTMLDivElement,
+      );
+      selection?.setSelectedTargets(targets);
       const selInfo = getSelectionByIds(targetIds);
 
       setSelectionInfo(selInfo);
@@ -134,7 +147,7 @@ export function SceneInteractions({
           setTargets(targets);
         }
       });
-
+    setSelection(selection);
     return () => {
       selection.destroy();
     };
@@ -156,6 +169,9 @@ export function SceneInteractions({
     moveableRef.current!.moveable.updateRect();
   }, [trackItemsMap]);
 
+  useEffect(() => {
+    setSceneMoveableRef(moveableRef);
+  }, [moveableRef]);
   return (
     <Moveable
       ref={moveableRef}
@@ -193,6 +209,7 @@ export function SceneInteractions({
 
         const scaleRegex = /scale\(([^)]+)\)/;
         const match = target.style.transform.match(scaleRegex)!;
+
         //get current scale
         const [scaleX, scaleY] = match[1]
           .split(",")
@@ -254,9 +271,7 @@ export function SceneInteractions({
           payload: {
             [targetId]: {
               details: {
-                details: {
-                  transform: target.style.transform,
-                },
+                transform: target.style.transform,
               },
             },
           },
@@ -292,32 +307,61 @@ export function SceneInteractions({
           const currentWidth = target.clientWidth;
           const currentHeight = target.clientHeight;
 
-          // get new width and height,
+          // Get new width and height
           const scaleY = nextHeight / currentHeight;
-
           const scale = scaleY;
 
-          target.style.width = currentWidth * scale + "px";
-          target.style.height = currentHeight * scale + "px";
+          // Update target dimensions
+          target.style.width = `${currentWidth * scale}px`;
+          target.style.height = `${currentHeight * scale}px`;
 
-          // get new font size
+          // Safely access nested elements
+          const animationDiv = target.firstElementChild
+            ?.firstElementChild as HTMLDivElement | null;
+          if (animationDiv) {
+            animationDiv.style.width = `${currentWidth * scale}px`;
+            animationDiv.style.height = `${currentHeight * scale}px`;
 
-          let fontSize = parseFloat(getComputedStyle(target).fontSize);
-          target.style.fontSize = fontSize * scale + "px";
+            const textDiv =
+              animationDiv.firstElementChild as HTMLDivElement | null;
+            if (textDiv) {
+              const fontSize = parseFloat(getComputedStyle(textDiv).fontSize);
+              textDiv.style.fontSize = `${fontSize * scale}px`;
+              textDiv.style.width = `${currentWidth * scale}px`;
+              textDiv.style.height = `${currentHeight * scale}px`;
+            }
+          }
         } else {
           target.style.width = nextWidth + "px";
           target.style.height = nextHeight + "px";
+
+          // Safely access nested elements
+          const animationDiv = target.firstElementChild
+            ?.firstElementChild as HTMLDivElement | null;
+          if (animationDiv) {
+            animationDiv.style.width = `${nextWidth}px`;
+            animationDiv.style.height = `${nextHeight}px`;
+
+            const textDiv =
+              animationDiv.firstElementChild as HTMLDivElement | null;
+            if (textDiv) {
+              textDiv.style.width = `${nextWidth}px`;
+              textDiv.style.height = `${nextHeight}px`;
+            }
+          }
         }
       }}
       onResizeEnd={({ target }) => {
         const targetId = getIdFromClassName(target.className) as string;
+        const textDiv = target.firstElementChild?.firstElementChild
+          ?.firstElementChild as HTMLDivElement;
         dispatch(EDIT_OBJECT, {
           payload: {
             [targetId]: {
               details: {
                 width: parseFloat(target.style.width),
                 height: parseFloat(target.style.height),
-                fontSize: parseFloat(target.style.fontSize),
+                fontSize: parseFloat(textDiv.style.fontSize),
               },
             },
           },

@@ -93,60 +93,60 @@ export const TIMELINE_ZOOM_LEVELS: ITimelineScaleState[] = [
     zoom: 1 / 30,
     segments: 2,
   },
-  {
-    // 1x distance (frame 0 to frame 15, 3 segments).
-    index: 13,
-    unit: 15,
-    zoom: 1 / 15,
-    segments: 3,
-  },
-  {
-    // 1x distance (frame 0 to frame 10, 2 segments).
-    index: 14,
-    unit: 10,
-    zoom: 1 / 10,
-    segments: 2,
-  },
-  {
-    // 1x distance (frame 0 to frame 5, 5 segments).
-    index: 15,
-    unit: 5,
-    zoom: 1 / 5,
-    segments: 5,
-  },
-  {
-    // 1x distance (frame 0 to frame 3, 3 segments).
-    index: 16,
-    unit: 3,
-    zoom: 1 / 3,
-    segments: 3,
-  },
-  {
-    // 1x distance (frame 0 to frame 2, 2 segments).
-    index: 17,
-    unit: 2,
-    zoom: 1 / 2,
-    segments: 5,
-  },
-  {
-    // 1x distance (frame 0 to frame 1, 1 segment).
-    index: 18,
-    unit: 1,
-    zoom: 1,
-    segments: 5,
-  },
-  {
-    // 2x distance (frame 0 to frame 1, 1 segment).
-    index: 19,
-    unit: 1,
-    zoom: 2,
-    segments: 5,
-  },
-  {
-    // 4x distance (frame 0 to frame 1, 1 segment).
-    index: 20,
-    unit: 1,
-    zoom: 4,
-    segments: 10,
-  },
+  // {
+  //   // 1x distance (frame 0 to frame 15, 3 segments).
+  //   index: 13,
+  //   unit: 15,
+  //   zoom: 1 / 15,
+  //   segments: 3,
+  // },
+  // {
+  //   // 1x distance (frame 0 to frame 10, 2 segments).
+  //   index: 14,
+  //   unit: 10,
+  //   zoom: 1 / 10,
+  //   segments: 2,
+  // },
+  // {
+  //   // 1x distance (frame 0 to frame 5, 5 segments).
+  //   index: 15,
+  //   unit: 5,
+  //   zoom: 1 / 5,
+  //   segments: 5,
+  // },
+  // {
+  //   // 1x distance (frame 0 to frame 3, 3 segments).
+  //   index: 16,
+  //   unit: 3,
+  //   zoom: 1 / 3,
+  //   segments: 3,
+  // },
+  // {
+  //   // 1x distance (frame 0 to frame 2, 2 segments).
+  //   index: 17,
+  //   unit: 2,
+  //   zoom: 1 / 2,
+  //   segments: 5,
+  // },
+  // {
+  //   // 1x distance (frame 0 to frame 1, 1 segment).
+  //   index: 18,
+  //   unit: 1,
+  //   zoom: 1,
+  //   segments: 5,
+  // },
+  // {
+  //   // 2x distance (frame 0 to frame 1, 1 segment).
+  //   index: 19,
+  //   unit: 1,
+  //   zoom: 2,
+  //   segments: 5,
+  // },
+  // {
+  //   // 4x distance (frame 0 to frame 1, 1 segment).
+  //   index: 20,
+  //   unit: 1,
+  //   zoom: 4,
+  //   segments: 10,
+  // },
 ];
