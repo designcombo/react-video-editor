@@ -1,4 +1,5 @@
 import { Button, buttonVariants } from "@/components/ui/button";
+import { generateId } from "@designcombo/timeline";
 import { ADD_TEXT } from "@designcombo/state";
 import { dispatch } from "@designcombo/events";
 import { useIsDraggingOverTimeline } from "../hooks/is-dragging-over-timeline";
@@ -11,7 +12,10 @@ export const Texts = () => {
 
   const handleAddText = () => {
     dispatch(ADD_TEXT, {
-      payload: TEXT_ADD_PAYLOAD,
+      payload: {
+        ...TEXT_ADD_PAYLOAD,
+        id: generateId(),
+      },
       options: {},
     });
   };

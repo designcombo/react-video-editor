@@ -1,8 +1,6 @@
-import { generateId } from "@designcombo/timeline";
 import { DEFAULT_FONT } from "./font";
 
 export const TEXT_ADD_PAYLOAD = {
-  id: generateId(),
   display: {
     from: 0,
     to: 5000,
