@@ -5,16 +5,11 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import "non.geist";
 import "./index.css";
 import App from "./app";
-import Auth from "./pages/auth";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <App />,
-  },
-  {
-    path: "/auth",
-    element: <Auth />,
   },
 ]);
 createRoot(document.getElementById("root")!).render(

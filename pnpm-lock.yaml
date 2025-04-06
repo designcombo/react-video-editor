@@ -15,14 +15,14 @@ importers:
         specifier: ^0.0.3
         version: 0.0.3
       '@designcombo/state':
-        specifier: 3.1.1
-        version: 3.1.1(@designcombo/events@1.0.2)(@designcombo/types@3.1.1)
+        specifier: 3.1.13
+        version: 3.1.13(@designcombo/events@1.0.2)(@designcombo/types@3.1.13)
       '@designcombo/timeline':
-        specifier: 3.1.1
-        version: 3.1.1(@designcombo/events@1.0.2)(@designcombo/types@3.1.1)(@types/lodash-es@4.17.12)
+        specifier: 3.1.13
+        version: 3.1.13(@designcombo/events@1.0.2)(@designcombo/types@3.1.13)(@types/lodash-es@4.17.12)
       '@designcombo/types':
-        specifier: 3.1.1
-        version: 3.1.1
+        specifier: 3.1.13
+        version: 3.1.13
       '@emotion/react':
         specifier: ^11.13.3
         version: 11.14.0(@types/react@18.3.8)(react@18.3.1)
@@ -72,7 +72,7 @@ importers:
         specifier: ^1.2.0
         version: 1.2.3(@types/react-dom@18.3.0)(@types/react@18.3.8)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@radix-ui/react-slot':
-        specifier: ^1.0.2
+        specifier: ^1.1.2
         version: 1.1.2(@types/react@18.3.8)(react@18.3.1)
       '@radix-ui/react-tabs':
         specifier: ^1.1.0
@@ -134,6 +134,9 @@ importers:
       react-dom:
         specifier: ^18.3.1
         version: 18.3.1(react@18.3.1)
+      react-draggable:
+        specifier: ^4.4.6
+        version: 4.4.6(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       react-dropzone:
         specifier: ^14.2.3
         version: 14.3.5(react@18.3.1)
@@ -333,21 +336,21 @@ packages:
   '@designcombo/frames@0.0.3':
     resolution: {integrity: sha512-CC10G1oqJB+ybZuCx+ncXUPKIMkV6H+82VnwN2kd4sOn3KmFxWQvdJYxu+RLCl2dxdE1O4mEMQDbsiHZwGmJhA==}
 
-  '@designcombo/state@3.1.1':
-    resolution: {integrity: sha512-UZA7Rpge7XbEjzx4qrG+MpKCthfQY0Q+V4c5Pjr+d2u4yPMCh5eNQ1/Mh11bLEjqh030NqAcvx/XJzp5Qsh2LA==}
+  '@designcombo/state@3.1.13':
+    resolution: {integrity: sha512-XpcMKmRijHMdVLKYskPg+BHovUklY0ZiIWP+F2AESzIUJQpzul0GpAPc9fIefyXNepm2Cz+jA7KZvzmze7TmMA==}
     peerDependencies:
       '@designcombo/events': ^1.0.2
-      '@designcombo/types': 3.1.1
+      '@designcombo/types': 3.1.13
 
-  '@designcombo/timeline@3.1.1':
-    resolution: {integrity: sha512-RS080e/qbA95WYkfYWMTjNiHrgREkFhwPlktLmp694FvCbFKSi9mmjRmip79xkDmrAuhJFSEWZMCvHTYxOhLyA==}
+  '@designcombo/timeline@3.1.13':
+    resolution: {integrity: sha512-mrvIgy7ahgSPSQXokQ1ySbdITbXSnQg38bGR6bLtzt3/vY7JfxMoLo1O2sxXIGclhhhzf4tjW3VgGKqS6K4sDA==}
     peerDependencies:
       '@designcombo/events': ^1.0.2
-      '@designcombo/types': 3.1.1
+      '@designcombo/types': 3.1.13
       '@types/lodash-es': ^4.17.12
 
-  '@designcombo/types@3.1.1':
-    resolution: {integrity: sha512-HPxw/7iTn5x1g3uGXSVzbvoLMBPoB+29bmdGIAeOJda9YW1DaIsOYl34zvKSur6TE+qcSrRkGkBjf9rxM4eDSg==}
+  '@designcombo/types@3.1.13':
+    resolution: {integrity: sha512-vEMDxIp+nFAGsARkLrPBJIidmX0iuKF6aUeiaM/6qLi9kfCraEufSAyGY8NFoqdJL993aRBBvQU1upCrAbdgGg==}
 
   '@egjs/agent@2.4.4':
     resolution: {integrity: sha512-cvAPSlUILhBBOakn2krdPnOGv5hAZq92f1YHxYcfu0p7uarix2C6Ia3AVizpS1SGRZGiEkIS5E+IVTLg1I2Iog==}
@@ -1495,6 +1498,10 @@ packages:
   class-variance-authority@0.7.0:
     resolution: {integrity: sha512-jFI8IQw4hczaL4ALINxqLEXQbWcNjoSkloa4IaufXCJr6QawJyw7tuRysRsrE8w2p/4gGaxKIt/hX3qz/IbD1A==}
 
+  clsx@1.2.1:
+    resolution: {integrity: sha512-EcR6r5a8bj6pu3ycsa/E/cKVGuTgZJZdsyUYHOksG/UHIiKfjxzRxYJpyVBwYaQeOvghal9fcc4PidlgzugAQg==}
+    engines: {node: '>=6'}
+
   clsx@2.0.0:
     resolution: {integrity: sha512-rQ1+kcj+ttHG0MKVGBUXwayCCF1oh39BF5COIpRzuCEv8Mwjv0XucrI2ExNTOn9IlLifGClWQcU9BrZORvtw6Q==}
     engines: {node: '>=6'}
@@ -1641,9 +1648,6 @@ packages:
 
   error-ex@1.3.2:
     resolution: {integrity: sha512-7dFHNmqeFSEt2ZBsCriorKnn3Z2pj+fd9kmI6QoWw4//DL+icEBfc0U7qJCisqrTsKTjw4fNFy2pW9OqStD84g==}
-
-  es-toolkit@1.32.0:
-    resolution: {integrity: sha512-ZfSfHP1l6ubgW/B/FRtqb9bYdMvI6jizbOSfbwwJNcOQ1QE6TFsC3jpQkZ900uUPSR3t3SU5Ds7UWKnYz+uP8Q==}
 
   esbuild@0.21.5:
     resolution: {integrity: sha512-mg3OPMV4hXywwpoDxu3Qda5xCKQi+vCTZq8S9J/EpkhB2HzKXq4SNFZE3+NK93JYxc8VMSep+lOUSC/RVKaBqw==}
@@ -2418,6 +2422,12 @@ packages:
     peerDependencies:
       react: ^18.3.1
 
+  react-draggable@4.4.6:
+    resolution: {integrity: sha512-LtY5Xw1zTPqHkVmtM3X8MUOxNDOUhv/khTgBgrUvwaS064bwVvxT+q5El0uUFNx5IEPKXuRejr7UqLwBIg5pdw==}
+    peerDependencies:
+      react: '>= 16.3.0'
+      react-dom: '>= 16.3.0'
+
   react-dropzone@14.3.5:
     resolution: {integrity: sha512-9nDUaEEpqZLOz5v5SUcFA0CjM4vq8YbqO0WRls+EYT7+DvxUdzDPKNCPLqGfj3YL9MsniCLCD4RFA6M95V6KMQ==}
     engines: {node: '>= 10.13'}
@@ -3066,10 +3076,10 @@ snapshots:
       opfs-tools: 0.6.2
       wave-resampler: 1.0.0
 
-  '@designcombo/state@3.1.1(@designcombo/events@1.0.2)(@designcombo/types@3.1.1)':
+  '@designcombo/state@3.1.13(@designcombo/events@1.0.2)(@designcombo/types@3.1.13)':
     dependencies:
       '@designcombo/events': 1.0.2
-      '@designcombo/types': 3.1.1
+      '@designcombo/types': 3.1.13
       immer: 10.1.1
       lodash.clonedeep: 4.5.0
       lodash.isequal: 4.5.0
@@ -3078,12 +3088,11 @@ snapshots:
       nanoid: 5.0.9
       rxjs: 7.8.1
 
-  '@designcombo/timeline@3.1.1(@designcombo/events@1.0.2)(@designcombo/types@3.1.1)(@types/lodash-es@4.17.12)':
+  '@designcombo/timeline@3.1.13(@designcombo/events@1.0.2)(@designcombo/types@3.1.13)(@types/lodash-es@4.17.12)':
     dependencies:
       '@designcombo/events': 1.0.2
-      '@designcombo/types': 3.1.1
+      '@designcombo/types': 3.1.13
       '@types/lodash-es': 4.17.12
-      es-toolkit: 1.32.0
       fabric: 6.5.4
       immer: 10.1.1
       lodash-es: 4.17.21
@@ -3095,7 +3104,7 @@ snapshots:
       - supports-color
       - utf-8-validate
 
-  '@designcombo/types@3.1.1':
+  '@designcombo/types@3.1.13':
     dependencies:
       rxjs: 7.8.1
 
@@ -4281,6 +4290,8 @@ snapshots:
     dependencies:
       clsx: 2.0.0
 
+  clsx@1.2.1: {}
+
   clsx@2.0.0: {}
 
   clsx@2.1.1: {}
@@ -4409,8 +4420,6 @@ snapshots:
   error-ex@1.3.2:
     dependencies:
       is-arrayish: 0.2.1
-
-  es-toolkit@1.32.0: {}
 
   esbuild@0.21.5:
     optionalDependencies:
@@ -5158,6 +5167,13 @@ snapshots:
       loose-envify: 1.4.0
       react: 18.3.1
       scheduler: 0.23.2
+
+  react-draggable@4.4.6(react-dom@18.3.1(react@18.3.1))(react@18.3.1):
+    dependencies:
+      clsx: 1.2.1
+      prop-types: 15.8.1
+      react: 18.3.1
+      react-dom: 18.3.1(react@18.3.1)
 
   react-dropzone@14.3.5(react@18.3.1):
     dependencies:
