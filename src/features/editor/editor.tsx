@@ -11,7 +11,7 @@ import {
   ResizablePanel,
   ResizablePanelGroup,
 } from "@/components/ui/resizable";
-import { ImperativePanelHandle } from "react-resizable-panels";
+import type { ImperativePanelHandle } from "react-resizable-panels";
 import { getCompactFontData, loadFonts } from "./utils/fonts";
 import { SECONDARY_FONT, SECONDARY_FONT_URL } from "./constants/constants";
 import MenuList from "./menu-list";
@@ -50,7 +50,7 @@ const Editor = () => {
         url: SECONDARY_FONT_URL,
       },
     ]);
-  }, []);
+  });
 
   useEffect(() => {
     const screenHeight = window.innerHeight;
@@ -93,7 +93,7 @@ const Editor = () => {
           <ResizablePanel className="relative" defaultSize={70}>
             <FloatingControl />
             <div className="flex h-full flex-1">
-              <div className="bg-sidebar flex flex-none border-r border-border/80">
+              <div className='flex flex-none border-border/80 border-r bg-sidebar'>
                 <MenuList />
                 <MenuItem />
               </div>

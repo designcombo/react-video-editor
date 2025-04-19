@@ -1,21 +1,24 @@
-import { StrictMode } from "react";
-import { createRoot } from "react-dom/client";
-import { ThemeProvider } from "@/components/theme-provider";
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import "non.geist";
-import "./index.css";
-import App from "./app";
+import { ThemeProvider } from '@/components/theme-provider';
+import { StrictMode } from 'react';
+import { createRoot } from 'react-dom/client';
+import { RouterProvider, createBrowserRouter } from 'react-router-dom';
+import 'non.geist';
+import './index.css';
+import App from './app';
+import { TooltipProvider } from './components/ui/tooltip';
 
 const router = createBrowserRouter([
   {
-    path: "/",
+    path: '/',
     element: <App />,
   },
 ]);
-createRoot(document.getElementById("root")!).render(
+createRoot(document.getElementById('root')).render(
   <StrictMode>
     <ThemeProvider defaultTheme="dark" storageKey="vite-ui-theme">
-      <RouterProvider router={router} />
+      <TooltipProvider>
+        <RouterProvider router={router} />
+      </TooltipProvider>
     </ThemeProvider>
-  </StrictMode>,
+  </StrictMode>
 );

@@ -1,26 +1,27 @@
-import { Button } from "@/components/ui/button";
-import { dispatch } from "@designcombo/events";
+import { TooltipButton } from '@/components/tooltip-button';
+import { Button } from '@/components/ui/button';
+import { Slider } from '@/components/ui/slider';
+import { dispatch } from '@designcombo/events';
 import {
   ACTIVE_SPLIT,
   LAYER_CLONE,
   LAYER_DELETE,
   TIMELINE_SCALE_CHANGED,
-} from "@designcombo/state";
-import { PLAYER_PAUSE, PLAYER_PLAY } from "../constants/events";
-import { frameToTimeString, getCurrentTime, timeToString } from "../utils/time";
-import useStore from "../store/use-store";
-import { SquareSplitHorizontal, Trash, ZoomIn, ZoomOut } from "lucide-react";
+} from '@designcombo/state';
+import type { ITimelineScaleState } from '@designcombo/types';
+import { SquareSplitHorizontal, Trash, ZoomIn, ZoomOut } from 'lucide-react';
+import { useCallback, useEffect, useState } from 'react';
+import { PLAYER_PAUSE, PLAYER_PLAY } from '../constants/events';
+import { useCurrentPlayerFrame } from '../hooks/use-current-frame';
+import useUpdateAnsestors from '../hooks/use-update-ansestors';
+import useStore from '../store/use-store';
+import { frameToTimeString, getCurrentTime, timeToString } from '../utils/time';
 import {
   getFitZoomLevel,
   getNextZoomLevel,
   getPreviousZoomLevel,
   getZoomByIndex,
-} from "../utils/timeline";
-import { useCurrentPlayerFrame } from "../hooks/use-current-frame";
-import { Slider } from "@/components/ui/slider";
-import { useEffect, useState } from "react";
-import useUpdateAnsestors from "../hooks/use-update-ansestors";
-import { ITimelineScaleState } from "@designcombo/types";
+} from '../utils/timeline';
 
 const IconPlayerPlayFilled = ({ size }: { size: number }) => (
   <svg
@@ -83,9 +84,33 @@ const Header = () => {
   const [playing, setPlaying] = useState(false);
   const { duration, fps, scale, playerRef, activeIds } = useStore();
 
+  const handleKeyPress = useCallback(
+    (e: KeyboardEvent) => {
+      e.preventDefault();
+      if (!activeIds.length) {
+        return;
+      }
+
+      const key = e.key.toLowerCase();
+      if (key === 'delete' || key === 'backspace') {
+        doActiveDelete();
+      } else if (key === 's') {
+        doActiveSplit();
+      } else if (e.key === ' ') {
+        doActiveClone();
+      }
+    },
+    [activeIds.length]
+  );
+
+  useEffect(() => {
+    window.addEventListener('keydown', handleKeyPress);
+    return () => window.removeEventListener('keydown', handleKeyPress);
+  }, [handleKeyPress]);
+
   useUpdateAnsestors({ playing, playerRef });
 
-  const currentFrame = useCurrentPlayerFrame(playerRef!);
+  const currentFrame = useCurrentPlayerFrame(playerRef);
 
   const doActiveDelete = () => {
     dispatch(LAYER_DELETE);
@@ -98,6 +123,10 @@ const Header = () => {
         time: getCurrentTime(),
       },
     });
+  };
+
+  const doActiveClone = () => {
+    dispatch(LAYER_CLONE);
   };
 
   const changeScale = (scale: ITimelineScaleState) => {
@@ -117,17 +146,17 @@ const Header = () => {
   };
 
   useEffect(() => {
-    playerRef?.current?.addEventListener("play", () => {
+    playerRef?.current?.addEventListener('play', () => {
       setPlaying(true);
     });
-    playerRef?.current?.addEventListener("pause", () => {
+    playerRef?.current?.addEventListener('pause', () => {
       setPlaying(false);
     });
     return () => {
-      playerRef?.current?.removeEventListener("play", () => {
+      playerRef?.current?.removeEventListener('play', () => {
         setPlaying(true);
       });
-      playerRef?.current?.removeEventListener("pause", () => {
+      playerRef?.current?.removeEventListener('pause', () => {
         setPlaying(false);
       });
     };
@@ -136,64 +165,66 @@ const Header = () => {
   return (
     <div
       style={{
-        position: "relative",
-        height: "50px",
-        flex: "none",
+        position: 'relative',
+        height: '50px',
+        flex: 'none',
       }}
     >
       <div
         style={{
-          position: "absolute",
+          position: 'absolute',
           height: 50,
-          width: "100%",
-          display: "flex",
-          alignItems: "center",
+          width: '100%',
+          display: 'flex',
+          alignItems: 'center',
         }}
       >
         <div
           style={{
             height: 36,
-            width: "100%",
-            display: "grid",
-            gridTemplateColumns: "1fr 260px 1fr",
-            alignItems: "center",
+            width: '100%',
+            display: 'grid',
+            gridTemplateColumns: '1fr 260px 1fr',
+            alignItems: 'center',
           }}
         >
           <div className="flex px-2">
-            <Button
+            <TooltipButton
               disabled={!activeIds.length}
               onClick={doActiveDelete}
-              variant={"ghost"}
-              size={"sm"}
+              variant={'ghost'}
+              size={'sm'}
               className="flex items-center gap-1 px-2"
+              tooltipText="Delete or Backspace"
             >
               <Trash size={14} /> Delete
-            </Button>
+            </TooltipButton>
 
-            <Button
+            <TooltipButton
               disabled={!activeIds.length}
               onClick={doActiveSplit}
-              variant={"ghost"}
-              size={"sm"}
+              variant={'ghost'}
+              size={'sm'}
               className="flex items-center gap-1 px-2"
+              tooltipText="S"
             >
               <SquareSplitHorizontal size={15} /> Split
-            </Button>
-            <Button
+            </TooltipButton>
+
+            <TooltipButton
+              tooltipText="Space"
               disabled={!activeIds.length}
-              onClick={() => {
-                dispatch(LAYER_CLONE);
-              }}
-              variant={"ghost"}
-              size={"sm"}
+              onClick={doActiveClone}
+              variant={'ghost'}
+              size={'sm'}
               className="flex items-center gap-1 px-2"
             >
               <SquareSplitHorizontal size={15} /> Clone
-            </Button>
+            </TooltipButton>
           </div>
           <div className="flex items-center justify-center">
             <div>
-              <Button onClick={doActiveDelete} variant={"ghost"} size={"icon"}>
+              <Button onClick={doActiveDelete} variant={'ghost'} size={'icon'}>
                 <IconPlayerSkipBack size={14} />
               </Button>
               <Button
@@ -203,8 +234,8 @@ const Header = () => {
                   }
                   handlePlay();
                 }}
-                variant={"ghost"}
-                size={"icon"}
+                variant={'ghost'}
+                size={'icon'}
               >
                 {playing ? (
                   <IconPlayerPauseFilled size={14} />
@@ -212,25 +243,25 @@ const Header = () => {
                   <IconPlayerPlayFilled size={14} />
                 )}
               </Button>
-              <Button onClick={doActiveSplit} variant={"ghost"} size={"icon"}>
+              <Button onClick={doActiveSplit} variant={'ghost'} size={'icon'}>
                 <IconPlayerSkipForward size={14} />
               </Button>
             </div>
             <div
-              className="text-xs font-light"
+              className="font-light text-xs"
               style={{
-                display: "grid",
-                alignItems: "center",
-                gridTemplateColumns: "54px 4px 54px",
-                paddingTop: "2px",
-                justifyContent: "center",
+                display: 'grid',
+                alignItems: 'center',
+                gridTemplateColumns: '54px 4px 54px',
+                paddingTop: '2px',
+                justifyContent: 'center',
               }}
             >
               <div
                 className="font-medium text-zinc-200"
                 style={{
-                  display: "flex",
-                  justifyContent: "center",
+                  display: 'flex',
+                  justifyContent: 'center',
                 }}
                 data-current-time={currentFrame / fps}
                 id="video-current-time"
@@ -241,8 +272,8 @@ const Header = () => {
               <div
                 className="text-muted-foreground"
                 style={{
-                  display: "flex",
-                  justifyContent: "center",
+                  display: 'flex',
+                  justifyContent: 'center',
                 }}
               >
                 {timeToString({ time: duration })}
@@ -293,8 +324,8 @@ const ZoomControl = ({
 
   return (
     <div className="flex items-center justify-end">
-      <div className="flex border-l border-border pl-4 pr-2">
-        <Button size={"icon"} variant={"ghost"} onClick={onZoomOutClick}>
+      <div className="flex border-border border-l pr-2 pl-4">
+        <Button size={'icon'} variant={'ghost'} onClick={onZoomOutClick}>
           <ZoomOut size={16} />
         </Button>
         <Slider
@@ -311,10 +342,10 @@ const ZoomControl = ({
             onChangeTimelineScale(zoom); // Propagate value to parent when user commits change
           }}
         />
-        <Button size={"icon"} variant={"ghost"} onClick={onZoomInClick}>
+        <Button size={'icon'} variant={'ghost'} onClick={onZoomInClick}>
           <ZoomIn size={16} />
         </Button>
-        <Button onClick={onZoomFitClick} variant={"ghost"} size={"icon"}>
+        <Button onClick={onZoomFitClick} variant={'ghost'} size={'icon'}>
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="16"

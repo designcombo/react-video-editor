@@ -2,11 +2,11 @@ import TimelineBase from "@designcombo/timeline";
 import Video from "./video";
 import { throttle } from "lodash";
 import Audio from "./audio";
-import { TimelineOptions } from "@designcombo/timeline";
-import { ITimelineScaleState } from "@designcombo/types";
+import type { TimelineOptions } from "@designcombo/timeline";
+import type { ITimelineScaleState } from "@designcombo/types";
 
 class Timeline extends TimelineBase {
-  public isShiftKey: boolean = false;
+  isShiftKey = false;
   constructor(
     canvasEl: HTMLCanvasElement,
     options: Partial<TimelineOptions> & {
@@ -34,7 +34,7 @@ class Timeline extends TimelineBase {
     }
   };
 
-  public purge(): void {
+  purge(): void {
     super.purge();
 
     // Cleanup event listener for Shift key
@@ -42,7 +42,7 @@ class Timeline extends TimelineBase {
     window.removeEventListener("keyup", this.handleKeyUp);
   }
 
-  public setViewportPos(posX: number, posY: number) {
+  setViewportPos(posX: number, posY: number) {
     const limitedPos = this.getViewportPos(posX, posY);
     const vt = this.viewportTransform;
     vt[4] = limitedPos.x;
@@ -57,7 +57,7 @@ class Timeline extends TimelineBase {
     });
   }
 
-  public onScrollChange = throttle(async () => {
+  onScrollChange = throttle(() => {
     const objects = this.getObjects();
     const viewportTransform = this.viewportTransform;
     const scrollLeft = viewportTransform[4];
@@ -68,7 +68,7 @@ class Timeline extends TimelineBase {
     }
   }, 250);
 
-  public scrollTo({
+  scrollTo({
     scrollLeft,
     scrollTop,
   }: {

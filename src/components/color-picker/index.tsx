@@ -1,13 +1,13 @@
-import { Fragment, FC } from "react";
-import Gradient from "./gradient";
-import Solid from "./solid";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "./tabs";
-import { IPropsMain } from "./types";
-import "./colorpicker.css";
+import { type FC, Fragment } from 'react';
+import Gradient from './gradient';
+import Solid from './solid';
+import { Tabs, TabsContent, TabsList, TabsTrigger } from './tabs';
+import type { IPropsMain } from './types';
+import './colorpicker.css';
 
 const ColorPicker: FC<IPropsMain> = ({
-  value = "#ffffff",
-  format = "rgb",
+  value = '#ffffff',
+  format = 'rgb',
   gradient = false,
   solid = true,
   debounceMS = 300,

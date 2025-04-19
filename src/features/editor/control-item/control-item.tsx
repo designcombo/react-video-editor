@@ -1,5 +1,4 @@
-import React from "react";
-import {
+import type {
   IAudio,
   ICaption,
   IImage,
@@ -8,15 +7,16 @@ import {
   ITrackItemAndDetails,
   IVideo,
 } from "@designcombo/types";
-import { useEffect, useState } from "react";
-import BasicText from "./basic-text";
-import BasicImage from "./basic-image";
-import BasicVideo from "./basic-video";
-import BasicAudio from "./basic-audio";
-import useStore from "../store/use-store";
-import useLayoutStore from "../store/use-layout-store";
-import BasicCaption from "./basic-caption";
 import { LassoSelect } from "lucide-react";
+import React, { useCallback } from "react";
+import { useEffect, useState } from "react";
+import useLayoutStore from "../store/use-layout-store";
+import useStore from "../store/use-store";
+import BasicAudio from "./basic-audio";
+import BasicCaption from "./basic-caption";
+import BasicImage from "./basic-image";
+import BasicText from "./basic-text";
+import BasicVideo from "./basic-video";
 
 const Container = ({ children }: { children: React.ReactNode }) => {
   const { activeIds, trackItemsMap, trackItemDetailsMap, transitionsMap } =
@@ -24,26 +24,35 @@ const Container = ({ children }: { children: React.ReactNode }) => {
   const [trackItem, setTrackItem] = useState<ITrackItem | null>(null);
   const { setTrackItem: setLayoutTrackItem } = useLayoutStore();
 
+  const updateTrackItem = useCallback(
+    (ids: string[]) => {
+      if (ids.length === 1) {
+        const [id] = ids;
+        const trackItemDetails = trackItemDetailsMap[id];
+        const currentTrackItem = {
+          ...trackItemsMap[id],
+          details: trackItemDetails?.details || {},
+        };
+        if (trackItemDetails) {
+          setTrackItem(currentTrackItem);
+          setLayoutTrackItem(currentTrackItem);
+        } else {
+          console.log('No trackItemDetails', transitionsMap[id]);
+        }
+      } else {
+        setTrackItem(null);
+        setLayoutTrackItem(null);
+      }
+    },
+    [trackItemsMap, trackItemDetailsMap, setLayoutTrackItem, transitionsMap]
+  );
+
   useEffect(() => {
-    if (activeIds.length === 1) {
-      const [id] = activeIds;
-      const trackItemDetails = trackItemDetailsMap[id];
-      const trackItem = {
-        ...trackItemsMap[id],
-        details: trackItemDetails?.details || {},
-      };
-      if (trackItemDetails) {
-        setTrackItem(trackItem);
-        setLayoutTrackItem(trackItem);
-      } else console.log(transitionsMap[id]);
-    } else {
-      setTrackItem(null);
-      setLayoutTrackItem(null);
-    }
-  }, [activeIds, trackItemsMap]);
+    updateTrackItem(activeIds);
+  }, [activeIds, updateTrackItem]);
 
   return (
-    <div className="flex w-[272px] flex-none border-l border-border/80 bg-sidebar">
+    <div className='flex w-[272px] flex-none border-border/80order/80l bg-sidebar'>
       {React.cloneElement(children as React.ReactElement<any>, {
         trackItem,
       })}

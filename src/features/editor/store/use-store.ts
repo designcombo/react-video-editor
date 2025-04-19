@@ -1,15 +1,16 @@
-import Timeline from "@designcombo/timeline";
-import {
+import type Timeline from '@designcombo/timeline';
+import type {
   ISize,
   ITimelineScaleState,
   ITimelineScrollState,
   ITrack,
   ITrackItem,
   ITransition,
-} from "@designcombo/types";
-import Moveable from "@interactify/moveable";
-import { PlayerRef } from "@remotion/player";
-import { create } from "zustand";
+} from '@designcombo/types';
+import type Moveable from '@interactify/moveable';
+import type { PlayerRef } from '@remotion/player';
+import type { RefObject } from 'react';
+import { create } from 'zustand';
 
 interface ITimelineStore {
   duration: number;
@@ -28,11 +29,11 @@ interface ITimelineStore {
   setTimeline: (timeline: Timeline) => void;
   setScale: (scale: ITimelineScaleState) => void;
   setScroll: (scroll: ITimelineScrollState) => void;
-  playerRef: React.RefObject<PlayerRef> | null;
-  setPlayerRef: (playerRef: React.RefObject<PlayerRef> | null) => void;
+  playerRef: RefObject<PlayerRef> | null;
+  setPlayerRef: (playerRef: RefObject<PlayerRef> | null) => void;
 
-  sceneMoveableRef: React.RefObject<Moveable> | null;
-  setSceneMoveableRef: (ref: React.RefObject<Moveable>) => void;
+  sceneMoveableRef: RefObject<Moveable> | null;
+  setSceneMoveableRef: (ref: RefObject<Moveable>) => void;
   setState: (state: any) => Promise<void>;
 }
 
@@ -82,8 +83,7 @@ const useStore = create<ITimelineStore>((set) => ({
   setState: async (state) => {
     return set({ ...state });
   },
-  setPlayerRef: (playerRef: React.RefObject<PlayerRef> | null) =>
-    set({ playerRef }),
+  setPlayerRef: (playerRef: RefObject<PlayerRef> | null) => set({ playerRef }),
   setSceneMoveableRef: (ref) => set({ sceneMoveableRef: ref }),
 }));
 
