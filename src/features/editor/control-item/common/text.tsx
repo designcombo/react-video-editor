@@ -152,7 +152,7 @@ const FontBackground = ({
     </div>
   );
 };
-const FontColor = ({
+const FontColor= ({
   value,
   handleColorChange,
 }: {
@@ -161,9 +161,11 @@ const FontColor = ({
 }) => {
   const [localValue, setLocalValue] = useState<string>(value);
   const [open, setOpen] = useState(false);
+
   useEffect(() => {
     setLocalValue(value);
   }, [value]);
+
   return (
     <div className="flex gap-2">
       <div className="flex flex-1 items-center text-sm text-muted-foreground">

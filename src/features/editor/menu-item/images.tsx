@@ -1,12 +1,12 @@
-import { ScrollArea } from "@/components/ui/scroll-area";
-import { IMAGES } from "../data/images";
-import { dispatch } from "@designcombo/events";
-import { generateId } from "@designcombo/timeline";
-import Draggable from "@/components/shared/draggable";
-import { IImage } from "@designcombo/types";
-import React from "react";
-import { useIsDraggingOverTimeline } from "../hooks/is-dragging-over-timeline";
-import { ADD_ITEMS } from "@designcombo/state";
+import Draggable from '@/components/shared/draggable';
+import { ScrollArea } from '@/components/ui/scroll-area';
+import { dispatch } from '@designcombo/events';
+import { ADD_ITEMS } from '@designcombo/state';
+import { generateId } from '@designcombo/timeline';
+import type { IImage } from '@designcombo/types';
+import React from 'react';
+import { IMAGES } from '../data/images';
+import { useIsDraggingOverTimeline } from '../hooks/is-dragging-over-timeline';
 
 export const Images = () => {
   const isDraggingOverTimeline = useIsDraggingOverTimeline();
@@ -51,7 +51,7 @@ export const Images = () => {
 
   return (
     <div className="flex flex-1 flex-col">
-      <div className="text-text-primary flex h-12 flex-none items-center px-4 text-sm font-medium">
+      <div className="flex h-12 flex-none items-center px-4 font-medium text-sm text-text-primary">
         Photos
       </div>
       <ScrollArea>
@@ -84,11 +84,11 @@ const ImageItem = ({
   const style = React.useMemo(
     () => ({
       backgroundImage: `url(${image.preview})`,
-      backgroundSize: "cover",
-      width: "80px",
-      height: "80px",
+      backgroundSize: 'cover',
+      width: '80px',
+      height: '80px',
     }),
-    [image.preview],
+    [image.preview]
   );
 
   return (
@@ -102,7 +102,7 @@ const ImageItem = ({
           handleAddImage({
             id: generateId(),
             details: {
-              src: image.details!.src,
+              src: image.details.src,
             },
           } as IImage)
         }
@@ -112,7 +112,7 @@ const ImageItem = ({
           draggable={false}
           src={image.preview}
           className="h-full w-full rounded-md object-cover"
-          alt="image"
+          alt="timeline element"
         />
       </div>
     </Draggable>

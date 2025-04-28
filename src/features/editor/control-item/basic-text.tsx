@@ -4,11 +4,11 @@ import { loadFonts } from "../utils/fonts";
 import { dispatch } from "@designcombo/events";
 import { EDIT_OBJECT } from "@designcombo/state";
 import { useEffect, useState } from "react";
-import { IBoxShadow, IText, ITrackItem } from "@designcombo/types";
+import type { IBoxShadow, IText, ITrackItem } from "@designcombo/types";
 import Outline from "./common/outline";
 import Shadow from "./common/shadow";
 import { TextControls } from "./common/text";
-import { ICompactFont, IFont } from "../interfaces/editor";
+import type { ICompactFont, IFont } from "../interfaces/editor";
 import { DEFAULT_FONT } from "../constants/font";
 
 interface ITextControlProps {
@@ -72,13 +72,15 @@ const BasicText = ({ trackItem }: { trackItem: ITrackItem & IText }) => {
       trackItem.details.fontFamily || DEFAULT_FONT.postScriptName;
     const currentFont = fonts.find(
       (font) => font.postScriptName === fontFamily,
-    )!;
+    );
 
     const selectedFont = compactFonts.find(
       (font) => font.family === currentFont?.family,
-    )!;
+    );
 
-    if (!selectedFont) return;
+    if (!selectedFont) {
+      return;
+    }
 
     setSelectedFont({
       ...selectedFont,
@@ -90,11 +92,11 @@ const BasicText = ({ trackItem }: { trackItem: ITrackItem & IText }) => {
       colorDisplay: trackItem.details.color || "#ffffff",
       backgroundColor: trackItem.details.backgroundColor || "transparent",
       fontSize: trackItem.details.fontSize || 62,
-      fontSizeDisplay: (trackItem.details.fontSize || 62) + "px",
+      fontSizeDisplay: `${trackItem.details.fontSize || 62}px`,
       fontFamily: selectedFont?.family || "Open Sans",
       fontFamilyDisplay: selectedFont?.family || "Open Sans",
       opacity: trackItem.details.opacity || 1,
-      opacityDisplay: (trackItem.details.opacity.toString() || "100") + "%",
+      opacityDisplay: `${trackItem.details.opacity.toString() || "100"}%`,
       textAlign: trackItem.details.textAlign || "left",
       textDecoration: trackItem.details.textDecoration || "none",
       borderWidth: trackItem.details.borderWidth || 0,
@@ -351,7 +353,7 @@ const BasicText = ({ trackItem }: { trackItem: ITrackItem & IText }) => {
           <Shadow
             label="Font shadow"
             onChange={(v: IBoxShadow) => onChangeBoxShadow(v)}
-            value={properties.boxShadow!}
+            value={properties.boxShadow}
           />
         </div>
       </ScrollArea>

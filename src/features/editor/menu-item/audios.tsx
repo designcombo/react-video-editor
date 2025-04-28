@@ -1,13 +1,13 @@
-import Draggable from "@/components/shared/draggable";
-import { ScrollArea } from "@/components/ui/scroll-area";
-import { AUDIOS } from "../data/audio";
-import { dispatch } from "@designcombo/events";
-import { ADD_AUDIO } from "@designcombo/state";
-import { IAudio } from "@designcombo/types";
-import { Music } from "lucide-react";
-import { useIsDraggingOverTimeline } from "../hooks/is-dragging-over-timeline";
-import React from "react";
-import { generateId } from "@designcombo/timeline";
+import Draggable from '@/components/shared/draggable';
+import { ScrollArea } from '@/components/ui/scroll-area';
+import { dispatch } from '@designcombo/events';
+import { ADD_AUDIO } from '@designcombo/state';
+import { generateId } from '@designcombo/timeline';
+import type { IAudio } from '@designcombo/types';
+import { Music } from 'lucide-react';
+import React from 'react';
+import { AUDIOS } from '../data/audio';
+import { useIsDraggingOverTimeline } from '../hooks/is-dragging-over-timeline';
 
 export const Audios = () => {
   const isDraggingOverTimeline = useIsDraggingOverTimeline();
@@ -22,7 +22,7 @@ export const Audios = () => {
 
   return (
     <div className="flex flex-1 flex-col">
-      <div className="text-text-primary flex h-12 flex-none items-center px-4 text-sm font-medium">
+      <div className="flex h-12 flex-none items-center px-4 font-medium text-sm text-text-primary">
         Audios
       </div>
       <ScrollArea>
@@ -54,12 +54,12 @@ const AudioItem = ({
 }) => {
   const style = React.useMemo(
     () => ({
-      backgroundImage: `url(https://cdn.designcombo.dev/thumbnails/music-preview.png)`,
-      backgroundSize: "cover",
-      width: "70px",
-      height: "70px",
+      backgroundImage: 'url(https://cdn.designcombo.dev/thumbnails/music-preview.png)',
+      backgroundSize: 'cover',
+      width: '70px',
+      height: '70px',
     }),
-    [],
+    []
   );
 
   return (
@@ -72,8 +72,8 @@ const AudioItem = ({
         draggable={false}
         onClick={() => handleAddAudio(audio)}
         style={{
-          display: "grid",
-          gridTemplateColumns: "48px 1fr",
+          display: 'grid',
+          gridTemplateColumns: '48px 1fr',
         }}
         className="flex cursor-pointer gap-4 px-2 py-1 text-sm hover:bg-zinc-800/70"
       >
