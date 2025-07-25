@@ -1,0 +1,1299 @@
+{
+	"id": "29_Mvi_BoFo5wT27SGqmt",
+	"trackItemsMap": {
+		"oR4_y3i48KYX_ta1WtkRu": {
+			"id": "oR4_y3i48KYX_ta1WtkRu",
+			"type": "video",
+			"details": {
+				"width": 1280,
+				"height": 720,
+				"opacity": 100,
+				"src": "https://storage.googleapis.com/combo_ai/AGENTS/PJ1nkaufw0hZPyhN7bWCP/TRIMMER/q2t6KxF_YYO9rszodpECo/heygen_0_30.mp4?icyTgZndIfYa0Hz7VnD5k",
+				"volume": 100,
+				"borderRadius": 0,
+				"borderWidth": 0,
+				"borderColor": "#000000",
+				"boxShadow": {
+					"color": "#000000",
+					"x": 0,
+					"y": 0,
+					"blur": 0
+				},
+				"top": "600px",
+				"left": "-100px",
+				"transform": "scale(0.84375)",
+				"blur": 0,
+				"brightness": 100,
+				"flipX": false,
+				"flipY": false,
+				"rotate": "0deg",
+				"visibility": "visible"
+			},
+			"metadata": {
+				"previewUrl": "https://storage.googleapis.com/combo_ai/AGENTS/PJ1nkaufw0hZPyhN7bWCP/TRIMMER/q2t6KxF_YYO9rszodpECo_preview.png?ngzytru2PCj-7yPSYWPna"
+			},
+			"trim": {
+				"from": 0,
+				"to": 30080
+			},
+			"name": "video",
+			"playbackRate": 1,
+			"display": {
+				"from": 0,
+				"to": 30080
+			},
+			"duration": 30080
+		},
+		"kb3t5zK3C8shtOgbOCSLU": {
+			"id": "kb3t5zK3C8shtOgbOCSLU",
+			"type": "video",
+			"details": {
+				"width": 1280,
+				"height": 720,
+				"opacity": 100,
+				"src": "https://storage.googleapis.com/combo_ai/AGENTS/PJ1nkaufw0hZPyhN7bWCP/TRIMMER/ecq70tlyumuDvibqLTX64/heygen_0_30.mp4?Bb5LSNafE8yOawoqRhwmA",
+				"volume": 100,
+				"borderRadius": 0,
+				"borderWidth": 0,
+				"borderColor": "#000000",
+				"boxShadow": {
+					"color": "#000000",
+					"x": 0,
+					"y": 0,
+					"blur": 0
+				},
+				"top": "600px",
+				"left": "-100px",
+				"transform": "scale(0.84375)",
+				"blur": 0,
+				"brightness": 100,
+				"flipX": false,
+				"flipY": false,
+				"rotate": "0deg",
+				"visibility": "visible"
+			},
+			"metadata": {
+				"previewUrl": "https://storage.googleapis.com/combo_ai/AGENTS/PJ1nkaufw0hZPyhN7bWCP/TRIMMER/ecq70tlyumuDvibqLTX64_preview.png?eKgr1T-9aFCsDKrIEih9l"
+			},
+			"trim": {
+				"from": 0,
+				"to": 30080
+			},
+			"name": "video",
+			"playbackRate": 1,
+			"display": {
+				"from": 31080,
+				"to": 61160
+			},
+			"duration": 30080
+		},
+		"T1tbS69bEvFFhKq7ZtwR9": {
+			"id": "T1tbS69bEvFFhKq7ZtwR9",
+			"name": "Audio",
+			"type": "audio",
+			"display": {
+				"from": 0,
+				"to": 30093.063000000002
+			},
+			"trim": {
+				"from": 0,
+				"to": 30093.063000000002
+			},
+			"playbackRate": 1,
+			"details": {
+				"src": "https://storage.googleapis.com/combo_ai/AGENTS/PJ1nkaufw0hZPyhN7bWCP/VOICE_CHANGER/XDkKUVEQ-oYF4Yb-UFAXa.mp3?V-YweiXXTvhTrLZH2H98t",
+				"volume": 100
+			},
+			"metadata": {},
+			"duration": 30093.063000000002
+		},
+		"vKktGA9PEotYm1wByAyAI": {
+			"id": "vKktGA9PEotYm1wByAyAI",
+			"name": "Audio",
+			"type": "audio",
+			"display": {
+				"from": 31080,
+				"to": 61173.063
+			},
+			"trim": {
+				"from": 0,
+				"to": 30093.063000000002
+			},
+			"playbackRate": 1,
+			"details": {
+				"src": "https://storage.googleapis.com/combo_ai/AGENTS/PJ1nkaufw0hZPyhN7bWCP/VOICE_CHANGER/jFVhi7Cjm4IfQuYB2Mx4T.mp3?6xK_RPfz74awVOO5IX5rm",
+				"volume": 100
+			},
+			"metadata": {},
+			"duration": 30093.063000000002
+		},
+		"2tk9QN7y0ez_up8ZBojOo": {
+			"id": "2tk9QN7y0ez_up8ZBojOo",
+			"name": "Audio",
+			"type": "audio",
+			"display": {
+				"from": 0,
+				"to": 31080
+			},
+			"trim": {
+				"from": 0,
+				"to": 31080
+			},
+			"playbackRate": 1,
+			"details": {
+				"src": "https://storage.googleapis.com/combo_ai/AGENTS/PJ1nkaufw0hZPyhN7bWCP/AVATAR_RENDER/uEQq_M8GB_SNe5caaxHMT_avatar.mp4?oaBAu0Hf-CCTGiiyINkhA",
+				"volume": 100
+			},
+			"metadata": {},
+			"duration": 31080
+		},
+		"9QShtpN5UX5mq69oe0XNp": {
+			"id": "9QShtpN5UX5mq69oe0XNp",
+			"name": "Audio",
+			"type": "audio",
+			"display": {
+				"from": 31080,
+				"to": 62160
+			},
+			"trim": {
+				"from": 0,
+				"to": 31080
+			},
+			"playbackRate": 1,
+			"details": {
+				"src": "https://storage.googleapis.com/combo_ai/AGENTS/PJ1nkaufw0hZPyhN7bWCP/AVATAR_RENDER/IjQdNrt7SNZQyHZukQd9U_avatar.mp4?VmHFDmC2zBFgO71Le5AzK",
+				"volume": 100
+			},
+			"metadata": {},
+			"duration": 31080
+		},
+		"W5VMCeXD2mWX-ejO9rMXl": {
+			"id": "W5VMCeXD2mWX-ejO9rMXl",
+			"name": "Audio",
+			"type": "audio",
+			"display": {
+				"from": 0,
+				"to": 1280
+			},
+			"trim": {
+				"from": 0,
+				"to": 1280
+			},
+			"playbackRate": 1,
+			"details": {
+				"src": "https://storage.googleapis.com/combo_ai/AGENTS/PJ1nkaufw0hZPyhN7bWCP/TEXT_TO_SPEECH/gWqMjbhJTmKYipaIJf7iy.mp3?WDMhiA6BPtDkNpytkts7U",
+				"volume": 100
+			},
+			"metadata": {},
+			"duration": 1280
+		},
+		"2s4UALJ5sqVX18fdSFdcH": {
+			"id": "2s4UALJ5sqVX18fdSFdcH",
+			"name": "Audio",
+			"type": "audio",
+			"display": {
+				"from": 31080,
+				"to": 32516.688
+			},
+			"trim": {
+				"from": 0,
+				"to": 1436.6879999999999
+			},
+			"playbackRate": 1,
+			"details": {
+				"src": "https://storage.googleapis.com/combo_ai/AGENTS/PJ1nkaufw0hZPyhN7bWCP/TEXT_TO_SPEECH/RO4SViNfPbKTr5PTOC3jP.mp3?N-dguQtxfkVSKz7QBcT8u",
+				"volume": 100
+			},
+			"metadata": {},
+			"duration": 1436.6879999999999
+		},
+		"Jt0PvBfwdAVADPTOKrSTy": {
+			"id": "Jt0PvBfwdAVADPTOKrSTy",
+			"type": "video",
+			"details": {
+				"width": 864,
+				"height": 1080,
+				"opacity": 100,
+				"src": "https://storage.googleapis.com/combo_ai/AGENTS/PJ1nkaufw0hZPyhN7bWCP/TRIMMER/Etce2pJkxJaLKgtqDnTG4/vid1_1_7.mp4?kgXeSaK_fS1JjbxbARZ9Y",
+				"volume": 100,
+				"borderRadius": 0,
+				"borderWidth": 0,
+				"borderColor": "#000000",
+				"boxShadow": {
+					"color": "#000000",
+					"x": 0,
+					"y": 0,
+					"blur": 0
+				},
+				"top": "420px",
+				"left": "108px",
+				"transform": "scale(1.25)",
+				"blur": 0,
+				"brightness": 100,
+				"flipX": false,
+				"flipY": false,
+				"rotate": "0deg",
+				"visibility": "visible"
+			},
+			"metadata": {
+				"previewUrl": "https://storage.googleapis.com/combo_ai/AGENTS/PJ1nkaufw0hZPyhN7bWCP/TRIMMER/Etce2pJkxJaLKgtqDnTG4_preview.png?SG_2hsGNJDp9KMwol-Xm2"
+			},
+			"trim": {
+				"from": 0,
+				"to": 6019
+			},
+			"name": "video",
+			"playbackRate": 1,
+			"display": {
+				"from": 0,
+				"to": 6019
+			},
+			"duration": 6019
+		},
+		"--IqvVbP7JIGRJOP6_4UD": {
+			"id": "--IqvVbP7JIGRJOP6_4UD",
+			"type": "image",
+			"name": "image",
+			"display": {
+				"from": 0,
+				"to": 1000
+			},
+			"playbackRate": 1,
+			"details": {
+				"src": "https://code-test-ai.s3.us-east-1.amazonaws.com/pippit/img4.jpg",
+				"width": 1200,
+				"height": 1500,
+				"opacity": 100,
+				"transform": "scale(0.9)",
+				"border": "none",
+				"borderRadius": 0,
+				"boxShadow": {
+					"color": "#000000",
+					"x": 0,
+					"y": 0,
+					"blur": 0
+				},
+				"top": "210px",
+				"left": "-60px",
+				"borderWidth": 0,
+				"borderColor": "#000000",
+				"blur": 0,
+				"brightness": 100,
+				"flipX": false,
+				"flipY": false,
+				"rotate": "0deg",
+				"visibility": "visible"
+			},
+			"metadata": {
+				"previewUrl": "https://code-test-ai.s3.us-east-1.amazonaws.com/pippit/img4.jpg"
+			}
+		},
+		"LckJZk0oIbxF7kWpZNhc3": {
+			"id": "LckJZk0oIbxF7kWpZNhc3",
+			"type": "video",
+			"details": {
+				"width": 1080,
+				"height": 1080,
+				"opacity": 100,
+				"src": "https://storage.googleapis.com/combo_ai/AGENTS/PJ1nkaufw0hZPyhN7bWCP/TRIMMER/pcSeOUbytC18npIKFrm3I/vid2_20_30.mp4?7R7ILbZhx3ckAlbIWxC48",
+				"volume": 100,
+				"borderRadius": 0,
+				"borderWidth": 0,
+				"borderColor": "#000000",
+				"boxShadow": {
+					"color": "#000000",
+					"x": 0,
+					"y": 0,
+					"blur": 0
+				},
+				"top": "420px",
+				"left": "0px",
+				"transform": "scale(1)",
+				"blur": 0,
+				"brightness": 100,
+				"flipX": false,
+				"flipY": false,
+				"rotate": "0deg",
+				"visibility": "visible"
+			},
+			"metadata": {
+				"previewUrl": "https://storage.googleapis.com/combo_ai/AGENTS/PJ1nkaufw0hZPyhN7bWCP/TRIMMER/pcSeOUbytC18npIKFrm3I_preview.png?cCbboRPpGnzOpz2ThYRj2"
+			},
+			"trim": {
+				"from": 0,
+				"to": 10016
+			},
+			"name": "video",
+			"playbackRate": 1,
+			"display": {
+				"from": 31080,
+				"to": 41096
+			},
+			"duration": 10016
+		},
+		"AuMMccahdWzSOvpKGs9F0": {
+			"id": "AuMMccahdWzSOvpKGs9F0",
+			"type": "image",
+			"name": "image",
+			"display": {
+				"from": 31080,
+				"to": 32080
+			},
+			"playbackRate": 1,
+			"details": {
+				"src": "https://code-test-ai.s3.us-east-1.amazonaws.com/pippit/img1.png",
+				"width": 1500,
+				"height": 1500,
+				"opacity": 100,
+				"transform": "scale(0.72)",
+				"border": "none",
+				"borderRadius": 0,
+				"boxShadow": {
+					"color": "#000000",
+					"x": 0,
+					"y": 0,
+					"blur": 0
+				},
+				"top": "210px",
+				"left": "-210px",
+				"borderWidth": 0,
+				"borderColor": "#000000",
+				"blur": 0,
+				"brightness": 100,
+				"flipX": false,
+				"flipY": false,
+				"rotate": "0deg",
+				"visibility": "visible"
+			},
+			"metadata": {
+				"previewUrl": "https://code-test-ai.s3.us-east-1.amazonaws.com/pippit/img1.png"
+			}
+		},
+		"142f2443-3e02-49b0-ba83-db898e7abcf9": {
+			"id": "142f2443-3e02-49b0-ba83-db898e7abcf9",
+			"type": "caption",
+			"name": "Caption",
+			"display": {
+				"from": 80,
+				"to": 980
+			},
+			"metadata": {
+				"words": [
+					{
+						"word": "Main",
+						"start": 80,
+						"end": 480,
+						"confidence": 0.98443294
+					},
+					{
+						"word": "content.",
+						"start": 480,
+						"end": 980,
+						"confidence": 0.98506814
+					}
+				],
+				"sourceUrl": "mediaUrl",
+				"parentId": "Md-F61QheWnFICv55OBfs"
+			},
+			"details": {
+				"text": "Main content.",
+				"fontSize": 60,
+				"width": 600,
+				"fontFamily": "theboldfont",
+				"fontUrl": "https://cdn.designcombo.dev/fonts/the-bold-font.ttf",
+				"textAlign": "center",
+				"appearedColor": "#FFFFFF",
+				"activeColor": "#50FF12",
+				"activeFillColor": "#7E12FF",
+				"color": "#DADADA",
+				"backgroundColor": "transparent",
+				"borderColor": "#000000",
+				"borderWidth": 10,
+				"height": null,
+				"top": 192,
+				"left": 240
+			}
+		},
+		"96898105-b24b-4787-bb08-5deedac5e1a1": {
+			"id": "96898105-b24b-4787-bb08-5deedac5e1a1",
+			"type": "caption",
+			"name": "Caption",
+			"display": {
+				"from": 31160,
+				"to": 32140
+			},
+			"metadata": {
+				"words": [
+					{
+						"word": "Main",
+						"start": 80,
+						"end": 560,
+						"confidence": 0.98205316
+					},
+					{
+						"word": "content.",
+						"start": 560,
+						"end": 1060,
+						"confidence": 0.9814848
+					}
+				],
+				"sourceUrl": "mediaUrl",
+				"parentId": "8lXvaUQihQJihQcM1czkS"
+			},
+			"details": {
+				"text": "Main content.",
+				"fontSize": 60,
+				"width": 600,
+				"fontFamily": "theboldfont",
+				"fontUrl": "https://cdn.designcombo.dev/fonts/the-bold-font.ttf",
+				"textAlign": "center",
+				"appearedColor": "#FFFFFF",
+				"activeColor": "#50FF12",
+				"activeFillColor": "#7E12FF",
+				"color": "#DADADA",
+				"backgroundColor": "transparent",
+				"borderColor": "#000000",
+				"borderWidth": 10,
+				"height": null,
+				"top": 192,
+				"left": 240
+			}
+		},
+		"qQ5vkLxSbr0-p8YsPQPUj": {
+			"id": "qQ5vkLxSbr0-p8YsPQPUj",
+			"name": "Audio",
+			"type": "audio",
+			"display": {
+				"from": 0,
+				"to": 45008.98
+			},
+			"trim": {
+				"from": 0,
+				"to": 45008.98
+			},
+			"playbackRate": 1,
+			"details": {
+				"src": "https://storage.googleapis.com/combo_ai/AGENTS/PJ1nkaufw0hZPyhN7bWCP/SOUND_GEN/7c4uid5AgiyGzgKho7zJG_complete.mp3?TbC3LXXYIzlq2ENjEuYzE",
+				"volume": 100
+			},
+			"metadata": {},
+			"duration": 45008.98
+		}
+	},
+	"trackItemDetailsMap": {
+		"oR4_y3i48KYX_ta1WtkRu": {
+			"id": "oR4_y3i48KYX_ta1WtkRu",
+			"type": "video",
+			"details": {
+				"width": 1280,
+				"height": 720,
+				"opacity": 100,
+				"src": "https://storage.googleapis.com/combo_ai/AGENTS/PJ1nkaufw0hZPyhN7bWCP/TRIMMER/q2t6KxF_YYO9rszodpECo/heygen_0_30.mp4?icyTgZndIfYa0Hz7VnD5k",
+				"volume": 100,
+				"borderRadius": 0,
+				"borderWidth": 0,
+				"borderColor": "#000000",
+				"boxShadow": {
+					"color": "#000000",
+					"x": 0,
+					"y": 0,
+					"blur": 0
+				},
+				"top": "600px",
+				"left": "-100px",
+				"transform": "scale(0.84375)",
+				"blur": 0,
+				"brightness": 100,
+				"flipX": false,
+				"flipY": false,
+				"rotate": "0deg",
+				"visibility": "visible"
+			}
+		},
+		"kb3t5zK3C8shtOgbOCSLU": {
+			"id": "kb3t5zK3C8shtOgbOCSLU",
+			"type": "video",
+			"details": {
+				"width": 1280,
+				"height": 720,
+				"opacity": 100,
+				"src": "https://storage.googleapis.com/combo_ai/AGENTS/PJ1nkaufw0hZPyhN7bWCP/TRIMMER/ecq70tlyumuDvibqLTX64/heygen_0_30.mp4?Bb5LSNafE8yOawoqRhwmA",
+				"volume": 100,
+				"borderRadius": 0,
+				"borderWidth": 0,
+				"borderColor": "#000000",
+				"boxShadow": {
+					"color": "#000000",
+					"x": 0,
+					"y": 0,
+					"blur": 0
+				},
+				"top": "600px",
+				"left": "-100px",
+				"transform": "scale(0.84375)",
+				"blur": 0,
+				"brightness": 100,
+				"flipX": false,
+				"flipY": false,
+				"rotate": "0deg",
+				"visibility": "visible"
+			}
+		},
+		"T1tbS69bEvFFhKq7ZtwR9": {
+			"id": "T1tbS69bEvFFhKq7ZtwR9",
+			"type": "audio",
+			"details": {
+				"src": "https://storage.googleapis.com/combo_ai/AGENTS/PJ1nkaufw0hZPyhN7bWCP/VOICE_CHANGER/XDkKUVEQ-oYF4Yb-UFAXa.mp3?V-YweiXXTvhTrLZH2H98t",
+				"volume": 100
+			}
+		},
+		"vKktGA9PEotYm1wByAyAI": {
+			"id": "vKktGA9PEotYm1wByAyAI",
+			"type": "audio",
+			"details": {
+				"src": "https://storage.googleapis.com/combo_ai/AGENTS/PJ1nkaufw0hZPyhN7bWCP/VOICE_CHANGER/jFVhi7Cjm4IfQuYB2Mx4T.mp3?6xK_RPfz74awVOO5IX5rm",
+				"volume": 100
+			}
+		},
+		"2tk9QN7y0ez_up8ZBojOo": {
+			"id": "2tk9QN7y0ez_up8ZBojOo",
+			"type": "audio",
+			"details": {
+				"src": "https://storage.googleapis.com/combo_ai/AGENTS/PJ1nkaufw0hZPyhN7bWCP/AVATAR_RENDER/uEQq_M8GB_SNe5caaxHMT_avatar.mp4?oaBAu0Hf-CCTGiiyINkhA",
+				"volume": 100
+			}
+		},
+		"9QShtpN5UX5mq69oe0XNp": {
+			"id": "9QShtpN5UX5mq69oe0XNp",
+			"type": "audio",
+			"details": {
+				"src": "https://storage.googleapis.com/combo_ai/AGENTS/PJ1nkaufw0hZPyhN7bWCP/AVATAR_RENDER/IjQdNrt7SNZQyHZukQd9U_avatar.mp4?VmHFDmC2zBFgO71Le5AzK",
+				"volume": 100
+			}
+		},
+		"W5VMCeXD2mWX-ejO9rMXl": {
+			"id": "W5VMCeXD2mWX-ejO9rMXl",
+			"type": "audio",
+			"details": {
+				"src": "https://storage.googleapis.com/combo_ai/AGENTS/PJ1nkaufw0hZPyhN7bWCP/TEXT_TO_SPEECH/gWqMjbhJTmKYipaIJf7iy.mp3?WDMhiA6BPtDkNpytkts7U",
+				"volume": 100
+			}
+		},
+		"2s4UALJ5sqVX18fdSFdcH": {
+			"id": "2s4UALJ5sqVX18fdSFdcH",
+			"type": "audio",
+			"details": {
+				"src": "https://storage.googleapis.com/combo_ai/AGENTS/PJ1nkaufw0hZPyhN7bWCP/TEXT_TO_SPEECH/RO4SViNfPbKTr5PTOC3jP.mp3?N-dguQtxfkVSKz7QBcT8u",
+				"volume": 100
+			}
+		},
+		"Jt0PvBfwdAVADPTOKrSTy": {
+			"id": "Jt0PvBfwdAVADPTOKrSTy",
+			"type": "video",
+			"details": {
+				"width": 864,
+				"height": 1080,
+				"opacity": 100,
+				"src": "https://storage.googleapis.com/combo_ai/AGENTS/PJ1nkaufw0hZPyhN7bWCP/TRIMMER/Etce2pJkxJaLKgtqDnTG4/vid1_1_7.mp4?kgXeSaK_fS1JjbxbARZ9Y",
+				"volume": 100,
+				"borderRadius": 0,
+				"borderWidth": 0,
+				"borderColor": "#000000",
+				"boxShadow": {
+					"color": "#000000",
+					"x": 0,
+					"y": 0,
+					"blur": 0
+				},
+				"top": "420px",
+				"left": "108px",
+				"transform": "scale(1.25)",
+				"blur": 0,
+				"brightness": 100,
+				"flipX": false,
+				"flipY": false,
+				"rotate": "0deg",
+				"visibility": "visible"
+			}
+		},
+		"--IqvVbP7JIGRJOP6_4UD": {
+			"id": "--IqvVbP7JIGRJOP6_4UD",
+			"type": "image",
+			"details": {
+				"src": "https://code-test-ai.s3.us-east-1.amazonaws.com/pippit/img4.jpg",
+				"width": 1200,
+				"height": 1500,
+				"opacity": 100,
+				"transform": "scale(0.9)",
+				"border": "none",
+				"borderRadius": 0,
+				"boxShadow": {
+					"color": "#000000",
+					"x": 0,
+					"y": 0,
+					"blur": 0
+				},
+				"top": "210px",
+				"left": "-60px",
+				"borderWidth": 0,
+				"borderColor": "#000000",
+				"blur": 0,
+				"brightness": 100,
+				"flipX": false,
+				"flipY": false,
+				"rotate": "0deg",
+				"visibility": "visible"
+			}
+		},
+		"LckJZk0oIbxF7kWpZNhc3": {
+			"id": "LckJZk0oIbxF7kWpZNhc3",
+			"type": "video",
+			"details": {
+				"width": 1080,
+				"height": 1080,
+				"opacity": 100,
+				"src": "https://storage.googleapis.com/combo_ai/AGENTS/PJ1nkaufw0hZPyhN7bWCP/TRIMMER/pcSeOUbytC18npIKFrm3I/vid2_20_30.mp4?7R7ILbZhx3ckAlbIWxC48",
+				"volume": 100,
+				"borderRadius": 0,
+				"borderWidth": 0,
+				"borderColor": "#000000",
+				"boxShadow": {
+					"color": "#000000",
+					"x": 0,
+					"y": 0,
+					"blur": 0
+				},
+				"top": "420px",
+				"left": "0px",
+				"transform": "scale(1)",
+				"blur": 0,
+				"brightness": 100,
+				"flipX": false,
+				"flipY": false,
+				"rotate": "0deg",
+				"visibility": "visible"
+			}
+		},
+		"AuMMccahdWzSOvpKGs9F0": {
+			"id": "AuMMccahdWzSOvpKGs9F0",
+			"type": "image",
+			"details": {
+				"src": "https://code-test-ai.s3.us-east-1.amazonaws.com/pippit/img1.png",
+				"width": 1500,
+				"height": 1500,
+				"opacity": 100,
+				"transform": "scale(0.72)",
+				"border": "none",
+				"borderRadius": 0,
+				"boxShadow": {
+					"color": "#000000",
+					"x": 0,
+					"y": 0,
+					"blur": 0
+				},
+				"top": "210px",
+				"left": "-210px",
+				"borderWidth": 0,
+				"borderColor": "#000000",
+				"blur": 0,
+				"brightness": 100,
+				"flipX": false,
+				"flipY": false,
+				"rotate": "0deg",
+				"visibility": "visible"
+			}
+		},
+		"142f2443-3e02-49b0-ba83-db898e7abcf9": {
+			"id": "142f2443-3e02-49b0-ba83-db898e7abcf9",
+			"type": "caption",
+			"details": {
+				"text": "Main content.",
+				"fontSize": 60,
+				"width": 600,
+				"fontFamily": "theboldfont",
+				"fontUrl": "https://cdn.designcombo.dev/fonts/the-bold-font.ttf",
+				"textAlign": "center",
+				"appearedColor": "#FFFFFF",
+				"activeColor": "#50FF12",
+				"activeFillColor": "#7E12FF",
+				"color": "#DADADA",
+				"backgroundColor": "transparent",
+				"borderColor": "#000000",
+				"borderWidth": 10,
+				"height": null,
+				"top": 192,
+				"left": 240
+			}
+		},
+		"96898105-b24b-4787-bb08-5deedac5e1a1": {
+			"id": "96898105-b24b-4787-bb08-5deedac5e1a1",
+			"type": "caption",
+			"details": {
+				"text": "Main content.",
+				"fontSize": 60,
+				"width": 600,
+				"fontFamily": "theboldfont",
+				"fontUrl": "https://cdn.designcombo.dev/fonts/the-bold-font.ttf",
+				"textAlign": "center",
+				"appearedColor": "#FFFFFF",
+				"activeColor": "#50FF12",
+				"activeFillColor": "#7E12FF",
+				"color": "#DADADA",
+				"backgroundColor": "transparent",
+				"borderColor": "#000000",
+				"borderWidth": 10,
+				"height": null,
+				"top": 192,
+				"left": 240
+			}
+		},
+		"qQ5vkLxSbr0-p8YsPQPUj": {
+			"id": "qQ5vkLxSbr0-p8YsPQPUj",
+			"type": "audio",
+			"details": {
+				"src": "https://storage.googleapis.com/combo_ai/AGENTS/PJ1nkaufw0hZPyhN7bWCP/SOUND_GEN/7c4uid5AgiyGzgKho7zJG_complete.mp3?TbC3LXXYIzlq2ENjEuYzE",
+				"volume": 100
+			},
+			"name": "Audio",
+			"display": {
+				"from": 0,
+				"to": 45008.98
+			},
+			"metadata": {}
+		}
+	},
+	"transitionIds": [],
+	"transitionsMap": {},
+	"trackItemIds": [
+		"oR4_y3i48KYX_ta1WtkRu",
+		"kb3t5zK3C8shtOgbOCSLU",
+		"T1tbS69bEvFFhKq7ZtwR9",
+		"vKktGA9PEotYm1wByAyAI",
+		"2tk9QN7y0ez_up8ZBojOo",
+		"9QShtpN5UX5mq69oe0XNp",
+		"W5VMCeXD2mWX-ejO9rMXl",
+		"2s4UALJ5sqVX18fdSFdcH",
+		"Jt0PvBfwdAVADPTOKrSTy",
+		"--IqvVbP7JIGRJOP6_4UD",
+		"LckJZk0oIbxF7kWpZNhc3",
+		"AuMMccahdWzSOvpKGs9F0",
+		"142f2443-3e02-49b0-ba83-db898e7abcf9",
+		"96898105-b24b-4787-bb08-5deedac5e1a1",
+		"qQ5vkLxSbr0-p8YsPQPUj"
+	],
+	"trackItems": [
+		{
+			"id": "oR4_y3i48KYX_ta1WtkRu",
+			"type": "video",
+			"details": {
+				"width": 1280,
+				"height": 720,
+				"opacity": 100,
+				"src": "https://storage.googleapis.com/combo_ai/AGENTS/PJ1nkaufw0hZPyhN7bWCP/TRIMMER/q2t6KxF_YYO9rszodpECo/heygen_0_30.mp4?icyTgZndIfYa0Hz7VnD5k",
+				"volume": 100,
+				"borderRadius": 0,
+				"borderWidth": 0,
+				"borderColor": "#000000",
+				"boxShadow": {
+					"color": "#000000",
+					"x": 0,
+					"y": 0,
+					"blur": 0
+				},
+				"top": "600px",
+				"left": "-100px",
+				"transform": "scale(0.84375)",
+				"blur": 0,
+				"brightness": 100,
+				"flipX": false,
+				"flipY": false,
+				"rotate": "0deg",
+				"visibility": "visible"
+			},
+			"metadata": {
+				"previewUrl": "https://storage.googleapis.com/combo_ai/AGENTS/PJ1nkaufw0hZPyhN7bWCP/TRIMMER/q2t6KxF_YYO9rszodpECo_preview.png?ngzytru2PCj-7yPSYWPna"
+			},
+			"trim": {
+				"from": 0,
+				"to": 30080
+			},
+			"name": "video",
+			"playbackRate": 1,
+			"display": {
+				"from": 0,
+				"to": 30080
+			},
+			"duration": 30080
+		},
+		{
+			"id": "kb3t5zK3C8shtOgbOCSLU",
+			"type": "video",
+			"details": {
+				"width": 1280,
+				"height": 720,
+				"opacity": 100,
+				"src": "https://storage.googleapis.com/combo_ai/AGENTS/PJ1nkaufw0hZPyhN7bWCP/TRIMMER/ecq70tlyumuDvibqLTX64/heygen_0_30.mp4?Bb5LSNafE8yOawoqRhwmA",
+				"volume": 100,
+				"borderRadius": 0,
+				"borderWidth": 0,
+				"borderColor": "#000000",
+				"boxShadow": {
+					"color": "#000000",
+					"x": 0,
+					"y": 0,
+					"blur": 0
+				},
+				"top": "600px",
+				"left": "-100px",
+				"transform": "scale(0.84375)",
+				"blur": 0,
+				"brightness": 100,
+				"flipX": false,
+				"flipY": false,
+				"rotate": "0deg",
+				"visibility": "visible"
+			},
+			"metadata": {
+				"previewUrl": "https://storage.googleapis.com/combo_ai/AGENTS/PJ1nkaufw0hZPyhN7bWCP/TRIMMER/ecq70tlyumuDvibqLTX64_preview.png?eKgr1T-9aFCsDKrIEih9l"
+			},
+			"trim": {
+				"from": 0,
+				"to": 30080
+			},
+			"name": "video",
+			"playbackRate": 1,
+			"display": {
+				"from": 31080,
+				"to": 61160
+			},
+			"duration": 30080
+		},
+		{
+			"id": "T1tbS69bEvFFhKq7ZtwR9",
+			"name": "Audio",
+			"type": "audio",
+			"display": {
+				"from": 0,
+				"to": 30093.063000000002
+			},
+			"trim": {
+				"from": 0,
+				"to": 30093.063000000002
+			},
+			"playbackRate": 1,
+			"details": {
+				"src": "https://storage.googleapis.com/combo_ai/AGENTS/PJ1nkaufw0hZPyhN7bWCP/VOICE_CHANGER/XDkKUVEQ-oYF4Yb-UFAXa.mp3?V-YweiXXTvhTrLZH2H98t",
+				"volume": 100
+			},
+			"metadata": {},
+			"duration": 30093.063000000002
+		},
+		{
+			"id": "vKktGA9PEotYm1wByAyAI",
+			"name": "Audio",
+			"type": "audio",
+			"display": {
+				"from": 31080,
+				"to": 61173.063
+			},
+			"trim": {
+				"from": 0,
+				"to": 30093.063000000002
+			},
+			"playbackRate": 1,
+			"details": {
+				"src": "https://storage.googleapis.com/combo_ai/AGENTS/PJ1nkaufw0hZPyhN7bWCP/VOICE_CHANGER/jFVhi7Cjm4IfQuYB2Mx4T.mp3?6xK_RPfz74awVOO5IX5rm",
+				"volume": 100
+			},
+			"metadata": {},
+			"duration": 30093.063000000002
+		},
+		{
+			"id": "2tk9QN7y0ez_up8ZBojOo",
+			"name": "Audio",
+			"type": "audio",
+			"display": {
+				"from": 0,
+				"to": 31080
+			},
+			"trim": {
+				"from": 0,
+				"to": 31080
+			},
+			"playbackRate": 1,
+			"details": {
+				"src": "https://storage.googleapis.com/combo_ai/AGENTS/PJ1nkaufw0hZPyhN7bWCP/AVATAR_RENDER/uEQq_M8GB_SNe5caaxHMT_avatar.mp4?oaBAu0Hf-CCTGiiyINkhA",
+				"volume": 100
+			},
+			"metadata": {},
+			"duration": 31080
+		},
+		{
+			"id": "9QShtpN5UX5mq69oe0XNp",
+			"name": "Audio",
+			"type": "audio",
+			"display": {
+				"from": 31080,
+				"to": 62160
+			},
+			"trim": {
+				"from": 0,
+				"to": 31080
+			},
+			"playbackRate": 1,
+			"details": {
+				"src": "https://storage.googleapis.com/combo_ai/AGENTS/PJ1nkaufw0hZPyhN7bWCP/AVATAR_RENDER/IjQdNrt7SNZQyHZukQd9U_avatar.mp4?VmHFDmC2zBFgO71Le5AzK",
+				"volume": 100
+			},
+			"metadata": {},
+			"duration": 31080
+		},
+		{
+			"id": "W5VMCeXD2mWX-ejO9rMXl",
+			"name": "Audio",
+			"type": "audio",
+			"display": {
+				"from": 0,
+				"to": 1280
+			},
+			"trim": {
+				"from": 0,
+				"to": 1280
+			},
+			"playbackRate": 1,
+			"details": {
+				"src": "https://storage.googleapis.com/combo_ai/AGENTS/PJ1nkaufw0hZPyhN7bWCP/TEXT_TO_SPEECH/gWqMjbhJTmKYipaIJf7iy.mp3?WDMhiA6BPtDkNpytkts7U",
+				"volume": 100
+			},
+			"metadata": {},
+			"duration": 1280
+		},
+		{
+			"id": "2s4UALJ5sqVX18fdSFdcH",
+			"name": "Audio",
+			"type": "audio",
+			"display": {
+				"from": 31080,
+				"to": 32516.688
+			},
+			"trim": {
+				"from": 0,
+				"to": 1436.6879999999999
+			},
+			"playbackRate": 1,
+			"details": {
+				"src": "https://storage.googleapis.com/combo_ai/AGENTS/PJ1nkaufw0hZPyhN7bWCP/TEXT_TO_SPEECH/RO4SViNfPbKTr5PTOC3jP.mp3?N-dguQtxfkVSKz7QBcT8u",
+				"volume": 100
+			},
+			"metadata": {},
+			"duration": 1436.6879999999999
+		},
+		{
+			"id": "Jt0PvBfwdAVADPTOKrSTy",
+			"type": "video",
+			"details": {
+				"width": 864,
+				"height": 1080,
+				"opacity": 100,
+				"src": "https://storage.googleapis.com/combo_ai/AGENTS/PJ1nkaufw0hZPyhN7bWCP/TRIMMER/Etce2pJkxJaLKgtqDnTG4/vid1_1_7.mp4?kgXeSaK_fS1JjbxbARZ9Y",
+				"volume": 100,
+				"borderRadius": 0,
+				"borderWidth": 0,
+				"borderColor": "#000000",
+				"boxShadow": {
+					"color": "#000000",
+					"x": 0,
+					"y": 0,
+					"blur": 0
+				},
+				"top": "420px",
+				"left": "108px",
+				"transform": "scale(1.25)",
+				"blur": 0,
+				"brightness": 100,
+				"flipX": false,
+				"flipY": false,
+				"rotate": "0deg",
+				"visibility": "visible"
+			},
+			"metadata": {
+				"previewUrl": "https://storage.googleapis.com/combo_ai/AGENTS/PJ1nkaufw0hZPyhN7bWCP/TRIMMER/Etce2pJkxJaLKgtqDnTG4_preview.png?SG_2hsGNJDp9KMwol-Xm2"
+			},
+			"trim": {
+				"from": 0,
+				"to": 6019
+			},
+			"name": "video",
+			"playbackRate": 1,
+			"display": {
+				"from": 0,
+				"to": 6019
+			},
+			"duration": 6019
+		},
+		{
+			"id": "--IqvVbP7JIGRJOP6_4UD",
+			"type": "image",
+			"name": "image",
+			"display": {
+				"from": 0,
+				"to": 1000
+			},
+			"playbackRate": 1,
+			"details": {
+				"src": "https://code-test-ai.s3.us-east-1.amazonaws.com/pippit/img4.jpg",
+				"width": 1200,
+				"height": 1500,
+				"opacity": 100,
+				"transform": "scale(0.9)",
+				"border": "none",
+				"borderRadius": 0,
+				"boxShadow": {
+					"color": "#000000",
+					"x": 0,
+					"y": 0,
+					"blur": 0
+				},
+				"top": "210px",
+				"left": "-60px",
+				"borderWidth": 0,
+				"borderColor": "#000000",
+				"blur": 0,
+				"brightness": 100,
+				"flipX": false,
+				"flipY": false,
+				"rotate": "0deg",
+				"visibility": "visible"
+			},
+			"metadata": {
+				"previewUrl": "https://code-test-ai.s3.us-east-1.amazonaws.com/pippit/img4.jpg"
+			}
+		},
+		{
+			"id": "LckJZk0oIbxF7kWpZNhc3",
+			"type": "video",
+			"details": {
+				"width": 1080,
+				"height": 1080,
+				"opacity": 100,
+				"src": "https://storage.googleapis.com/combo_ai/AGENTS/PJ1nkaufw0hZPyhN7bWCP/TRIMMER/pcSeOUbytC18npIKFrm3I/vid2_20_30.mp4?7R7ILbZhx3ckAlbIWxC48",
+				"volume": 100,
+				"borderRadius": 0,
+				"borderWidth": 0,
+				"borderColor": "#000000",
+				"boxShadow": {
+					"color": "#000000",
+					"x": 0,
+					"y": 0,
+					"blur": 0
+				},
+				"top": "420px",
+				"left": "0px",
+				"transform": "scale(1)",
+				"blur": 0,
+				"brightness": 100,
+				"flipX": false,
+				"flipY": false,
+				"rotate": "0deg",
+				"visibility": "visible"
+			},
+			"metadata": {
+				"previewUrl": "https://storage.googleapis.com/combo_ai/AGENTS/PJ1nkaufw0hZPyhN7bWCP/TRIMMER/pcSeOUbytC18npIKFrm3I_preview.png?cCbboRPpGnzOpz2ThYRj2"
+			},
+			"trim": {
+				"from": 0,
+				"to": 10016
+			},
+			"name": "video",
+			"playbackRate": 1,
+			"display": {
+				"from": 31080,
+				"to": 41096
+			},
+			"duration": 10016
+		},
+		{
+			"id": "AuMMccahdWzSOvpKGs9F0",
+			"type": "image",
+			"name": "image",
+			"display": {
+				"from": 31080,
+				"to": 32080
+			},
+			"playbackRate": 1,
+			"details": {
+				"src": "https://code-test-ai.s3.us-east-1.amazonaws.com/pippit/img1.png",
+				"width": 1500,
+				"height": 1500,
+				"opacity": 100,
+				"transform": "scale(0.72)",
+				"border": "none",
+				"borderRadius": 0,
+				"boxShadow": {
+					"color": "#000000",
+					"x": 0,
+					"y": 0,
+					"blur": 0
+				},
+				"top": "210px",
+				"left": "-210px",
+				"borderWidth": 0,
+				"borderColor": "#000000",
+				"blur": 0,
+				"brightness": 100,
+				"flipX": false,
+				"flipY": false,
+				"rotate": "0deg",
+				"visibility": "visible"
+			},
+			"metadata": {
+				"previewUrl": "https://code-test-ai.s3.us-east-1.amazonaws.com/pippit/img1.png"
+			}
+		},
+		{
+			"id": "142f2443-3e02-49b0-ba83-db898e7abcf9",
+			"type": "caption",
+			"name": "Caption",
+			"display": {
+				"from": 80,
+				"to": 980
+			},
+			"metadata": {
+				"words": [
+					{
+						"word": "Main",
+						"start": 80,
+						"end": 480,
+						"confidence": 0.98443294
+					},
+					{
+						"word": "content.",
+						"start": 480,
+						"end": 980,
+						"confidence": 0.98506814
+					}
+				],
+				"sourceUrl": "mediaUrl",
+				"parentId": "Md-F61QheWnFICv55OBfs"
+			},
+			"details": {
+				"text": "Main content.",
+				"fontSize": 60,
+				"width": 600,
+				"fontFamily": "theboldfont",
+				"fontUrl": "https://cdn.designcombo.dev/fonts/the-bold-font.ttf",
+				"textAlign": "center",
+				"appearedColor": "#FFFFFF",
+				"activeColor": "#50FF12",
+				"activeFillColor": "#7E12FF",
+				"color": "#DADADA",
+				"backgroundColor": "transparent",
+				"borderColor": "#000000",
+				"borderWidth": 10,
+				"height": null,
+				"top": 192,
+				"left": 240
+			}
+		},
+		{
+			"id": "96898105-b24b-4787-bb08-5deedac5e1a1",
+			"type": "caption",
+			"name": "Caption",
+			"display": {
+				"from": 31160,
+				"to": 32140
+			},
+			"metadata": {
+				"words": [
+					{
+						"word": "Main",
+						"start": 80,
+						"end": 560,
+						"confidence": 0.98205316
+					},
+					{
+						"word": "content.",
+						"start": 560,
+						"end": 1060,
+						"confidence": 0.9814848
+					}
+				],
+				"sourceUrl": "mediaUrl",
+				"parentId": "8lXvaUQihQJihQcM1czkS"
+			},
+			"details": {
+				"text": "Main content.",
+				"fontSize": 60,
+				"width": 600,
+				"fontFamily": "theboldfont",
+				"fontUrl": "https://cdn.designcombo.dev/fonts/the-bold-font.ttf",
+				"textAlign": "center",
+				"appearedColor": "#FFFFFF",
+				"activeColor": "#50FF12",
+				"activeFillColor": "#7E12FF",
+				"color": "#DADADA",
+				"backgroundColor": "transparent",
+				"borderColor": "#000000",
+				"borderWidth": 10,
+				"height": null,
+				"top": 192,
+				"left": 240
+			}
+		}
+	],
+	"tracks": [
+		{
+			"id": "evcsUGOxp6pRbdYLO-6bT",
+			"type": "text",
+			"items": [
+				"142f2443-3e02-49b0-ba83-db898e7abcf9",
+				"96898105-b24b-4787-bb08-5deedac5e1a1"
+			]
+		},
+		{
+			"id": "PcnKd2Zl-ATuCiG3FE6jK",
+			"type": "video",
+			"items": ["2tk9QN7y0ez_up8ZBojOo", "9QShtpN5UX5mq69oe0XNp"]
+		},
+		{
+			"id": "Ovw0ssoaMO-1tMEwiUqyh",
+			"type": "audio",
+			"items": ["W5VMCeXD2mWX-ejO9rMXl", "2s4UALJ5sqVX18fdSFdcH"]
+		},
+		{
+			"id": "H7e-rkHitpQZeMezwsQOi",
+			"type": "video",
+			"items": [
+				"Jt0PvBfwdAVADPTOKrSTy",
+				"--IqvVbP7JIGRJOP6_4UD",
+				"LckJZk0oIbxF7kWpZNhc3",
+				"AuMMccahdWzSOvpKGs9F0"
+			]
+		},
+		{
+			"id": "_H-roLAzlszqZF9_sHZsG",
+			"type": "video",
+			"items": ["oR4_y3i48KYX_ta1WtkRu", "kb3t5zK3C8shtOgbOCSLU"]
+		},
+		{
+			"id": "0R2T4iDcWlTIvMNEEIIpf",
+			"type": "audio",
+			"items": []
+		},
+		{
+			"id": "EsMDWBzZ6Kvv0xpCb1Y7L",
+			"type": "audio",
+			"items": ["T1tbS69bEvFFhKq7ZtwR9", "vKktGA9PEotYm1wByAyAI"]
+		},
+		{
+			"id": "CnxnCnr9ESsLLllXvTE7i",
+			"type": "audio",
+			"items": ["qQ5vkLxSbr0-p8YsPQPUj"]
+		}
+	],
+	"size": {
+		"width": 1080,
+		"height": 1920
+	},
+	"fps": 30
+}

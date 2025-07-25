@@ -1,11 +1,11 @@
 /** @jsxImportSource @emotion/react */
 import {
-  FC,
-  useEffect,
-  useRef,
-  MutableRefObject,
-  MouseEvent,
-  TouchEvent,
+	FC,
+	useEffect,
+	useRef,
+	MutableRefObject,
+	MouseEvent,
+	TouchEvent,
 } from "react";
 import { css } from "@emotion/react";
 import styled from "@emotion/styled";
@@ -46,9 +46,9 @@ const SaturationLayer = styled.div`
 `;
 
 const Pointer = styled.span<{
-  left: string;
-  top: string;
-  backgroundColor: string;
+	left: string;
+	top: string;
+	backgroundColor: string;
 }>`
   position: absolute;
   border-radius: 10px;
@@ -73,167 +73,168 @@ const Overlay = styled.div`
 `;
 
 const Board: FC<TPropsComp> = ({ color, onChange, setChange }) => {
-  const node = useRef() as MutableRefObject<HTMLDivElement>;
+	const node = useRef<HTMLDivElement>(null);
 
-  const removeListeners = () => {
-    setChange(false);
+	const removeListeners = () => {
+		setChange(false);
 
-    window.removeEventListener("mousemove", onBoardDrag);
-    window.removeEventListener("mouseup", onBoardDragEnd);
-  };
+		window.removeEventListener("mousemove", onBoardDrag);
+		window.removeEventListener("mouseup", onBoardDragEnd);
+	};
 
-  const removeTouchListeners = () => {
-    setChange(false);
+	const removeTouchListeners = () => {
+		setChange(false);
 
-    window.removeEventListener("touchmove", onBoardTouchMove);
-    window.removeEventListener("touchend", onBoardTouchEnd);
-  };
+		window.removeEventListener("touchmove", onBoardTouchMove);
+		window.removeEventListener("touchend", onBoardTouchEnd);
+	};
 
-  useEffect(() => {
-    return () => {
-      removeListeners();
-      removeTouchListeners();
-    };
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+	useEffect(() => {
+		return () => {
+			removeListeners();
+			removeTouchListeners();
+		};
+		// eslint-disable-next-line react-hooks/exhaustive-deps
+	}, []);
 
-  const onBoardMouseDown = (e: MouseEvent) => {
-    e.preventDefault();
-    const buttons = e.buttons;
+	const onBoardMouseDown = (e: MouseEvent) => {
+		e.preventDefault();
+		const buttons = e.buttons;
 
-    if (buttons !== 1) return;
+		if (buttons !== 1) return;
 
-    removeListeners();
+		removeListeners();
 
-    const x = e.clientX;
-    const y = e.clientY;
-    pointMoveTo({ x, y });
+		const x = e.clientX;
+		const y = e.clientY;
+		pointMoveTo({ x, y });
 
-    window.addEventListener("mousemove", onBoardDrag);
-    window.addEventListener("mouseup", onBoardDragEnd);
-  };
+		window.addEventListener("mousemove", onBoardDrag);
+		window.addEventListener("mouseup", onBoardDragEnd);
+	};
 
-  const onBoardTouchStart = (e: TouchEvent) => {
-    if (e.cancelable) {
-      e.preventDefault();
-    }
+	const onBoardTouchStart = (e: TouchEvent) => {
+		if (e.cancelable) {
+			e.preventDefault();
+		}
 
-    if (e.touches.length !== 1) {
-      return;
-    }
+		if (e.touches.length !== 1) {
+			return;
+		}
 
-    removeTouchListeners();
+		removeTouchListeners();
 
-    const x = e.targetTouches[0].clientX;
-    const y = e.targetTouches[0].clientY;
+		const x = e.targetTouches[0].clientX;
+		const y = e.targetTouches[0].clientY;
 
-    pointMoveTo({ x, y });
+		pointMoveTo({ x, y });
 
-    window.addEventListener("touchmove", onBoardTouchMove, { passive: false });
-    window.addEventListener("touchend", onBoardTouchEnd, { passive: false });
-  };
+		window.addEventListener("touchmove", onBoardTouchMove, { passive: false });
+		window.addEventListener("touchend", onBoardTouchEnd, { passive: false });
+	};
 
-  const onBoardTouchMove = (e: any) => {
-    if (e.cancelable) {
-      e.preventDefault();
-    }
+	const onBoardTouchMove = (e: any) => {
+		if (e.cancelable) {
+			e.preventDefault();
+		}
 
-    const x = e.targetTouches[0].clientX;
-    const y = e.targetTouches[0].clientY;
+		const x = e.targetTouches[0].clientX;
+		const y = e.targetTouches[0].clientY;
 
-    pointMoveTo({
-      x,
-      y,
-    });
-  };
+		pointMoveTo({
+			x,
+			y,
+		});
+	};
 
-  const onBoardTouchEnd = () => {
-    removeTouchListeners();
-  };
+	const onBoardTouchEnd = () => {
+		removeTouchListeners();
+	};
 
-  const onBoardDrag = (e: any) => {
-    e.preventDefault();
-    const x = e.clientX;
-    const y = e.clientY;
+	const onBoardDrag = (e: any) => {
+		e.preventDefault();
+		const x = e.clientX;
+		const y = e.clientY;
 
-    pointMoveTo({
-      x,
-      y,
-    });
-  };
+		pointMoveTo({
+			x,
+			y,
+		});
+	};
 
-  const onBoardDragEnd = (e: any) => {
-    e.preventDefault();
-    const x = e.clientX;
-    const y = e.clientY;
+	const onBoardDragEnd = (e: any) => {
+		e.preventDefault();
+		const x = e.clientX;
+		const y = e.clientY;
 
-    pointMoveTo({
-      x,
-      y,
-    });
-    removeListeners();
-  };
+		pointMoveTo({
+			x,
+			y,
+		});
+		removeListeners();
+	};
 
-  const pointMoveTo = (pos: TCoords) => {
-    const rect = node && node.current.getBoundingClientRect();
-    let left = pos.x - rect.left;
-    let top = pos.y - rect.top;
+	const pointMoveTo = (pos: TCoords) => {
+		const rect = node?.current?.getBoundingClientRect();
+		if (!rect) return;
+		let left = pos.x - rect.left;
+		let top = pos.y - rect.top;
 
-    const rWidth = rect.width || WIDTH;
-    const rHeight = rect.height || HEIGHT;
+		const rWidth = rect.width || WIDTH;
+		const rHeight = rect.height || HEIGHT;
 
-    left = Math.max(0, left);
-    left = Math.min(left, rWidth);
-    top = Math.max(0, top);
-    top = Math.min(top, rHeight);
+		left = Math.max(0, left);
+		left = Math.min(left, rWidth);
+		top = Math.max(0, top);
+		top = Math.min(top, rHeight);
 
-    color.saturation = left / rWidth;
-    color.brightness = 1 - top / rHeight;
+		color.saturation = left / rWidth;
+		color.brightness = 1 - top / rHeight;
 
-    onChange(color);
-  };
+		onChange(color);
+	};
 
-  const hueHsv = {
-    h: color.hue,
-    s: 1,
-    v: 1,
-  };
+	const hueHsv = {
+		h: color.hue,
+		s: 1,
+		v: 1,
+	};
 
-  const hueColor = new TinyColor(hueHsv).toHexString();
+	const hueColor = new TinyColor(hueHsv).toHexString();
 
-  const xRel = color.saturation * 100;
-  const yRel = (1 - color.brightness) * 100;
+	const xRel = color.saturation * 100;
+	const yRel = (1 - color.brightness) * 100;
 
-  return (
-    <Container ref={node}>
-      <div
-        css={css`
+	return (
+		<Container ref={node}>
+			<div
+				css={css`
           width: 100%;
           height: 120px;
           position: relative;
           z-index: 1;
           background-color: ${hueColor};
         `}
-        style={{
-          height: `${154}px`,
-          minHeight: `${154}px`,
-        }}
-      >
-        <ValueLayer />
-        <SaturationLayer />
-      </div>
-      <Pointer
-        left={`calc(${xRel}% - 7px)`}
-        top={`calc(${yRel}% - 7px)`}
-        backgroundColor={color.toHexString()}
-      />
+				style={{
+					height: `${154}px`,
+					minHeight: `${154}px`,
+				}}
+			>
+				<ValueLayer />
+				<SaturationLayer />
+			</div>
+			<Pointer
+				left={`calc(${xRel}% - 7px)`}
+				top={`calc(${yRel}% - 7px)`}
+				backgroundColor={color.toHexString()}
+			/>
 
-      <Overlay
-        onMouseDown={onBoardMouseDown}
-        onTouchStart={onBoardTouchStart}
-      />
-    </Container>
-  );
+			<Overlay
+				onMouseDown={onBoardMouseDown}
+				onTouchStart={onBoardTouchStart}
+			/>
+		</Container>
+	);
 };
 
 export default Board;

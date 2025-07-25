@@ -1,19 +1,12 @@
 /** @jsxImportSource @emotion/react */
-import {
-  FC,
-  useEffect,
-  useRef,
-  MutableRefObject,
-  MouseEvent,
-  TouchEvent,
-} from "react";
+import { FC, useEffect, useRef, MouseEvent, TouchEvent } from "react";
 import { css } from "@emotion/react";
 import styled from "@emotion/styled";
 
 import { TPropsCompAlpha, TCoords } from "./types";
 
 const rgbaColor = (r: number, g: number, b: number, a: number) => {
-  return `rgba(${[r, g, b, a / 100].join(",")})`;
+	return `rgba(${[r, g, b, a / 100].join(",")})`;
 };
 
 // Styled components
@@ -52,149 +45,150 @@ const Pointer = styled.span<{ left: number; backgroundColor: string }>`
 `;
 
 const Alpha: FC<TPropsCompAlpha> = ({ color, alpha, onChange, setChange }) => {
-  const node = useRef() as MutableRefObject<HTMLDivElement>;
+	const node = useRef<HTMLDivElement>(null);
 
-  const removeListeners = () => {
-    window.removeEventListener("mousemove", onDrag);
-    window.removeEventListener("mouseup", onDragEnd);
-  };
+	const removeListeners = () => {
+		window.removeEventListener("mousemove", onDrag);
+		window.removeEventListener("mouseup", onDragEnd);
+	};
 
-  const removeTouchListeners = () => {
-    setChange(false);
+	const removeTouchListeners = () => {
+		setChange(false);
 
-    window.removeEventListener("touchmove", onTouchMove);
-    window.removeEventListener("touchend", onTouchEnd);
-  };
+		window.removeEventListener("touchmove", onTouchMove);
+		window.removeEventListener("touchend", onTouchEnd);
+	};
 
-  useEffect(() => {
-    return () => {
-      removeListeners();
-      removeTouchListeners();
-    };
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+	useEffect(() => {
+		return () => {
+			removeListeners();
+			removeTouchListeners();
+		};
+		// eslint-disable-next-line react-hooks/exhaustive-deps
+	}, []);
 
-  const onMouseDown = (e: MouseEvent) => {
-    const x = e.clientX;
-    const y = e.clientY;
+	const onMouseDown = (e: MouseEvent) => {
+		const x = e.clientX;
+		const y = e.clientY;
 
-    pointMoveTo({
-      x,
-      y,
-    });
+		pointMoveTo({
+			x,
+			y,
+		});
 
-    window.addEventListener("mousemove", onDrag);
-    window.addEventListener("mouseup", onDragEnd);
-  };
+		window.addEventListener("mousemove", onDrag);
+		window.addEventListener("mouseup", onDragEnd);
+	};
 
-  const onDrag = (e: any) => {
-    const x = e.clientX;
-    const y = e.clientY;
+	const onDrag = (e: any) => {
+		const x = e.clientX;
+		const y = e.clientY;
 
-    pointMoveTo({
-      x,
-      y,
-    });
-  };
+		pointMoveTo({
+			x,
+			y,
+		});
+	};
 
-  const onDragEnd = (event: any) => {
-    const x = event.clientX;
-    const y = event.clientY;
+	const onDragEnd = (event: any) => {
+		const x = event.clientX;
+		const y = event.clientY;
 
-    pointMoveTo({
-      x,
-      y,
-    });
+		pointMoveTo({
+			x,
+			y,
+		});
 
-    setChange(false);
+		setChange(false);
 
-    removeListeners();
-  };
+		removeListeners();
+	};
 
-  const onTouchStart = (e: TouchEvent) => {
-    if (e.cancelable) {
-      e.preventDefault();
-    }
+	const onTouchStart = (e: TouchEvent) => {
+		if (e.cancelable) {
+			e.preventDefault();
+		}
 
-    if (e.touches.length !== 1) {
-      return;
-    }
+		if (e.touches.length !== 1) {
+			return;
+		}
 
-    removeTouchListeners();
+		removeTouchListeners();
 
-    const x = e.targetTouches[0].clientX;
-    const y = e.targetTouches[0].clientY;
+		const x = e.targetTouches[0].clientX;
+		const y = e.targetTouches[0].clientY;
 
-    pointMoveTo({ x, y });
+		pointMoveTo({ x, y });
 
-    window.addEventListener("touchmove", onTouchMove, { passive: false });
-    window.addEventListener("touchend", onTouchEnd, { passive: false });
-  };
+		window.addEventListener("touchmove", onTouchMove, { passive: false });
+		window.addEventListener("touchend", onTouchEnd, { passive: false });
+	};
 
-  const onTouchMove = (e: any) => {
-    if (e.cancelable) {
-      e.preventDefault();
-    }
+	const onTouchMove = (e: any) => {
+		if (e.cancelable) {
+			e.preventDefault();
+		}
 
-    const x = e.targetTouches[0].clientX;
-    const y = e.targetTouches[0].clientY;
+		const x = e.targetTouches[0].clientX;
+		const y = e.targetTouches[0].clientY;
 
-    pointMoveTo({
-      x,
-      y,
-    });
-  };
+		pointMoveTo({
+			x,
+			y,
+		});
+	};
 
-  const onTouchEnd = () => {
-    removeTouchListeners();
-  };
+	const onTouchEnd = () => {
+		removeTouchListeners();
+	};
 
-  const getBackground = () => {
-    const { red, green, blue } = color;
-    const opacityGradient = `linear-gradient(to right, ${rgbaColor(
-      red,
-      green,
-      blue,
-      0,
-    )} , ${rgbaColor(red, green, blue, 100)})`;
+	const getBackground = () => {
+		const { red, green, blue } = color;
+		const opacityGradient = `linear-gradient(to right, ${rgbaColor(
+			red,
+			green,
+			blue,
+			0,
+		)} , ${rgbaColor(red, green, blue, 100)})`;
 
-    return opacityGradient;
-  };
+		return opacityGradient;
+	};
 
-  const pointMoveTo = (coords: TCoords) => {
-    const rect = node && node.current.getBoundingClientRect();
-    const width = rect.width;
-    let left = coords.x - rect.left;
+	const pointMoveTo = (coords: TCoords) => {
+		const rect = node?.current?.getBoundingClientRect();
+		if (!rect) return;
+		const width = rect.width;
+		let left = coords.x - rect.left;
 
-    left = Math.max(0, left);
-    left = Math.min(left, width);
+		left = Math.max(0, left);
+		left = Math.min(left, width);
 
-    const alpha = Math.round((left / width) * 100);
+		const alpha = Math.round((left / width) * 100);
 
-    onChange(alpha);
-  };
+		onChange(alpha);
+	};
 
-  const getPointerBackground = () => {
-    const { red, green, blue } = color;
-    const alphaVal = (alpha || 1) / 100;
+	const getPointerBackground = () => {
+		const { red, green, blue } = color;
+		const alphaVal = (alpha || 1) / 100;
 
-    return `rgba(${red}, ${green}, ${blue}, ${alphaVal})`;
-  };
+		return `rgba(${red}, ${green}, ${blue}, ${alphaVal})`;
+	};
 
-  return (
-    <Container ref={node} onMouseDown={onMouseDown} onTouchStart={onTouchStart}>
-      <Background background={getBackground()} />
-      <Pointer left={alpha!} backgroundColor={getPointerBackground()} />
-      <div
-        css={css`
+	return (
+		<Container ref={node} onMouseDown={onMouseDown} onTouchStart={onTouchStart}>
+			<Background background={getBackground()} />
+			<Pointer left={alpha || 0} backgroundColor={getPointerBackground()} />
+			<div
+				css={css`
           position: absolute;
           height: 100%;
           width: 100%;
           cursor: grab;
         `}
-      />
-    </Container>
-  );
+			/>
+		</Container>
+	);
 };
 
 export default Alpha;
