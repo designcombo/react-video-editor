@@ -10,7 +10,7 @@
 Video Editor application using React and TypeScript.
 
 <p align="center">
-    <a href="https://combo.sh/">Combo</a>
+    <a href="https://designcombo.dev/">Combo</a>
     ·  
     <a href="https://discord.gg/jrZs3wZyM5">Discord</a>
     ·  
@@ -18,7 +18,7 @@ Video Editor application using React and TypeScript.
 </p>
 </div>
 
-[![](https://cdn.designcombo.dev/editor-preview.png)](https://github.com/designcombo/react-video-editor)
+[![](https://cdn.designcombo.dev/editor-preview-2.png)](https://github.com/designcombo/react-video-editor)
 
 ## ✨ Features
 
@@ -27,6 +27,10 @@ Video Editor application using React and TypeScript.
 - 🔀 Multi-track Support: Edit multiple video and audio tracks simultaneously.
 - 📤 Export Options: Save videos in various resolutions and formats.
 - 👀 Real-time Preview: See immediate previews of edits.
+
+## 🚀 See It in Action
+
+Check out the deployed version here: [React Video Editor Live Demo](https://basic.designcombo.dev/)
 
 ## ⌨️ Development
 
