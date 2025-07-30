@@ -3,6 +3,10 @@ import { useEffect, useRef, useState } from "react";
 import { Droppable } from "@/components/ui/droppable";
 import { PlusIcon } from "lucide-react";
 import { DroppableArea } from "./droppable";
+import useUploadStore from "../store/use-upload-store";
+import ModalUpload from "@/components/modal-upload";
+import useLayoutStore from "../store/use-layout-store";
+import { useIsLargeScreen } from "@/hooks/use-media-query";
 
 const SceneEmpty = () => {
 	const [isLoading, setIsLoading] = useState(true);
@@ -10,6 +14,9 @@ const SceneEmpty = () => {
 	const [isDraggingOver, setIsDraggingOver] = useState(false);
 	const [desiredSize, setDesiredSize] = useState({ width: 0, height: 0 });
 	const { size } = useStore();
+	const { setShowUploadModal } = useUploadStore();
+	const { setActiveMenuItem, setShowMenuItem, setDrawerOpen } = useLayoutStore();
+	const isLargeScreen = useIsLargeScreen();
 
 	useEffect(() => {
 		const container = containerRef.current!;
@@ -31,6 +38,23 @@ const SceneEmpty = () => {
 
 	const onSelectFiles = (files: File[]) => {
 		console.log({ files });
+		// Navigate to uploads section when files are dropped
+		navigateToUploads();
+	};
+
+	const navigateToUploads = () => {
+		setActiveMenuItem("uploads");
+		if (!isLargeScreen) {
+			setDrawerOpen(true);
+		} else {
+			setShowMenuItem(true);
+		}
+	};
+
+	const handleUploadClick = () => {
+		setShowUploadModal(true);
+		// Navigate to uploads section when upload modal is opened
+		navigateToUploads();
 	};
 
 	return (
@@ -53,7 +77,10 @@ const SceneEmpty = () => {
 							height: desiredSize.height,
 						}}
 					>
-						<div className="flex flex-col items-center justify-center gap-4 pb-12">
+						<div 
+							className="flex flex-col items-center justify-center gap-4 pb-12 cursor-pointer"
+							onClick={handleUploadClick}
+						>
 							<div className="hover:bg-primary-dark cursor-pointer rounded-md border bg-primary p-2 text-secondary transition-colors duration-200">
 								<PlusIcon className="h-5 w-5" aria-hidden="true" />
 							</div>
@@ -71,6 +98,7 @@ const SceneEmpty = () => {
 					Loading...
 				</div>
 			)}
+			<ModalUpload />
 		</div>
 	);
 };
