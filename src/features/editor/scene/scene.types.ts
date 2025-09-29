@@ -1,3 +1,3 @@
 export interface SceneRef {
-	recalculateZoom: () => void;
+  recalculateZoom: () => void;
 }

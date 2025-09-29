@@ -1,8 +1,15 @@
 import axios from "axios";
 
-export type UploadProgressCallback = (uploadId: string, progress: number) => void;
+export type UploadProgressCallback = (
+  uploadId: string,
+  progress: number
+) => void;
 
-export type UploadStatusCallback = (uploadId: string, status: 'uploaded' | 'failed', error?: string) => void;
+export type UploadStatusCallback = (
+  uploadId: string,
+  status: "uploaded" | "failed",
+  error?: string
+) => void;
 
 export interface UploadCallbacks {
   onProgress: UploadProgressCallback;
@@ -17,15 +24,15 @@ export async function processFileUpload(
   try {
     // Get presigned URL
     const {
-      data: { uploads },
+      data: { uploads }
     } = await axios.post(
       "/api/uploads/presign",
       {
         userId: "PJ1nkaufw0hZPyhN7bWCP",
-        fileNames: [file.name],
+        fileNames: [file.name]
       },
       {
-        headers: { "Content-Type": "application/json" },
+        headers: { "Content-Type": "application/json" }
       }
     );
 
@@ -40,7 +47,7 @@ export async function processFileUpload(
         );
         callbacks.onProgress(uploadId, percent);
       },
-      validateStatus: () => true,
+      validateStatus: () => true
     });
 
     // Construct upload data from uploadInfo
@@ -55,13 +62,13 @@ export async function processFileUpload(
       method: "direct",
       origin: "user",
       status: "uploaded",
-      isPreview: false,
+      isPreview: false
     };
 
-    callbacks.onStatus(uploadId, 'uploaded');
+    callbacks.onStatus(uploadId, "uploaded");
     return uploadData;
   } catch (error) {
-    callbacks.onStatus(uploadId, 'failed', (error as Error).message);
+    callbacks.onStatus(uploadId, "failed", (error as Error).message);
     throw error;
   }
 }
@@ -76,16 +83,14 @@ export async function processUrlUpload(
     callbacks.onProgress(uploadId, 10);
 
     // Upload URL
-    const {
-      data: { uploads = [] } = {},
-    } = await axios.post(
+    const { data: { uploads = [] } = {} } = await axios.post(
       "/api/uploads/url",
       {
         userId: "PJ1nkaufw0hZPyhN7bWCP",
-        urls: [url],
+        urls: [url]
       },
       {
-        headers: { "Content-Type": "application/json" },
+        headers: { "Content-Type": "application/json" }
       }
     );
 
@@ -104,15 +109,15 @@ export async function processUrlUpload(
       method: "url",
       origin: "user",
       status: "uploaded",
-      isPreview: false,
+      isPreview: false
     }));
 
     // Complete
     callbacks.onProgress(uploadId, 100);
-    callbacks.onStatus(uploadId, 'uploaded');
+    callbacks.onStatus(uploadId, "uploaded");
     return uploadDataArray;
   } catch (error) {
-    callbacks.onStatus(uploadId, 'failed', (error as Error).message);
+    callbacks.onStatus(uploadId, "failed", (error as Error).message);
     throw error;
   }
 }
@@ -128,6 +133,6 @@ export async function processUpload(
   if (upload.url) {
     return await processUrlUpload(uploadId, upload.url, callbacks);
   }
-  callbacks.onStatus(uploadId, 'failed', 'No file or URL provided');
-  throw new Error('No file or URL provided');
-} 
+  callbacks.onStatus(uploadId, "failed", "No file or URL provided");
+  throw new Error("No file or URL provided");
+}

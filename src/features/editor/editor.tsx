@@ -29,6 +29,7 @@ import { useIsLargeScreen } from "@/hooks/use-media-query";
 import { ITrackItem } from "@designcombo/types";
 import useLayoutStore from "./store/use-layout-store";
 import ControlItemHorizontal from "./control-item-horizontal";
+import { design } from "./mock";
 
 const stateManager = new StateManager({
 	size: {
@@ -59,67 +60,8 @@ const Editor = ({ tempId, id }: { tempId?: string; id?: string }) => {
 	const { setCompactFonts, setFonts } = useDataState();
 
 	useEffect(() => {
-		if (tempId) {
-			const fetchVideoJson = async () => {
-				try {
-					const response = await fetch(
-						`https://scheme.combo.sh/video-json/${id}`,
-					);
-					if (!response.ok) {
-						throw new Error(`HTTP error! status: ${response.status}`);
-					}
-					const data = await response.json();
-
-					const payload = data.videoJson.json;
-					if (payload) {
-						dispatch(DESIGN_LOAD, { payload });
-					}
-				} catch (error) {
-					console.error("Error fetching video JSON:", error);
-				}
-			};
-			fetchVideoJson();
-		}
-
-		if (id) {
-			const fetchSceneById = async () => {
-				try {
-					const response = await fetch(`/api/scene/${id}`);
-					if (!response.ok) {
-						throw new Error(`HTTP error! status: ${response.status}`);
-					}
-					const data = await response.json();
-					console.log("Fetched scene data:", data);
-
-					if (data.success && data.scene) {
-						// Set project name if available
-						if (data.project?.name) {
-							setProjectName(data.project.name);
-						}
-
-						// Load the scene content into the editor
-						if (data.scene.content) {
-							dispatch(DESIGN_LOAD, { payload: data.scene.content });
-						}
-					} else {
-						console.error("Failed to fetch scene:", data.error);
-					}
-				} catch (error) {
-					console.error("Error fetching scene by ID:", error);
-				}
-			};
-			fetchSceneById();
-		}
-	}, [id, tempId]);
-
-	useEffect(() => {
-		console.log("scene", scene);
-		console.log("timeline", timeline);
-		if (scene && timeline) {
-			console.log("scene", scene);
-			dispatch(DESIGN_LOAD, { payload: scene });
-		}
-	}, [scene, timeline]);
+		dispatch(DESIGN_LOAD, { payload: design });
+	}, []);
 
 	useEffect(() => {
 		setCompactFonts(getCompactFontData(FONTS));

@@ -1,5 +1,13 @@
 export { default as Audio } from "./audio";
+export { default as Caption } from "./caption";
+export { default as Illustration } from "./illustration";
 export { default as Image } from "./image";
+export { default as Shape } from "./shape";
 export { default as Text } from "./text";
 export { default as Video } from "./video";
-
+export { default as ProgressBar } from "./progress-bar";
+export { default as LinealAudioBars } from "./lineal-audio-bars";
+export { default as ProgressFrame } from "./progress-frame";
+export { default as RadialAudioBars } from "./radial-audio-bars";
+export { default as HillAudioBars } from "./hill-audio-bars";
+export { default as WaveAudioBars } from "./wave-audio-bars";

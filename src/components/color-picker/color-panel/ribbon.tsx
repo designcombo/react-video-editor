@@ -67,144 +67,144 @@ const Pointer = styled.span<{ left: number; backgroundColor: string }>`
 `;
 
 const Ribbon: FC<TPropsComp> = ({ color, onChange, setChange }) => {
-	const node = useRef<HTMLDivElement>(null);
+  const node = useRef<HTMLDivElement>(null);
 
-	const removeListeners = () => {
-		window.removeEventListener("mousemove", onDrag);
-		window.removeEventListener("mouseup", onDragEnd);
-	};
+  const removeListeners = () => {
+    window.removeEventListener("mousemove", onDrag);
+    window.removeEventListener("mouseup", onDragEnd);
+  };
 
-	const removeTouchListeners = () => {
-		setChange(false);
+  const removeTouchListeners = () => {
+    setChange(false);
 
-		window.removeEventListener("touchmove", onTouchMove);
-		window.removeEventListener("touchend", onTouchEnd);
-	};
+    window.removeEventListener("touchmove", onTouchMove);
+    window.removeEventListener("touchend", onTouchEnd);
+  };
 
-	useEffect(() => {
-		return () => {
-			removeListeners();
-			removeTouchListeners();
-		};
-		// eslint-disable-next-line react-hooks/exhaustive-deps
-	}, []);
+  useEffect(() => {
+    return () => {
+      removeListeners();
+      removeTouchListeners();
+    };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
-	const onMouseDown = (e: MouseEvent) => {
-		e.preventDefault();
-		const x = e.clientX;
-		const y = e.clientY;
+  const onMouseDown = (e: MouseEvent) => {
+    e.preventDefault();
+    const x = e.clientX;
+    const y = e.clientY;
 
-		pointMoveTo({
-			x,
-			y,
-		});
+    pointMoveTo({
+      x,
+      y
+    });
 
-		window.addEventListener("mousemove", onDrag);
-		window.addEventListener("mouseup", onDragEnd);
-	};
+    window.addEventListener("mousemove", onDrag);
+    window.addEventListener("mouseup", onDragEnd);
+  };
 
-	const onDrag = (e: any) => {
-		const x = e.clientX;
-		const y = e.clientY;
+  const onDrag = (e: any) => {
+    const x = e.clientX;
+    const y = e.clientY;
 
-		pointMoveTo({
-			x,
-			y,
-		});
-	};
+    pointMoveTo({
+      x,
+      y
+    });
+  };
 
-	const onDragEnd = (e: any) => {
-		const x = e.clientX;
-		const y = e.clientY;
+  const onDragEnd = (e: any) => {
+    const x = e.clientX;
+    const y = e.clientY;
 
-		pointMoveTo({
-			x,
-			y,
-		});
+    pointMoveTo({
+      x,
+      y
+    });
 
-		setChange(false);
+    setChange(false);
 
-		removeListeners();
-	};
+    removeListeners();
+  };
 
-	const onTouchStart = (e: TouchEvent) => {
-		if (e.cancelable) {
-			e.preventDefault();
-		}
+  const onTouchStart = (e: TouchEvent) => {
+    if (e.cancelable) {
+      e.preventDefault();
+    }
 
-		if (e.touches.length !== 1) {
-			return;
-		}
+    if (e.touches.length !== 1) {
+      return;
+    }
 
-		removeTouchListeners();
+    removeTouchListeners();
 
-		const x = e.targetTouches[0].clientX;
-		const y = e.targetTouches[0].clientY;
+    const x = e.targetTouches[0].clientX;
+    const y = e.targetTouches[0].clientY;
 
-		pointMoveTo({ x, y });
+    pointMoveTo({ x, y });
 
-		window.addEventListener("touchmove", onTouchMove, { passive: false });
-		window.addEventListener("touchend", onTouchEnd, { passive: false });
-	};
+    window.addEventListener("touchmove", onTouchMove, { passive: false });
+    window.addEventListener("touchend", onTouchEnd, { passive: false });
+  };
 
-	const onTouchMove = (e: any) => {
-		if (e.cancelable) {
-			e.preventDefault();
-		}
+  const onTouchMove = (e: any) => {
+    if (e.cancelable) {
+      e.preventDefault();
+    }
 
-		const x = e.targetTouches[0].clientX;
-		const y = e.targetTouches[0].clientY;
+    const x = e.targetTouches[0].clientX;
+    const y = e.targetTouches[0].clientY;
 
-		pointMoveTo({
-			x,
-			y,
-		});
-	};
+    pointMoveTo({
+      x,
+      y
+    });
+  };
 
-	const onTouchEnd = () => {
-		removeTouchListeners();
-	};
+  const onTouchEnd = () => {
+    removeTouchListeners();
+  };
 
-	const pointMoveTo = (coords: TCoords) => {
-		const rect = node?.current?.getBoundingClientRect();
-		if (!rect) return;
-		const width = rect.width;
-		let left = coords.x - rect.left;
-		left = Math.max(0, left);
-		left = Math.min(left, width);
+  const pointMoveTo = (coords: TCoords) => {
+    const rect = node?.current?.getBoundingClientRect();
+    if (!rect) return;
+    const width = rect.width;
+    let left = coords.x - rect.left;
+    left = Math.max(0, left);
+    left = Math.min(left, width);
 
-		const huePercent = left / width;
-		const hue = huePercent * 360;
+    const huePercent = left / width;
+    const hue = huePercent * 360;
 
-		color.hue = hue;
-		onChange(color);
-	};
+    color.hue = hue;
+    onChange(color);
+  };
 
-	const hueHsv = {
-		h: color.hue,
-		s: 1,
-		v: 1,
-	};
+  const hueHsv = {
+    h: color.hue,
+    s: 1,
+    v: 1
+  };
 
-	const hueColor = new TinyColor(hueHsv).toHexString();
+  const hueColor = new TinyColor(hueHsv).toHexString();
 
-	const hue = color.hue;
-	const per = (hue / 360) * 100;
+  const hue = color.hue;
+  const per = (hue / 360) * 100;
 
-	return (
-		<Container ref={node} onMouseDown={onMouseDown} onTouchStart={onTouchStart}>
-			<Background />
-			<Pointer left={per} backgroundColor={hueColor} />
-			<div
-				css={css`
+  return (
+    <Container ref={node} onMouseDown={onMouseDown} onTouchStart={onTouchStart}>
+      <Background />
+      <Pointer left={per} backgroundColor={hueColor} />
+      <div
+        css={css`
           position: absolute;
           height: 100%;
           width: 100%;
           cursor: grab;
         `}
-			/>
-		</Container>
-	);
+      />
+    </Container>
+  );
 };
 
 export default Ribbon;

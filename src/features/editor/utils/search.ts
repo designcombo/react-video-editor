@@ -1,7 +1,7 @@
 export type BinarySearchPredicate<T> = (
-	value: T,
-	index: number,
-	arr: T[],
+  value: T,
+  index: number,
+  arr: T[]
 ) => boolean;
 
 /**
@@ -11,18 +11,18 @@ export type BinarySearchPredicate<T> = (
  * @returns Found index or -1.
  */
 export function findIndex<T>(
-	arr: T[],
-	predicate: BinarySearchPredicate<T>,
+  arr: T[],
+  predicate: BinarySearchPredicate<T>
 ): number {
-	let l = -1;
-	let r = arr.length - 1;
+  let l = -1;
+  let r = arr.length - 1;
 
-	while (1 + l < r) {
-		const mid = l + ((r - l) >> 1);
-		const cmp = predicate(arr[mid], mid, arr);
+  while (1 + l < r) {
+    const mid = l + ((r - l) >> 1);
+    const cmp = predicate(arr[mid], mid, arr);
 
-		cmp ? (r = mid) : (l = mid);
-	}
+    cmp ? (r = mid) : (l = mid);
+  }
 
-	return r;
+  return r;
 }

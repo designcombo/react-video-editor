@@ -1,6 +1,6 @@
 <p align="center">
   <a href="https://github.com/designcombo/react-video-editor">
-    <img width="150px" height="150px" src="https://cdn.designcombo.dev/logo-white.png"/>
+    <img width="150px" height="150px" src="https://cdn.designcombo.dev/combo-logo-black.png"/>
   </a>
 </p>
 <h1 align="center">React Video Editor</h1>
@@ -18,7 +18,7 @@ Video Editor application using React and TypeScript.
 </p>
 </div>
 
-[![](https://cdn.designcombo.dev/editor-preview-2.png)](https://github.com/designcombo/react-video-editor)
+[![](./images/combo.png)](https://github.com/designcombo/react-video-editor)
 
 ## ✨ Features
 
@@ -30,7 +30,7 @@ Video Editor application using React and TypeScript.
 
 ## 🚀 See It in Action
 
-Check out the deployed version here: [React Video Editor Live Demo](https://basic.designcombo.dev/)
+Check out the deployed version here: [React Video Editor Live Demo](https://video.designcombo.dev/)
 
 ## ⌨️ Development
 

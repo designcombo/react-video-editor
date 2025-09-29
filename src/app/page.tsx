@@ -2,5 +2,5 @@
 import Editor from "@/features/editor";
 
 export default function Home() {
-	return <Editor />;
+  return <Editor />;
 }
