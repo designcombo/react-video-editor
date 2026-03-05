@@ -2,8 +2,8 @@ import { getBoundingBox, translatePath } from "@remotion/paths";
 import { makeStar } from "@remotion/shapes";
 import type {
   TransitionPresentation,
-  TransitionPresentationComponentProps
-} from "../";
+  TransitionPresentationComponentProps,
+} from "..";
 import React, { useMemo, useState } from "react";
 import { AbsoluteFill, random } from "remotion";
 export type CustomPresentationProps = {
@@ -16,7 +16,7 @@ const StarPresentation: React.FC<
   children,
   presentationDirection,
   presentationProgress,
-  passedProps
+  passedProps,
 }) => {
   const finishedRadius =
     Math.sqrt(passedProps.width ** 2 + passedProps.height ** 2) / 2;
@@ -25,13 +25,13 @@ const StarPresentation: React.FC<
   const { path } = makeStar({
     innerRadius,
     outerRadius,
-    points: 5
+    points: 5,
   });
   const boundingBox = getBoundingBox(path);
   const translatedPath = translatePath(
     path,
     passedProps.width / 2 - boundingBox.width / 2,
-    passedProps.height / 2 - boundingBox.height / 2
+    passedProps.height / 2 - boundingBox.height / 2,
   );
   const [clipId] = useState(() => String(random(null)));
   const style: React.CSSProperties = useMemo(() => {
@@ -39,7 +39,7 @@ const StarPresentation: React.FC<
       width: "100%",
       height: "100%",
       clipPath:
-        presentationDirection === "exiting" ? undefined : `url(#${clipId})`
+        presentationDirection === "exiting" ? undefined : `url(#${clipId})`,
     };
   }, [clipId, presentationDirection]);
   return (
@@ -61,7 +61,7 @@ const StarPresentation: React.FC<
 };
 
 export const star = (
-  props: CustomPresentationProps
+  props: CustomPresentationProps,
 ): TransitionPresentation<CustomPresentationProps> => {
   return { component: StarPresentation, props };
 };

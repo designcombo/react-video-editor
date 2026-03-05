@@ -140,17 +140,6 @@ export const CaptionWord: React.FC<CaptionWordProps> = ({
   const endAtFrame = ((end + offsetFrom) / 1000) * fps;
   const isActive = currentFrame > startAtFrame && currentFrame < endAtFrame;
   const isAppeared = currentFrame > startAtFrame;
-  console.log("CaptionWord", {
-    word,
-    offsetFrom,
-    isActive,
-    currentFrame,
-    startAtFrame,
-    endAtFrame,
-    isAppeared,
-    lineIndex,
-    currentLine
-  });
 
   // Handle line-based visibility
   if (

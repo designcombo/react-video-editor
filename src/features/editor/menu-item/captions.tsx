@@ -112,8 +112,7 @@ export const Captions = () => {
   };
 
   return (
-    <div className="flex flex-1 flex-col gap-4">
-      <Header />
+    <div className="flex flex-1 flex-col gap-4 p-4">
       {mediaTrackItems.length === 0 ? (
         <EmptyMediaTrackItems />
       ) : (
@@ -129,12 +128,6 @@ export const Captions = () => {
     </div>
   );
 };
-
-const Header = () => (
-  <div className="text-text-primary flex h-12 flex-none items-center px-4 text-sm font-medium">
-    Captions
-  </div>
-);
 
 const MediaSection = ({
   selectMediaItems,

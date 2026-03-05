@@ -9,8 +9,8 @@ importers:
   .:
     dependencies:
       '@designcombo/animations':
-        specifier: ^5.4.2
-        version: 5.4.2(@designcombo/events@1.0.2)(@designcombo/types@5.4.2)(react@19.1.0)(remotion@4.0.315(react-dom@19.1.0(react@19.1.0))(react@19.1.0))
+        specifier: ^5.5.8
+        version: 5.5.8(@designcombo/events@1.0.2)(@designcombo/types@5.4.2)(react@19.1.0)(remotion@4.0.315(react-dom@19.1.0(react@19.1.0))(react@19.1.0))
       '@designcombo/events':
         specifier: ^1.0.2
         version: 1.0.2
@@ -18,14 +18,14 @@ importers:
         specifier: ^0.0.3
         version: 0.0.3
       '@designcombo/state':
-        specifier: ^5.4.2
-        version: 5.4.2(@designcombo/events@1.0.2)(@designcombo/types@5.4.2)
+        specifier: ^5.5.8
+        version: 5.5.8(@designcombo/events@1.0.2)(@designcombo/types@5.4.2)
       '@designcombo/timeline':
-        specifier: ^5.4.2
-        version: 5.4.2(@designcombo/events@1.0.2)(@designcombo/types@5.4.2)(@types/lodash-es@4.17.12)
+        specifier: ^5.5.8
+        version: 5.5.8(@designcombo/events@1.0.2)(@designcombo/types@5.4.2)(@types/lodash-es@4.17.12)
       '@designcombo/transitions':
-        specifier: ^5.4.2
-        version: 5.4.2(react-dom@19.1.0(react@19.1.0))(react@19.1.0)(remotion@4.0.315(react-dom@19.1.0(react@19.1.0))(react@19.1.0))
+        specifier: ^5.5.8
+        version: 5.5.8(react-dom@19.1.0(react@19.1.0))(react@19.1.0)(remotion@4.0.315(react-dom@19.1.0(react@19.1.0))(react@19.1.0))
       '@emotion/react':
         specifier: ^11.14.0
         version: 11.14.0(@types/react@19.1.4)(react@19.1.0)
@@ -392,11 +392,11 @@ packages:
     cpu: [x64]
     os: [win32]
 
-  '@designcombo/animations@5.4.2':
-    resolution: {integrity: sha512-GGRjyjzmQ8FUmlMmgOIReVezROGZeNRALg77hoeX+nKeYojiQ6JvFk5doRlsM2ttXH5WQoPZ5TXmtVVF5TVziA==}
+  '@designcombo/animations@5.5.8':
+    resolution: {integrity: sha512-D8eMxJxF9MDDkaO4ijDSe53XkSvl5aH8SssF3kDnmasN7rlUCq72aGdfwxJWPV3kiv7zBzuAkxF7baGteByYUQ==}
     peerDependencies:
       '@designcombo/events': ^1.0.2
-      '@designcombo/types': 5.4.2
+      '@designcombo/types': 5.5.8
       react: ^18.2.0
       remotion: ^4.0.0
 
@@ -406,21 +406,21 @@ packages:
   '@designcombo/frames@0.0.3':
     resolution: {integrity: sha512-CC10G1oqJB+ybZuCx+ncXUPKIMkV6H+82VnwN2kd4sOn3KmFxWQvdJYxu+RLCl2dxdE1O4mEMQDbsiHZwGmJhA==}
 
-  '@designcombo/state@5.4.2':
-    resolution: {integrity: sha512-IVjZM7v+D5axizg9epgTJjYgw/63wIhlFw0ssKxWgqGUjBKhn9svQ3CCuYuc+89hcmJBPFQgH8NTKGRAPC9TXA==}
+  '@designcombo/state@5.5.8':
+    resolution: {integrity: sha512-Y+MtGfafvb86Vo7XVCkDJK1joZ21rGemWR1mOt492hwLIRwppgXbftPmK2CH8K6Sr0OQuIz5oYbL6cGcVw/i0Q==}
     peerDependencies:
       '@designcombo/events': ^1.0.2
-      '@designcombo/types': 5.4.2
+      '@designcombo/types': 5.5.8
 
-  '@designcombo/timeline@5.4.2':
-    resolution: {integrity: sha512-2oiYucV5RAsFvIKjxqPHPkjoJ5gaNQd9SmOgcp++sSTAq1NSg1l2NO9ATdEqaoYtcMQzdNFrrxtVJySDUiL95g==}
+  '@designcombo/timeline@5.5.8':
+    resolution: {integrity: sha512-9Ox2c/iVqzqD63RWvi5t8ej8weot8qx1HK8RnI5YGPj4tPhPokUPXLT5myCaT5xIKsmWyf0am4qCnoHHXylzLA==}
     peerDependencies:
       '@designcombo/events': ^1.0.2
-      '@designcombo/types': 5.4.2
+      '@designcombo/types': 5.5.8
       '@types/lodash-es': ^4.17.12
 
-  '@designcombo/transitions@5.4.2':
-    resolution: {integrity: sha512-xdnEjbTKrunn4VdoxEL/41yxxXY2oGgQpATOpHnn9A3VSckBDXnlEJYvBykvR/DQc766/U94gFlmBIhw9JyYAg==}
+  '@designcombo/transitions@5.5.8':
+    resolution: {integrity: sha512-IaXOJWRgto/0mtCxFFkJDhwQ5LzvxSIz310zOEx4jjYUm/r6I9r0CMnnFRkZ++P/8i5dQY/XlDKHKRJqz2uZOQ==}
     peerDependencies:
       react: ^18.0.0 || ^19.0.0
       remotion: 4.0.340
@@ -2871,7 +2871,7 @@ packages:
 
   glob@7.2.3:
     resolution: {integrity: sha512-nFR0zLpU2YCaRxwoCJvL6UvCH2JFyFVIvwTLsIf21AuHlMskA1hhTdk+LlYJtOlYt9v6dvszD2BGRqBL+iQK9Q==}
-    deprecated: Glob versions prior to v9 are no longer supported
+    deprecated: Old versions of glob are not supported, and contain widely publicized security vulnerabilities, which have been fixed in the current version. Please update. Support for old versions may be purchased (at exorbitant rates) by contacting i@izs.me
 
   global@4.4.0:
     resolution: {integrity: sha512-wv/LAoHdRE3BeTGz53FAamhGlPLhlssK45usmGFThIi4XqnBmjKQ16u+RNbP7WvigRZDxUsM0J3gcQ5yicaL0w==}
@@ -4131,6 +4131,7 @@ packages:
   tar@6.2.1:
     resolution: {integrity: sha512-DZ4yORTwrbTj/7MZYq2w+/ZFdI6OZ/f9SFHR+71gIVUZhOQPHzVCLpvRnPgyaMpfWxxk/4ONva3GQSyNIKRv6A==}
     engines: {node: '>=10'}
+    deprecated: Old versions of tar are not supported, and contain widely publicized security vulnerabilities, which have been fixed in the current version. Please update. Support for old versions may be purchased (at exorbitant rates) by contacting i@izs.me
 
   tar@7.4.3:
     resolution: {integrity: sha512-5S7Va8hKfV7W5U6g3aYxXmlPoZVAwUMy9AOKyF2fVuZa2UD3qZjg578OrLRt8PcNN1PleVaL/5/yYATNL0ICUw==}
@@ -4326,6 +4327,7 @@ packages:
   whatwg-encoding@2.0.0:
     resolution: {integrity: sha512-p41ogyeMUrw3jWclHWTQg1k05DSVXPLcVxRTYsXUk+ZooOCZLcoYgPZ/HL/D/N+uQPOtcp1me1WhBEaX02mhWg==}
     engines: {node: '>=12'}
+    deprecated: Use @exodus/bytes instead for a more spec-conformant and faster implementation
 
   whatwg-mimetype@3.0.0:
     resolution: {integrity: sha512-nt+N2dzIutVRxARx1nghPKGv1xHikU7HKdfafKkLNLindmPU/ch3U31NOCGGA/dmPcmb1VlofO0vnKAcsm0o/Q==}
@@ -4539,7 +4541,7 @@ snapshots:
   '@biomejs/cli-win32-x64@1.9.4':
     optional: true
 
-  '@designcombo/animations@5.4.2(@designcombo/events@1.0.2)(@designcombo/types@5.4.2)(react@19.1.0)(remotion@4.0.315(react-dom@19.1.0(react@19.1.0))(react@19.1.0))':
+  '@designcombo/animations@5.5.8(@designcombo/events@1.0.2)(@designcombo/types@5.4.2)(react@19.1.0)(remotion@4.0.315(react-dom@19.1.0(react@19.1.0))(react@19.1.0))':
     dependencies:
       '@designcombo/events': 1.0.2
       '@designcombo/types': 5.4.2
@@ -4560,7 +4562,7 @@ snapshots:
       opfs-tools: 0.6.2
       wave-resampler: 1.0.0
 
-  '@designcombo/state@5.4.2(@designcombo/events@1.0.2)(@designcombo/types@5.4.2)':
+  '@designcombo/state@5.5.8(@designcombo/events@1.0.2)(@designcombo/types@5.4.2)':
     dependencies:
       '@designcombo/events': 1.0.2
       '@designcombo/types': 5.4.2
@@ -4572,7 +4574,7 @@ snapshots:
       nanoid: 5.1.5
       rxjs: 7.8.2
 
-  '@designcombo/timeline@5.4.2(@designcombo/events@1.0.2)(@designcombo/types@5.4.2)(@types/lodash-es@4.17.12)':
+  '@designcombo/timeline@5.5.8(@designcombo/events@1.0.2)(@designcombo/types@5.4.2)(@types/lodash-es@4.17.12)':
     dependencies:
       '@designcombo/events': 1.0.2
       '@designcombo/types': 5.4.2
@@ -4588,7 +4590,7 @@ snapshots:
       - supports-color
       - utf-8-validate
 
-  '@designcombo/transitions@5.4.2(react-dom@19.1.0(react@19.1.0))(react@19.1.0)(remotion@4.0.315(react-dom@19.1.0(react@19.1.0))(react@19.1.0))':
+  '@designcombo/transitions@5.5.8(react-dom@19.1.0(react@19.1.0))(react@19.1.0)(remotion@4.0.315(react-dom@19.1.0(react@19.1.0))(react@19.1.0))':
     dependencies:
       '@remotion/paths': 4.0.340
       '@remotion/shapes': 4.0.340(react-dom@19.1.0(react@19.1.0))(react@19.1.0)

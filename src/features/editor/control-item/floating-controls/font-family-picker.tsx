@@ -53,7 +53,7 @@ export default function FontFamilyPicker() {
   return (
     <div
       ref={floatingRef}
-      className="absolute right-2 top-2 z-[200] w-56 border bg-sidebar p-0"
+      className="absolute left-full top-2 z-200 ml-2 w-56 bg-card p-0 border"
     >
       <div className="handle flex cursor-grab justify-between px-2 py-4">
         <p className="text-sm font-bold">Fonts</p>

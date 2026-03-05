@@ -53,7 +53,8 @@ import {
   GalleryVertical,
   ChevronsUp,
   Volume2,
-  ShapesIcon
+  ShapesIcon,
+  AudioWaveform,
 } from "lucide-react";
 
 export type Icon = LucideIcon;
@@ -69,6 +70,7 @@ export const Icons = {
   chevronLeft: ChevronLeft,
   chevronRight: ChevronRight,
   check: Check,
+  sfx: AudioWaveform,
   circleFilled: ({ ...props }: LucideProps) => (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -400,5 +402,5 @@ export const Icons = {
         fill="currentColor"
       />
     </svg>
-  )
+  ),
 };

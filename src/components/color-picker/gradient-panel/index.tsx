@@ -9,13 +9,13 @@ import {
   TouchEvent
 } from "react";
 
-import Markers from "./markers";
 import { css } from "@emotion/react";
 import { getGradient } from "../utils";
 import { arraysEqual, shallowEqual } from "../helper";
 
 import { IPropsPanel, TCoords } from "./types";
 import { RADIALS_POS } from "../constants";
+import Markers from "./Markers";
 
 const GradientPanel: FC<IPropsPanel> = ({
   color,

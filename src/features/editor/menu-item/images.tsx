@@ -95,22 +95,12 @@ export const Images = () => {
 
   return (
     <div className="flex flex-1 flex-col">
-      <div className="text-text-primary flex h-12 flex-none items-center px-4 text-sm font-medium">
-        Photos
-      </div>
-      <div className="flex items-center gap-2 px-4 pb-4">
+      <div className="flex items-center gap-2 p-4">
         <div className="relative flex-1">
-          <Input
-            placeholder="Search Pexels images..."
-            value={searchQuery}
-            onChange={(e) => setSearchQuery(e.target.value)}
-            onKeyPress={handleKeyPress}
-            className="pr-10"
-          />
           <Button
             size="sm"
             variant="ghost"
-            className="absolute right-1 top-1/2 h-6 w-6 -translate-y-1/2 p-0"
+            className="absolute left-1 top-1/2 h-6 w-6 -translate-y-1/2 p-0"
             onClick={handleSearch}
             disabled={pexelsLoading}
           >
@@ -120,6 +110,13 @@ export const Images = () => {
               <Search className="h-3 w-3" />
             )}
           </Button>
+          <Input
+            placeholder="Search Pexels images..."
+            value={searchQuery}
+            onChange={(e) => setSearchQuery(e.target.value)}
+            onKeyPress={handleKeyPress}
+            className="pl-10"
+          />
         </div>
         {searchQuery && (
           <Button
@@ -141,40 +138,42 @@ export const Images = () => {
         </div>
       )}
 
-      <ScrollArea className="flex-1 lg:max-h-[calc(100%-125px)] max-h-[500px]">
-        <div className="masonry-sm px-4">
-          {displayImages.map((image, index) => {
-            return (
-              <ImageItem
-                key={image.id || index}
-                image={image}
-                shouldDisplayPreview={!isDraggingOverTimeline}
-                handleAddImage={handleAddImage}
-              />
-            );
-          })}
-        </div>
-        {pexelsLoading && <ImageLoading message="Searching for images..." />}
-        {/* Pagination */}
-        {hasNextPage && (
-          <div className="flex items-center justify-center p-4">
-            <Button
-              size="sm"
-              variant="outline"
-              onClick={handleLoadMore}
-              disabled={pexelsLoading}
-            >
-              {pexelsLoading ? (
-                <>
-                  <Loader2 className="h-4 w-4 mr-2 animate-spin" />
-                  Loading...
-                </>
-              ) : (
-                "Load More"
-              )}
-            </Button>
+      <ScrollArea className="flex-1 px-4 max-h-full">
+        <div className="max-h-full">
+          <div className="grid grid-cols-[repeat(auto-fill,minmax(100px,1fr))] gap-2">
+            {displayImages.map((image, index) => {
+              return (
+                <ImageItem
+                  key={image.id || index}
+                  image={image}
+                  shouldDisplayPreview={!isDraggingOverTimeline}
+                  handleAddImage={handleAddImage}
+                />
+              );
+            })}
           </div>
-        )}
+          {pexelsLoading && <ImageLoading message="Searching for images..." />}
+          {/* Pagination */}
+          {hasNextPage && (
+            <div className="flex items-center justify-center p-4">
+              <Button
+                size="sm"
+                variant="outline"
+                onClick={handleLoadMore}
+                disabled={pexelsLoading}
+              >
+                {pexelsLoading ? (
+                  <>
+                    <Loader2 className="h-4 w-4 mr-2 animate-spin" />
+                    Loading...
+                  </>
+                ) : (
+                  "Load More"
+                )}
+              </Button>
+            </div>
+          )}
+        </div>
       </ScrollArea>
     </div>
   );
@@ -214,7 +213,7 @@ const ImageItem = ({
             }
           } as IImage)
         }
-        className="flex w-full items-center justify-center overflow-hidden bg-background pb-2 cursor-pointer"
+        className="flex aspect-square w-full items-center justify-center overflow-hidden bg-background pb-2 cursor-pointer"
       >
         <img
           draggable={false}

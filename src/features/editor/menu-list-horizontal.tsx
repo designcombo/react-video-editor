@@ -8,7 +8,7 @@ import {
   DrawerTitle,
   DrawerDescription
 } from "@/components/ui/drawer";
-import { ScrollArea, ScrollBar } from "@/components/ui/scroll-area";
+import { ScrollArea } from "@/components/ui/scroll-area";
 import { VisuallyHidden } from "@/components/ui/visually-hidden";
 import { MenuItem } from "./menu-item/menu-item";
 import { useIsLargeScreen } from "@/hooks/use-media-query";
@@ -118,7 +118,6 @@ export default function MenuListHorizontal() {
               />
             ))}
           </div>
-          <ScrollBar orientation="horizontal" />
         </ScrollArea>
       </div>
 
@@ -135,7 +134,7 @@ export default function MenuListHorizontal() {
               </DrawerHeader>
             </VisuallyHidden>
 
-            <div className="flex-1">
+            <div className="flex-1 overflow-auto">
               <MenuItem />
             </div>
           </DrawerContent>

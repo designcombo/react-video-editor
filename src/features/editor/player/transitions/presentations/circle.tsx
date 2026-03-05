@@ -1,8 +1,8 @@
 import React, { useMemo, useState } from "react";
 import type {
   TransitionPresentation,
-  TransitionPresentationComponentProps
-} from "../";
+  TransitionPresentationComponentProps,
+} from "..";
 import { AbsoluteFill, random } from "remotion";
 
 export type CustomPresentationProps = {
@@ -16,7 +16,7 @@ const CirclePresentation: React.FC<
   children,
   presentationDirection,
   presentationProgress,
-  passedProps
+  passedProps,
 }) => {
   const finishedRadius =
     Math.sqrt(passedProps.width ** 2 + passedProps.height ** 2) / 2;
@@ -25,7 +25,7 @@ const CirclePresentation: React.FC<
   const circlePath = makeCirclePath(
     passedProps.width / 2,
     passedProps.height / 2,
-    radius
+    radius,
   );
 
   const [clipId] = useState(() => String(random(null)));
@@ -34,7 +34,7 @@ const CirclePresentation: React.FC<
       width: "100%",
       height: "100%",
       clipPath:
-        presentationDirection === "exiting" ? undefined : `url(#${clipId})`
+        presentationDirection === "exiting" ? undefined : `url(#${clipId})`,
     };
   }, [clipId, presentationDirection]);
 
@@ -57,7 +57,7 @@ const CirclePresentation: React.FC<
 };
 
 export const circle = (
-  props: CustomPresentationProps
+  props: CustomPresentationProps,
 ): TransitionPresentation<CustomPresentationProps> => {
   return { component: CirclePresentation, props };
 };

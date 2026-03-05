@@ -1,9 +1,17 @@
 import { useCurrentPlayerFrame } from "../hooks/use-current-frame";
 import useStore from "../store/use-store";
-import { MouseEvent, TouchEvent, useEffect, useRef, useState } from "react";
+import {
+  MouseEvent,
+  TouchEvent,
+  useEffect,
+  useMemo,
+  useRef,
+  useState
+} from "react";
 import { timeMsToUnits, unitsToTimeMs } from "../utils/timeline";
 import { TIMELINE_OFFSET_CANVAS_LEFT } from "../constants/constants";
 import { useTimelineOffsetX } from "../hooks/use-timeline-offset";
+import { useTheme } from "next-themes";
 const Playhead = ({ scrollLeft }: { scrollLeft: number }) => {
   const playheadRef = useRef<HTMLDivElement>(null);
   const { playerRef, fps, scale } = useStore();
@@ -15,6 +23,19 @@ const Playhead = ({ scrollLeft }: { scrollLeft: number }) => {
   const [dragStartPosition, setDragStartPosition] = useState(position);
   const timelineOffsetX = useTimelineOffsetX();
 
+  const { theme, resolvedTheme } = useTheme();
+  const [mounted, setMounted] = useState(false);
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+  const currentTheme = useMemo(() => {
+    if (!mounted) return "light";
+    return (theme === "system" ? resolvedTheme : theme) as "dark" | "light";
+  }, [mounted, theme, resolvedTheme]);
+
+  const color = useMemo(() => {
+    return currentTheme === "dark" ? "#ffffff" : "#000000";
+  }, [currentTheme]);
   const handleMouseUp = () => {
     setIsDragging(false);
   };
@@ -80,6 +101,7 @@ const Playhead = ({ scrollLeft }: { scrollLeft: number }) => {
       onMouseDown={handleMouseDown}
       onTouchStart={handleMouseDown}
       onDragStart={(e) => e.preventDefault()}
+      id="playhead"
       style={{
         position: "absolute",
         left: timelineOffsetX + TIMELINE_OFFSET_CANVAS_LEFT + position,
@@ -92,14 +114,19 @@ const Playhead = ({ scrollLeft }: { scrollLeft: number }) => {
       }}
     >
       <div
+        id="playhead-handle"
         style={{
-          borderRadius: "0 0 4px 4px"
+          borderRadius: "0 0 4px 4px",
+          backgroundColor: color
         }}
-        className="absolute top-0 h-4 w-2 -translate-x-1/2 transform bg-white text-xs font-semibold text-zinc-800"
+        className="absolute top-0 h-4 w-2 -translate-x-1/2 transform text-xs font-semibold text-zinc-800"
       />
       <div className="relative h-full">
         <div className="absolute top-0 h-full w-3 -translate-x-1/2 transform" />
-        <div className="absolute top-0 h-full w-0.5 -translate-x-1/2 transform bg-white/50" />
+        <div
+          className="absolute top-0 h-full w-0.5 -translate-x-1/2 transform"
+          style={{ backgroundColor: color }}
+        />
       </div>
     </div>
   );

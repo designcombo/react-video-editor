@@ -13,12 +13,12 @@
 		"format": "biome format . --write"
 	},
 	"dependencies": {
-		"@designcombo/animations": "^5.4.2",
+		"@designcombo/animations": "^5.5.8",
 		"@designcombo/events": "^1.0.2",
 		"@designcombo/frames": "^0.0.3",
-		"@designcombo/state": "^5.4.2",
-		"@designcombo/timeline": "^5.4.2",
-		"@designcombo/transitions": "^5.4.2",
+		"@designcombo/state": "^5.5.8",
+		"@designcombo/timeline": "^5.5.8",
+		"@designcombo/transitions": "^5.5.8",
 		"@emotion/react": "^11.14.0",
 		"@emotion/styled": "^11.14.0",
 		"@google/genai": "^1.6.0",

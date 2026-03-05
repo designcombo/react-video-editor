@@ -1,26 +1,26 @@
-import Draggable from "@/components/shared/draggable";
-import { ScrollArea } from "@/components/ui/scroll-area";
-import { dispatch } from "@designcombo/events";
-import { ADD_AUDIO, ADD_ITEMS } from "@designcombo/state";
-import { IAudio } from "@designcombo/types";
-import { Loader2, Music, Music2, Search } from "lucide-react";
-import React, { useCallback, useEffect, useState } from "react";
-import { generateId } from "@designcombo/timeline";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { debounce } from "lodash";
+"use client";
+import { useState, useEffect, useCallback } from "react";
 import { AudioItem } from "./audio-item";
+import { Search, Loader2, Music2 } from "lucide-react";
+import { ScrollArea } from "@/components/ui/scroll-area";
+import { debounce } from "lodash";
+import { Button } from "@/components/ui/button";
+import { generateId } from "@designcombo/timeline";
+import { dispatch } from "@designcombo/events";
+import { ADD_AUDIO } from "@designcombo/state";
+import { IAudio } from "@designcombo/types";
+import { Input } from "@/components/ui/input";
 
-export const Audios = () => {
+export function SFX() {
+  const [playingId, setPlayingId] = useState<string | null>(null);
   const [searchQuery, setSearchQuery] = useState("");
-  const [isLoading, setIsLoading] = useState(false);
   const [searchResults, setSearchResults] = useState<IAudio[]>([]);
+  const [isLoading, setIsLoading] = useState(false);
   const [isMoreLoading, setIsMoreLoading] = useState(false);
   const [page, setPage] = useState(1);
   const [hasMore, setHasMore] = useState(false);
-  const [playingId, setPlayingId] = useState<string | null>(null);
 
-  const fetchMusic = async (query: string, pageNumber: number = 1) => {
+  const fetchSFX = async (query: string, pageNumber: number = 1) => {
     if (pageNumber === 1) {
       setIsLoading(true);
     } else {
@@ -28,7 +28,7 @@ export const Audios = () => {
     }
 
     try {
-      const response = await fetch("/api/audio/music", {
+      const response = await fetch("/api/audio/sfx", {
         method: "POST",
         headers: {
           "Content-Type": "application/json"
@@ -39,28 +39,24 @@ export const Audios = () => {
           query: query ? { keys: [query] } : {}
         })
       });
-
       const data = await response.json();
-
-      if (data.musics) {
-        const mappedMusics = data.musics.map((music: any) => ({
-          id: music.id,
+      if (data.soundEffects) {
+        const mappedSFX = data.soundEffects.map((sfx: any) => ({
+          id: sfx.id,
           details: {
-            src: music.src
+            src: sfx.src
           },
-          name: music.name,
-          type: music.type,
+          name: sfx.name,
+          type: sfx.type,
           metadata: {
-            author: music.description || ""
+            author: sfx.description || ""
           }
         }));
-
         if (pageNumber === 1) {
-          setSearchResults(mappedMusics);
+          setSearchResults(mappedSFX);
         } else {
-          setSearchResults((prev: IAudio[]) => [...prev, ...mappedMusics]);
+          setSearchResults((prev: IAudio[]) => [...prev, ...mappedSFX]);
         }
-
         setHasMore(data.pagination?.hasMore || false);
       } else {
         if (pageNumber === 1) {
@@ -69,7 +65,7 @@ export const Audios = () => {
         setHasMore(false);
       }
     } catch (error) {
-      console.error("Failed to fetch music:", error);
+      console.error("Failed to fetch SFX:", error);
     } finally {
       setIsLoading(false);
       setIsMoreLoading(false);
@@ -79,14 +75,14 @@ export const Audios = () => {
   const debouncedFetch = useCallback(
     debounce((query: string) => {
       setPage(1);
-      fetchMusic(query, 1);
+      fetchSFX(query, 1);
     }, 500),
     []
   );
-
   useEffect(() => {
-    fetchMusic("");
+    fetchSFX("");
   }, []);
+
   const handleAddAudio = (payload: Partial<IAudio>) => {
     payload.id = generateId();
     console.log(payload);
@@ -95,7 +91,6 @@ export const Audios = () => {
       options: {}
     });
   };
-
   const handleSearchChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const query = e.target.value;
     setSearchQuery(query);
@@ -105,14 +100,13 @@ export const Audios = () => {
   const loadMore = () => {
     const nextPage = page + 1;
     setPage(nextPage);
-    fetchMusic(searchQuery, nextPage);
+    fetchSFX(searchQuery, nextPage);
   };
 
   const uniqueResults = Array.from(
     new Map(searchResults.map((item: IAudio) => [item.id, item])).values()
   );
 
-  // Main view
   return (
     <div className="flex flex-1 flex-col max-w-full h-full">
       <div className="flex items-center gap-2 p-4">
@@ -121,7 +115,7 @@ export const Audios = () => {
             size="sm"
             variant="ghost"
             className="absolute left-1 top-1/2 h-6 w-6 -translate-y-1/2 p-0"
-            onClick={() => fetchMusic(searchQuery)}
+            onClick={() => fetchSFX(searchQuery)}
             disabled={isLoading}
           >
             {isLoading ? (
@@ -131,12 +125,12 @@ export const Audios = () => {
             )}
           </Button>
           <Input
-            placeholder="Search stock audios..."
+            placeholder="Search sound effects..."
             value={searchQuery}
             onChange={handleSearchChange}
             onKeyPress={(e) => {
               if (e.key === "Enter") {
-                fetchMusic(searchQuery);
+                fetchSFX(searchQuery);
               }
             }}
             className="pl-10"
@@ -192,4 +186,4 @@ export const Audios = () => {
       </ScrollArea>
     </div>
   );
-};
+}

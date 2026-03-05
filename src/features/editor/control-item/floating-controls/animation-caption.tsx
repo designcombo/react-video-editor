@@ -110,7 +110,7 @@ const AnimationCaption = () => {
   );
   return (
     <div
-      className="bg-sidebar absolute right-2 top-2 z-[200] h-[calc(100%-80px)] w-56 border p-0"
+      className="absolute left-full top-2 z-200 ml-2 w-56 bg-card p-0 border"
       ref={floatingRef}
     >
       <div className="flex h-full flex-col gap-2 p-4">

@@ -181,16 +181,19 @@ const BasicImage = ({
     {
       key: "crop",
       component: (
-        <div className="mb-4">
-          <Button
-            variant={"secondary"}
-            size={"icon"}
-            onClick={() => {
-              setCropTarget(trackItem);
-            }}
-          >
-            <Crop size={18} />
-          </Button>
+        <div className="flex flex-col gap-2">
+          <Label className="font-sans text-xs font-semibold">Crop</Label>
+          <div className="mb-4">
+            <Button
+              variant={"secondary"}
+              size={"icon"}
+              onClick={() => {
+                setCropTarget(trackItem);
+              }}
+            >
+              <Crop size={18} />
+            </Button>
+          </div>
         </div>
       )
     },
@@ -257,10 +260,7 @@ const BasicImage = ({
     }
   ];
   return (
-    <div className="flex flex-1 flex-col">
-      <div className="text-text-primary flex h-12 flex-none items-center px-4 text-sm font-medium">
-        Image
-      </div>
+    <div className="flex lg:h-[calc(100vh-84px)] flex-1 flex-col overflow-hidden min-h-[340px]">
       <ScrollArea className="h-full">
         <div className="flex flex-col gap-2 px-4 py-4">
           {components

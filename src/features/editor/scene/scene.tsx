@@ -60,7 +60,7 @@ const Scene = forwardRef<
             width: size.width,
             height: size.height,
             background: "transparent",
-            boxShadow: "0 0 0 5000px #111"
+            boxShadow: "0 0 0 5000px var(--card)"
           }}
         />
         <Board size={size}>
