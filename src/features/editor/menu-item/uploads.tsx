@@ -7,7 +7,8 @@ import {
   Image as ImageIcon,
   Video as VideoIcon,
   Loader2,
-  UploadIcon
+  UploadIcon,
+  Upload
 } from "lucide-react";
 import { generateId } from "@designcombo/timeline";
 import { Button } from "@/components/ui/button";
@@ -39,8 +40,7 @@ export const Uploads = () => {
           src: srcVideo
         },
         metadata: {
-          previewUrl:
-            "https://cdn.designcombo.dev/caption_previews/static_preset1.webp"
+          previewUrl: ""
         }
       },
       options: {
@@ -86,10 +86,11 @@ export const Uploads = () => {
   };
 
   const UploadPrompt = () => (
-    <div className="flex items-center justify-center px-4">
+    <div className="flex items-center justify-center p-4">
       <Button
         className="w-full cursor-pointer"
         onClick={() => setShowUploadModal(true)}
+        variant={"outline"}
       >
         <UploadIcon className="w-4 h-4" />
         <span className="ml-2">Upload</span>
@@ -97,13 +98,25 @@ export const Uploads = () => {
     </div>
   );
 
+  const noUploads =
+    pendingUploads.length === 0 &&
+    activeUploads.length === 0 &&
+    videos.length === 0 &&
+    images.length === 0 &&
+    audios.length === 0;
   return (
     <div className="flex flex-1 flex-col">
-      <div className="text-text-primary flex h-12 flex-none items-center px-4 text-sm font-medium">
-        Your uploads
-      </div>
       <ModalUpload />
       <UploadPrompt />
+
+      {noUploads && (
+        <div className="flex flex-col items-center justify-center py-10 text-muted-foreground gap-2">
+          <Upload size={32} className="opacity-50" />
+          <span className="text-sm">
+            {uploads.length === 0 ? "No uploads yet" : "No matches found"}
+          </span>
+        </div>
+      )}
 
       {/* Uploads in Progress Section */}
       {(pendingUploads.length > 0 || activeUploads.length > 0) && (

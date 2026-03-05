@@ -1,4 +1,4 @@
-import { memo, useCallback } from "react";
+import { memo, useCallback, useEffect, useRef, useState } from "react";
 import useLayoutStore from "./store/use-layout-store";
 import { Icons } from "@/components/shared/icons";
 import { Button } from "@/components/ui/button";
@@ -11,6 +11,11 @@ import {
 } from "@/components/ui/drawer";
 import { MenuItem } from "./menu-item/menu-item";
 import { useIsLargeScreen } from "@/hooks/use-media-query";
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipTrigger
+} from "@/components/ui/tooltip";
 
 // Define menu items configuration for better maintainability
 const MENU_ITEMS = [
@@ -61,6 +66,12 @@ const MENU_ITEMS = [
     icon: Icons.volume,
     label: "AI Voice",
     ariaLabel: "Generate AI voice from text"
+  },
+  {
+    id: "sfx",
+    icon: Icons.sfx,
+    label: "SFX",
+    ariaLabel: "Generate SFX from text"
   }
 ] as const;
 
@@ -77,21 +88,25 @@ const MenuButton = memo<{
   const IconComponent = item.icon;
 
   return (
-    <Button
+    <div
       onClick={handleClick}
       className={cn(
-        "transition-colors duration-200 hover:bg-secondary/80",
+        "flex items-center justify-center flex-none h-7.5 w-7.5 cursor-pointer rounded-sm transition-all duration-200",
         isActive
-          ? "bg-secondary text-secondary-foreground"
-          : "text-muted-foreground hover:text-foreground"
+          ? "bg-white/10 text-white"
+          : "text-muted-foreground hover:bg-white/5 hover:text-white"
       )}
-      variant="ghost"
-      size="icon"
-      aria-label={item.ariaLabel}
-      aria-pressed={isActive}
+      key={item.id}
     >
-      {IconComponent ? <IconComponent width={16} height={16} /> : null}
-    </Button>
+      <Tooltip delayDuration={10}>
+        <TooltipTrigger asChild>
+          <IconComponent width={20} height={20} />
+        </TooltipTrigger>
+        <TooltipContent side="bottom" align="center" sideOffset={8}>
+          {item.label}
+        </TooltipContent>
+      </Tooltip>
+    </div>
   );
 });
 
@@ -109,6 +124,9 @@ function MenuList() {
   } = useLayoutStore();
 
   const isLargeScreen = useIsLargeScreen();
+  const scrollRef = useRef<HTMLDivElement>(null);
+  const [showLeftFade, setShowLeftFade] = useState(false);
+  const [showRightFade, setShowRightFade] = useState(false);
 
   const handleMenuItemClick = useCallback(
     (menuItem: string) => {
@@ -130,42 +148,64 @@ function MenuList() {
     [setDrawerOpen]
   );
 
+  const checkScrollPosition = () => {
+    const element = scrollRef.current;
+    if (!element) return;
+
+    const { scrollLeft, scrollWidth, clientWidth } = element;
+    setShowLeftFade(scrollLeft > 0);
+    setShowRightFade(scrollLeft < scrollWidth - clientWidth - 1);
+  };
+
+  useEffect(() => {
+    const element = scrollRef.current;
+    if (!element) return;
+
+    checkScrollPosition();
+    element.addEventListener("scroll", checkScrollPosition);
+
+    const resizeObserver = new ResizeObserver(checkScrollPosition);
+    resizeObserver.observe(element);
+
+    return () => {
+      element.removeEventListener("scroll", checkScrollPosition);
+      resizeObserver.disconnect();
+    };
+  }, []);
+
   return (
     <>
-      <nav
-        className="flex w-14 flex-col items-center gap-1 border-r border-border/80 py-2"
-        role="toolbar"
-        aria-label="Editor tools"
-      >
-        {MENU_ITEMS.map((item) => {
-          const isActive =
-            (drawerOpen && activeMenuItem === item.id) ||
-            (showMenuItem && activeMenuItem === item.id);
+      <div className="relative flex items-center py-2 px-2 bg-primary/7">
+        {showLeftFade && (
+          <div className="absolute left-0 top-0 bottom-0 w-8 bg-linear-to-r from-card to-transparent z-10 pointer-events-none" />
+        )}
+        <div
+          ref={scrollRef}
+          className="overflow-x-auto scrollbar-hidden! w-full"
+        >
+          <div className="flex items-center gap-2 w-fit mx-auto px-4">
+            {MENU_ITEMS.map((item) => {
+              const isActive =
+                (drawerOpen && activeMenuItem === item.id) ||
+                (showMenuItem && activeMenuItem === item.id);
+              return (
+                <MenuButton
+                  key={item.id}
+                  item={item}
+                  isActive={isActive}
+                  onClick={handleMenuItemClick}
+                />
+              );
+            })}
+          </div>
+        </div>
 
-          return (
-            <MenuButton
-              key={item.id}
-              item={item}
-              isActive={isActive}
-              onClick={handleMenuItemClick}
-            />
-          );
-        })}
-      </nav>
+        {showRightFade && (
+          <div className="absolute right-0 top-0 bottom-0 w-8 bg-linear-to-l from-card to-transparent z-10 pointer-events-none" />
+        )}
+      </div>
 
       {/* Drawer only on mobile/tablet - conditionally mounted */}
-      {!isLargeScreen && (
-        <Drawer open={drawerOpen} onOpenChange={handleDrawerOpenChange}>
-          <DrawerContent className="max-h-[80vh]">
-            <DrawerHeader>
-              <DrawerTitle className="capitalize">{activeMenuItem}</DrawerTitle>
-            </DrawerHeader>
-            <div className="flex-1 overflow-auto">
-              <MenuItem />
-            </div>
-          </DrawerContent>
-        </Drawer>
-      )}
     </>
   );
 }

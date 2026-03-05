@@ -10,7 +10,7 @@ import {
 } from "@designcombo/types";
 import useLayoutStore from "./store/use-layout-store";
 import { Button } from "@/components/ui/button";
-import { ScrollArea, ScrollBar } from "@/components/ui/scroll-area";
+import { ScrollArea } from "@/components/ui/scroll-area";
 import { useIsLargeScreen } from "@/hooks/use-media-query";
 import { Icons } from "@/components/shared/icons";
 import BasicText from "./control-item/basic-text";
@@ -663,7 +663,6 @@ export default function ControlItemHorizontal() {
               handleMenuItemClick={handleMenuItemClick}
             />
           )}
-          <ScrollBar orientation="horizontal" />
         </ScrollArea>
       </div>
       {!isLargeScreen && controItemDrawerOpen && (

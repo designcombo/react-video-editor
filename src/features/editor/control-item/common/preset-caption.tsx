@@ -20,7 +20,7 @@ interface PresetTextProps {
 export const PresetCaption = ({ properties, trackItem }: PresetTextProps) => {
   return (
     <div className="flex flex-col gap-2">
-      <Label className="font-sans text-xs font-semibold">CaptionXX</Label>
+      <Label className="font-sans text-xs font-semibold">Caption</Label>
       <PresetCaptionContent trackItem={trackItem} />
     </div>
   );

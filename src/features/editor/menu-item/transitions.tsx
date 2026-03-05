@@ -8,12 +8,9 @@ export const Transitions = () => {
   const isDraggingOverTimeline = useIsDraggingOverTimeline();
 
   return (
-    <div className="flex flex-1 flex-col">
-      <div className="text-text-primary flex h-12 flex-none items-center px-4 text-sm font-medium">
-        Transitions
-      </div>
-      <ScrollArea className="flex-1 h-[calc(100%-48px)]">
-        <div className="grid gap-2 px-4 [grid-template-columns:repeat(auto-fit,minmax(80px,1fr))]">
+    <div className="flex flex-1 flex-col py-4 max-h-full">
+      <ScrollArea className="flex-1 px-4 max-h-full">
+        <div className="grid gap-2 [grid-template-columns:repeat(auto-fit,minmax(80px,1fr))] max-h-full">
           {TRANSITIONS.map((transition, index) => (
             <TransitionsMenuItem
               key={index}
@@ -50,11 +47,11 @@ const TransitionsMenuItem = ({
       renderCustomPreview={<div style={style} />}
       shouldDisplayPreview={shouldDisplayPreview}
     >
-      <div>
-        <div>
+      <div className="w-full">
+        <div className="w-full flex items-center justify-center">
           <div style={style} draggable={false} />
         </div>
-        <div className="flex h-6 items-center overflow-ellipsis text-nowrap text-[12px] capitalize text-muted-foreground">
+        <div className="flex w-full h-6 items-center justify-center text-center overflow-hidden text-ellipsis whitespace-nowrap text-[12px] capitalize text-muted-foreground">
           {transition.name || transition.type}
         </div>
       </div>

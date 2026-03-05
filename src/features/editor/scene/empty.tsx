@@ -1,7 +1,7 @@
 import useStore from "../store/use-store";
 import { useEffect, useRef, useState } from "react";
 import { Droppable } from "@/components/ui/droppable";
-import { PlusIcon } from "lucide-react";
+import { Loader2, PlusIcon } from "lucide-react";
 import { DroppableArea } from "./droppable";
 
 const SceneEmpty = () => {
@@ -34,24 +34,23 @@ const SceneEmpty = () => {
   };
 
   return (
-    <div ref={containerRef} className="absolute z-50 flex h-full w-full flex-1">
+    <div
+      ref={containerRef}
+      className="absolute z-50 flex h-full w-full flex-1 dark:bg-card/80 bg-card"
+    >
       {!isLoading ? (
         <Droppable
           maxFileCount={4}
           maxSize={4 * 1024 * 1024}
           disabled={false}
           onValueChange={onSelectFiles}
-          className="h-full w-full flex-1 bg-background"
+          className="h-full w-full flex-1"
         >
           <DroppableArea
             onDragStateChange={setIsDraggingOver}
-            className={`absolute left-1/2 top-1/2 flex -translate-x-1/2 -translate-y-1/2 transform items-center justify-center border border-dashed text-center transition-colors duration-200 ease-in-out ${
-              isDraggingOver ? "border-white bg-white/10" : "border-white/15"
+            className={`absolute h-[calc(100%-40px)] bg-card aspect-[9/16] left-1/2 top-1/2 flex -translate-x-1/2 -translate-y-1/2 transform items-center justify-center border border-dashed text-center transition-colors duration-200 ease-in-out ${
+              isDraggingOver ? "border-border bg-white/10" : "border-border"
             }`}
-            style={{
-              width: desiredSize.width,
-              height: desiredSize.height
-            }}
           >
             <div className="flex flex-col items-center justify-center gap-4 pb-12">
               <div className="hover:bg-primary-dark cursor-pointer rounded-md border bg-primary p-2 text-secondary transition-colors duration-200">
@@ -67,8 +66,9 @@ const SceneEmpty = () => {
           </DroppableArea>
         </Droppable>
       ) : (
-        <div className="flex flex-1 items-center justify-center bg-background-subtle text-sm text-muted-foreground">
-          Loading...
+        <div className="fixed top-0 left-0 z-50 flex h-screen w-screen flex-col items-center justify-center gap-4 bg-card">
+          <Loader2 className="h-8 w-8 animate-spin text-primary" />
+          <p className="text-sm text-muted-foreground">Loading...</p>
         </div>
       )}
     </div>

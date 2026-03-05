@@ -16,13 +16,35 @@ export const Texts = () => {
       options: {}
     });
   };
-  
+
+  const handleAddAudio = () => {
+    dispatch(ADD_AUDIO, {
+      payload: {
+        id: nanoid(),
+        details: {
+          src: "https://cdn.designcombo.dev/preset76.mp3"
+        }
+      },
+      options: {}
+    });
+  };
+  // https://cdn.designcombo.dev/rect-gray.png
+
+  const handleAddImage = () => {
+    dispatch(ADD_IMAGE, {
+      payload: {
+        id: nanoid(),
+        details: {
+          src: "https://cdn.designcombo.dev/rect-gray.png"
+        }
+      },
+      options: {}
+    });
+  };
+
   return (
     <div className="flex flex-1 flex-col">
-      <div className="text-text-primary flex h-12 flex-none items-center px-4 text-sm font-medium">
-        Text
-      </div>
-      <div className="flex flex-col gap-2 px-4">
+      <div className="flex flex-col gap-2 p-4">
         <Draggable
           data={TEXT_ADD_PAYLOAD}
           renderCustomPreview={

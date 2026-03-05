@@ -137,6 +137,7 @@ const Header = () => {
 
   return (
     <div
+      id="timeline-header"
       style={{
         position: "relative",
         height: "50px",

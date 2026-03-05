@@ -390,7 +390,6 @@ function renderWords(
     updatedDetails?.showObject === "line" &&
     updatedDetails?.linesPerCaption
   ) {
-    console.log("renderLineBasedWords");
     return renderLineBasedWords(
       item,
       updatedDetails,
@@ -401,7 +400,6 @@ function renderWords(
       globalOpacity
     );
   } else if (updatedDetails?.animation === "customAnimation1") {
-    console.log("renderCustomAnimation1Words");
     return renderCustomAnimation1Words(
       item,
       updatedDetails,
@@ -410,7 +408,6 @@ function renderWords(
       globalOpacity
     );
   } else {
-    console.log("renderStandardWords");
     return renderStandardWords(
       item,
       updatedDetails,

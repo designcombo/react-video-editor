@@ -11,6 +11,7 @@ import {
 import {
   ChevronDown,
   Download,
+  Keyboard,
   ProportionsIcon,
   ShareIcon
 } from "lucide-react";
@@ -31,6 +32,8 @@ import {
 
 import { LogoIcons } from "@/components/shared/logos";
 import Link from "next/link";
+import { ShortcutsModal } from "./shortcuts-modal";
+import { ModeToggle } from "@/components/ui/mode-toggle";
 
 export default function Navbar({
   user,
@@ -47,6 +50,7 @@ export default function Navbar({
   const isLargeScreen = useIsLargeScreen();
   const isMediumScreen = useIsMediumScreen();
   const isSmallScreen = useIsSmallScreen();
+  const [isShortcutsModalOpen, setIsShortcutsModalOpen] = useState(false);
 
   const handleUndo = () => {
     dispatch(HISTORY_UNDO);
@@ -82,12 +86,12 @@ export default function Navbar({
         display: "grid",
         gridTemplateColumns: isLargeScreen ? "320px 1fr 320px" : "1fr 1fr 1fr"
       }}
-      className="bg-muted pointer-events-none flex h-11 items-center border-b border-border/80 px-2"
+      className="bg-card pointer-events-none flex h-13 items-center border-b border-border/80 px-2"
     >
       <DownloadProgressModal />
 
       <div className="flex items-center gap-2">
-        <div className="pointer-events-auto flex h-11 w-11 items-center justify-center rounded-md text-zinc-200">
+        <div className="pointer-events-auto flex h-11 w-11 items-center justify-center rounded-md invert dark:invert-0">
           <LogoIcons.scenify />
         </div>
 
@@ -111,40 +115,54 @@ export default function Navbar({
         </div>
       </div>
 
-      <div className="flex h-11 items-center justify-center gap-2">
+      <div className="flex h-13 items-center justify-center gap-2">
         {!isSmallScreen && (
-          <div className=" pointer-events-auto flex h-10 items-center gap-2 rounded-md px-2.5 text-muted-foreground">
+          <div className=" pointer-events-auto flex h-10 items-center gap-2 rounded-md px-2.5">
             <AutosizeInput
               name="title"
               value={title}
               onChange={handleTitleChange}
               width={200}
-              inputClassName="border-none outline-none px-1 bg-background text-sm font-medium text-zinc-200"
+              inputClassName="border-none outline-none px-1 text-sm font-medium"
             />
           </div>
         )}
       </div>
 
-      <div className="flex h-11 items-center justify-end gap-2">
+      <div className="flex h-13 items-center justify-end gap-2">
         <div className=" pointer-events-auto flex h-10 items-center gap-2 rounded-md px-2.5">
+          <Button
+            variant="ghost"
+            size="icon"
+            className="h-8 w-8 text-muted-foreground hover:text-foreground"
+            onClick={() => setIsShortcutsModalOpen(true)}
+          >
+            <Keyboard className="size-5" />
+          </Button>
           <Link href="https://discord.gg/Jmxsd5f2jp" target="_blank">
-            <Button className="h-7 rounded-lg" variant={"outline"}>
+            <Button className="h-8 rounded-lg" variant={"outline"}>
               <LogoIcons.discord className="w-6 h-6" />
               <span className="hidden md:block">Join Us</span>
             </Button>
           </Link>
-          <Button
-            className="flex h-7 gap-1 border border-border"
+          <ModeToggle />
+
+          {/* <Button
+            className="flex h-8 gap-1 border border-border"
             variant="outline"
             size={isMediumScreen ? "sm" : "icon"}
           >
             <ShareIcon width={18} />{" "}
             <span className="hidden md:block">Share</span>
-          </Button>
+          </Button> */}
 
           <DownloadPopover stateManager={stateManager} />
         </div>
       </div>
+      <ShortcutsModal
+        open={isShortcutsModalOpen}
+        onOpenChange={setIsShortcutsModalOpen}
+      />
     </div>
   );
 }
@@ -171,11 +189,11 @@ const DownloadPopover = ({ stateManager }: { stateManager: StateManager }) => {
     <Popover open={open} onOpenChange={setOpen}>
       <PopoverTrigger asChild>
         <Button
-          className="flex h-7 gap-1 border border-border"
+          className="flex h-8 gap-1 border border-border rounded-full"
           size={isMediumScreen ? "sm" : "icon"}
         >
-          <Download width={18} />{" "}
-          <span className="hidden md:block">Export</span>
+          {/* <Download width={18} />{" "} */}
+          <span className="hidden md:block">Download</span>
         </Button>
       </PopoverTrigger>
       <PopoverContent

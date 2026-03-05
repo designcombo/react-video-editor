@@ -10,6 +10,7 @@ import { VoiceOver } from "./voice-over";
 import { useIsLargeScreen } from "@/hooks/use-media-query";
 import { Uploads } from "./uploads";
 import { AiVoice } from "./ai-voice";
+import { SFX } from "./sfx";
 
 const ActiveMenuItem = () => {
   const { activeMenuItem } = useLayoutStore();
@@ -52,14 +53,16 @@ const ActiveMenuItem = () => {
     return <AiVoice />;
   }
 
+  if (activeMenuItem === "sfx") {
+    return <SFX />;
+  }
+
   return null;
 };
 
 export const MenuItem = () => {
-  const isLargeScreen = useIsLargeScreen();
-
   return (
-    <div className={`${isLargeScreen ? "w-[300px]" : "w-full"} flex-1 flex`}>
+    <div className={`w-full flex-1 flex h-[calc(100%-50px)]`}>
       <ActiveMenuItem />
     </div>
   );

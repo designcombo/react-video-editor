@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { CircleOff } from "lucide-react";
@@ -7,6 +8,69 @@ import {
   STYLE_CAPTION_PRESETS,
   getTextShadow
 } from "../floating-controls/caption-preset-picker";
+
+interface PresetItemProps {
+  preset: ICaptionsControlProps;
+  onClick: () => void;
+}
+
+const PresetItem = ({ preset, onClick }: PresetItemProps) => {
+  const [isHovered, setIsHovered] = useState(false);
+
+  return (
+    <div
+      onClick={onClick}
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
+      className="text-md flex h-[70px] cursor-pointer items-center justify-center bg-zinc-800 rounded-lg overflow-hidden"
+    >
+      {preset.previewUrlStatic && preset.previewUrlDynamic ? (
+        isHovered ? (
+          <video
+            src={preset.previewUrlDynamic}
+            autoPlay
+            loop
+            muted
+            playsInline
+            className="h-40 place-content-center rounded-lg"
+          />
+        ) : (
+          <img
+            src={preset.previewUrlStatic}
+            alt="Preset preview"
+            className="h-40 place-content-center rounded-lg"
+          />
+        )
+      ) : preset.previewUrlDynamic ? (
+        <video
+          src={preset.previewUrlDynamic}
+          autoPlay
+          loop
+          muted
+          playsInline
+          className="h-40 place-content-center rounded-lg"
+        />
+      ) : (
+        <div
+          style={{
+            backgroundColor:
+              preset.backgroundColor !== "transparent"
+                ? preset.backgroundColor
+                : preset.activeFillColor,
+            color: preset.activeColor,
+            paintOrder: "stroke fill",
+            fontWeight: "bold",
+            textShadow: getTextShadow(preset.boxShadow),
+            WebkitTextStroke: `1px ${preset.borderColor}`
+          }}
+          className="h-6 place-content-center rounded-lg px-2"
+        >
+          Text
+        </div>
+      )}
+    </div>
+  );
+};
 
 interface PresetGridProps {
   presets: ICaptionsControlProps[];
@@ -34,39 +98,11 @@ const PresetGrid = ({
     </div>
 
     {presets.map((preset, index) => (
-      <div
+      <PresetItem
         key={index}
+        preset={preset}
         onClick={() => onPresetClick(preset, captionItemIds, captionsData)}
-        className="text-md flex h-[70px] cursor-pointer items-center justify-center bg-zinc-800 rounded-lg overflow-hidden"
-      >
-        {preset.previewUrl ? (
-          <video
-            src={preset.previewUrl}
-            autoPlay
-            loop
-            muted
-            playsInline
-            className="h-40 place-content-center rounded-lg"
-          />
-        ) : (
-          <div
-            style={{
-              backgroundColor:
-                preset.backgroundColor !== "transparent"
-                  ? preset.backgroundColor
-                  : preset.activeFillColor,
-              color: preset.activeColor,
-              paintOrder: "stroke fill",
-              fontWeight: "bold",
-              textShadow: getTextShadow(preset.boxShadow),
-              WebkitTextStroke: `1px ${preset.borderColor}`
-            }}
-            className="h-6 place-content-center rounded-lg px-2"
-          >
-            Text
-          </div>
-        )}
-      </div>
+      />
     ))}
   </div>
 );

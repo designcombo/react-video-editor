@@ -357,7 +357,7 @@ const CaptionWords = ({
         trackItemIds: captionsData.map((t) => t.id)
       }
     });
-
+    console.log(newData);
     dispatch(ADD_ITEMS, {
       payload: {
         trackItems: newData,

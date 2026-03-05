@@ -1,7 +1,7 @@
 import {
   TransitionPresentation,
-  TransitionPresentationComponentProps
-} from "../";
+  TransitionPresentationComponentProps,
+} from "..";
 import React, { useMemo, useState } from "react";
 import { AbsoluteFill, random } from "remotion";
 
@@ -16,7 +16,7 @@ const WindowTransitionPresentation: React.FC<
   children,
   presentationDirection,
   presentationProgress,
-  passedProps
+  passedProps,
 }) => {
   const { width, height } = passedProps;
 
@@ -37,7 +37,7 @@ const WindowTransitionPresentation: React.FC<
       width: "100%",
       height: "100%",
       clipPath:
-        presentationDirection === "exiting" ? undefined : `url(#${clipId})`
+        presentationDirection === "exiting" ? undefined : `url(#${clipId})`,
     };
   }, [clipId, presentationDirection]);
 
@@ -66,7 +66,7 @@ const WindowTransitionPresentation: React.FC<
 };
 
 export const rectangle = (
-  props: CustomPresentationProps
+  props: CustomPresentationProps,
 ): TransitionPresentation<CustomPresentationProps> => {
   return { component: WindowTransitionPresentation, props };
 };
